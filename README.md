@@ -8,6 +8,7 @@
 - [Neovim](nvim/README.md) - A Neovim colorscheme
 - [Kitty](kitty/README.md) - A Kitty terminal theme
 - [Zellij](zellij/README.md) - A Zellij terminal multiplexer theme
+- [Helix](helix/README.md) - A Helix editor theme
 
 ## About
 
