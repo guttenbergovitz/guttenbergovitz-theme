@@ -97,7 +97,7 @@ function M.setup()
     vim.o.termguicolors = true
     vim.g.colors_name = 'guttenbergovitz'
 
-    -- Apply color groups
+    -- Apply highlight groups
     for group, settings in pairs(M.groups) do
         vim.api.nvim_set_hl(0, group, settings)
     end

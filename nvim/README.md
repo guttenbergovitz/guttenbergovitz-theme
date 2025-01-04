@@ -13,9 +13,10 @@ A minimalist theme for Neovim inspired by jazz and traditional printing aestheti
 
 ```lua
 use {
-    'guttenbergovitz/guttenbergovitz-theme',
+    'guttenbergovitz/guttenbergovitz-theme.nvim',
+    as = 'guttenbergovitz',
     config = function()
-        require('guttenbergovitz').setup()
+        vim.cmd.colorscheme 'guttenbergovitz'
     end
 }
 ```
@@ -25,18 +26,11 @@ use {
 ```lua
 {
     'guttenbergovitz/guttenbergovitz-theme',
+    name = 'guttenbergovitz',
     config = function()
-        require('guttenbergovitz').setup()
+        vim.cmd.colorscheme 'guttenbergovitz'
     end
 }
-```
-
-## Activation
-
-Add to your init.lua:
-
-```lua
-vim.cmd.colorscheme 'guttenbergovitz'
 ```
 
 ## Features
@@ -68,12 +62,30 @@ The theme includes custom highlighting for popular plugins:
 ## Troubleshooting
 
 If you encounter the "module 'guttenbergovitz' not found" error:
+
 1. Make sure the plugin is properly installed
 2. Check if the plugin path is in your runtimepath:
    ```lua
    :lua print(vim.inspect(vim.api.nvim_list_runtime_paths()))
    ```
-3. Try clearing the plugin cache and restarting Neovim
+3. Clear the plugin cache:
+   - For Packer:
+     ```
+     :PackerClean
+     :PackerSync
+     ```
+   - For Lazy:
+     ```
+     :Lazy clean
+     :Lazy sync
+     ```
+   - Manual cache clearing:
+     ```
+     rm -rf ~/.cache/nvim
+     rm -rf ~/.local/share/nvim/lazy
+     rm -rf ~/.local/share/nvim/site
+     ```
+4. Restart Neovim after clearing the cache
 
 ## Philosophy
 
