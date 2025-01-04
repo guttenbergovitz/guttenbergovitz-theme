@@ -2,6 +2,11 @@
 
 A minimalist theme for Neovim inspired by jazz and traditional printing aesthetics.
 
+## Requirements
+
+- Neovim >= 0.5.0
+- True color terminal support
+
 ## Installation
 
 ### Using [packer.nvim](https://github.com/wbthomason/packer.nvim)
@@ -59,6 +64,16 @@ The theme includes custom highlighting for popular plugins:
 
 - **Editor Enhancement**
   - indent-blankline.nvim
+
+## Troubleshooting
+
+If you encounter the "module 'guttenbergovitz' not found" error:
+1. Make sure the plugin is properly installed
+2. Check if the plugin path is in your runtimepath:
+   ```lua
+   :lua print(vim.inspect(vim.api.nvim_list_runtime_paths()))
+   ```
+3. Try clearing the plugin cache and restarting Neovim
 
 ## Philosophy
 
