@@ -14,13 +14,10 @@ A minimalist theme for Neovim inspired by jazz and traditional printing aestheti
 ```lua
 {
     "guttenbergovitz/guttenbergovitz-theme",
-    lazy = false,
-    priority = 1000,
-    dir = "nvim",
+    submodules = false,
     opts = {},
     config = true,
     init = function()
-        -- Load the colorscheme here
         vim.cmd.colorscheme("guttenbergovitz")
     end,
 }
