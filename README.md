@@ -6,6 +6,7 @@
 
 - [VS Code](vscode/README.md) - A Visual Studio Code theme
 - [Neovim](nvim/README.md) - A Neovim colorscheme
+- [Kitty](kitty/README.md) - A Kitty terminal theme
 
 ## About
 
