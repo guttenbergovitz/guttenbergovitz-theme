@@ -9,7 +9,6 @@ A minimalist theme for Neovim inspired by jazz and traditional printing aestheti
 ```lua
 use {
     'guttenbergovitz/guttenbergovitz-theme',
-    rtp = 'nvim',
     config = function()
         require('guttenbergovitz').setup()
     end
@@ -21,7 +20,6 @@ use {
 ```lua
 {
     'guttenbergovitz/guttenbergovitz-theme',
-    dir = 'nvim',
     config = function()
         require('guttenbergovitz').setup()
     end
