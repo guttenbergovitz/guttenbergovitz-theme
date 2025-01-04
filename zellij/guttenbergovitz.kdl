@@ -1,0 +1,26 @@
+themes {
+    guttenbergovitz {
+        fg "#d4be98"
+        bg "#232326"
+        black "#1d1d20"
+        red "#a96b69"
+        green "#89a87d"
+        yellow "#d6b986"
+        blue "#d79969"
+        magenta "#a96b69"
+        cyan "#89a87d"
+        white "#d4be98"
+        orange "#d79969"
+
+        // Jasne warianty
+        black_bright "#7c7c7c"
+        red_bright "#a96b69"
+        green_bright "#89a87d"
+        yellow_bright "#d6b986"
+        blue_bright "#d79969"
+        magenta_bright "#a96b69"
+        cyan_bright "#89a87d"
+        white_bright "#d4be98"
+        orange_bright "#d79969"
+    }
+} 
