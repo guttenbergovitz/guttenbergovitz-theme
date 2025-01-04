@@ -14,10 +14,13 @@ A minimalist theme for Neovim inspired by jazz and traditional printing aestheti
 ```lua
 {
     "guttenbergovitz/guttenbergovitz-theme",
-    name = "guttenbergovitz",
     lazy = false,
     priority = 1000,
-    config = function()
+    dir = "nvim",
+    opts = {},
+    config = true,
+    init = function()
+        -- Load the colorscheme here
         vim.cmd.colorscheme("guttenbergovitz")
     end,
 }
@@ -28,11 +31,19 @@ A minimalist theme for Neovim inspired by jazz and traditional printing aestheti
 ```lua
 use {
     'guttenbergovitz/guttenbergovitz-theme',
-    as = 'guttenbergovitz',
+    rtp = 'nvim',
     config = function()
         vim.cmd.colorscheme('guttenbergovitz')
     end
 }
+```
+
+## Manual Activation
+
+If you want to activate the theme manually, add to your init.lua:
+
+```lua
+vim.cmd.colorscheme('guttenbergovitz')
 ```
 
 ## Features
