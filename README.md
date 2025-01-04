@@ -11,6 +11,7 @@
 - [Helix](helix/README.md) - A Helix editor theme
 - [Warp](warp/README.md) - A Warp terminal theme
 - [Zed](zed/README.md) - A Zed editor theme
+- [JetBrains](jetbrains/README.md) - A theme for all JetBrains IDEs (IntelliJ, PyCharm, WebStorm, etc.)
 
 ## About
 
