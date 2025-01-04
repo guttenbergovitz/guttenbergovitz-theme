@@ -2,6 +2,11 @@
 
 > "It's not the notes you play, it's the notes you don't play." - Miles Davis
 
+## Available for:
+
+- [VS Code](vscode/README.md) - A Visual Studio Code theme
+- [Neovim](nvim/README.md) - A Neovim colorscheme
+
 ## About
 
 Guttenbergovitz was conceived during a deep dive into jazz history, evolving from a discussion about the parallels between music evolution and code aesthetics. Just as Miles Davis stripped jazz to its essence in "Kind of Blue", this theme aims to reduce visual noise while maintaining depth and character.
