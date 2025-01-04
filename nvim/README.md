@@ -44,6 +44,24 @@ vim.cmd.colorscheme 'guttenbergovitz'
 - True color support
 - Inspired by traditional printing and jazz aesthetics
 
+## Supported Plugins
+
+The theme includes custom highlighting for popular plugins:
+
+- **Status Lines**
+  - vim-airline
+  - lualine.nvim
+
+- **File Navigation**
+  - nvim-tree
+  - bufferline.nvim
+
+- **Git Integration**
+  - gitsigns.nvim
+
+- **Editor Enhancement**
+  - indent-blankline.nvim
+
 ## Philosophy
 
 > "It's not the notes you play, it's the notes you don't play." - Miles Davis

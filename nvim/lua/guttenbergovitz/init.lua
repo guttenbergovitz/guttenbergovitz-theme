@@ -44,6 +44,48 @@ M.groups = {
     TabLine = { fg = M.colors.fg_dark, bg = M.colors.bg_dark },
     TabLineFill = { bg = M.colors.bg_dark },
     TabLineSel = { fg = M.colors.fg, bg = M.colors.bg },
+
+    -- Plugin Support: vim-airline
+    airline_a = { fg = M.colors.bg, bg = M.colors.orange, bold = true },
+    airline_b = { fg = M.colors.fg, bg = M.colors.bg_dark },
+    airline_c = { fg = M.colors.fg_dark, bg = M.colors.bg },
+    airline_x = { fg = M.colors.fg_dark, bg = M.colors.bg },
+    airline_y = { fg = M.colors.fg, bg = M.colors.bg_dark },
+    airline_z = { fg = M.colors.bg, bg = M.colors.green, bold = true },
+    airline_error = { fg = M.colors.red },
+    airline_warning = { fg = M.colors.yellow },
+
+    -- Plugin Support: lualine.nvim
+    LualineA = { fg = M.colors.bg, bg = M.colors.orange },
+    LualineB = { fg = M.colors.fg, bg = M.colors.bg_dark },
+    LualineC = { fg = M.colors.fg_dark, bg = M.colors.bg },
+    LualineX = { fg = M.colors.fg_dark, bg = M.colors.bg },
+    LualineY = { fg = M.colors.fg, bg = M.colors.bg_dark },
+    LualineZ = { fg = M.colors.bg, bg = M.colors.green },
+
+    -- Plugin Support: bufferline.nvim
+    BufferLineFill = { bg = M.colors.bg_dark },
+    BufferLineBackground = { fg = M.colors.fg_dark, bg = M.colors.bg_dark },
+    BufferLineSelected = { fg = M.colors.fg, bg = M.colors.bg, bold = true },
+    BufferLineIndicatorSelected = { fg = M.colors.orange, bg = M.colors.bg },
+
+    -- Plugin Support: nvim-tree
+    NvimTreeNormal = { fg = M.colors.fg, bg = M.colors.bg_dark },
+    NvimTreeFolderName = { fg = M.colors.fg },
+    NvimTreeFolderIcon = { fg = M.colors.yellow },
+    NvimTreeOpenedFolderName = { fg = M.colors.orange },
+    NvimTreeGitDirty = { fg = M.colors.red },
+    NvimTreeGitNew = { fg = M.colors.green },
+    NvimTreeGitDeleted = { fg = M.colors.red },
+
+    -- Plugin Support: gitsigns.nvim
+    GitSignsAdd = { fg = M.colors.green },
+    GitSignsChange = { fg = M.colors.yellow },
+    GitSignsDelete = { fg = M.colors.red },
+
+    -- Plugin Support: indent-blankline.nvim
+    IndentBlanklineChar = { fg = M.colors.selection },
+    IndentBlanklineContextChar = { fg = M.colors.fg_dark },
 }
 
 function M.setup()
