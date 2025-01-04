@@ -15,9 +15,14 @@ A minimalist theme for Neovim inspired by jazz and traditional printing aestheti
 {
     "guttenbergovitz/guttenbergovitz-theme",
     submodules = false,
-    opts = {},
-    config = true,
-    init = function()
+    priority = 1000,
+    lazy = false,
+    config = function()
+        -- Enable true colors
+        vim.opt.termguicolors = true
+        -- Load and setup the theme
+        require("guttenbergovitz").setup()
+        -- Set the colorscheme
         vim.cmd.colorscheme("guttenbergovitz")
     end,
 }
@@ -30,6 +35,8 @@ use {
     'guttenbergovitz/guttenbergovitz-theme',
     rtp = 'nvim',
     config = function()
+        vim.opt.termguicolors = true
+        require("guttenbergovitz").setup()
         vim.cmd.colorscheme('guttenbergovitz')
     end
 }
