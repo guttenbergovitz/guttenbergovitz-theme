@@ -1,0 +1,49 @@
+{
+    "name": "guttenbergovitz",
+    "displayName": "Guttenbergovitz",
+    "description": "A minimal, ergonomic theme inspired by vintage printing and jazz aesthetics",
+    "version": "0.0.1",
+    "publisher": "guttenbergovitz",
+    "engines": {
+        "vscode": "^1.60.0",
+        "node": ">=16.0.0"
+    },
+    "categories": [
+        "Themes"
+    ],
+    "keywords": [
+        "theme",
+        "dark theme",
+        "minimal",
+        "ergonomic",
+        "vintage"
+    ],
+    "contributes": {
+        "themes": [
+            {
+                "label": "Guttenbergovitz",
+                "uiTheme": "vs-dark",
+                "path": "./themes/guttenbergovitz-color-theme.json"
+            }
+        ]
+    },
+    "scripts": {
+        "package": "npx @vscode/vsce package --no-dependencies"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/guttenbergovitz/guttenbergovitz-theme",
+        "directory": "vscode"
+    },
+    "author": "Guttenbergovitz",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/guttenbergovitz/guttenbergovitz-theme/issues"
+    },
+    "homepage": "https://github.com/guttenbergovitz/guttenbergovitz-theme/tree/main/vscode#readme",
+    "icon": "./assets/icon.png",
+    "galleryBanner": {
+        "color": "#282828",
+        "theme": "dark"
+    }
+}
