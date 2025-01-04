@@ -6,9 +6,17 @@ if vim.version().minor < 7 then
     return
 end
 
+-- Set name before clearing
+vim.g.colors_name = "guttenbergovitz"
+
+-- Load and setup the colorscheme
+local colors = require("guttenbergovitz")
+
+-- Clear existing highlights
 vim.cmd.hi("clear")
 if vim.fn.exists("syntax_on") then
     vim.cmd.syntax("reset")
 end
 
-require("guttenbergovitz").setup() 
+-- Setup the colorscheme
+colors.setup() 
