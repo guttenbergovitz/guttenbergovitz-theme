@@ -4,31 +4,33 @@ A minimalist theme for Neovim inspired by jazz and traditional printing aestheti
 
 ## Requirements
 
-- Neovim >= 0.5.0
+- Neovim >= 0.7.0
 - True color terminal support
 
 ## Installation
-
-### Using [packer.nvim](https://github.com/wbthomason/packer.nvim)
-
-```lua
-use {
-    'guttenbergovitz/guttenbergovitz-theme.nvim',
-    as = 'guttenbergovitz',
-    config = function()
-        vim.cmd.colorscheme 'guttenbergovitz'
-    end
-}
-```
 
 ### Using [lazy.nvim](https://github.com/folke/lazy.nvim)
 
 ```lua
 {
-    'guttenbergovitz/guttenbergovitz-theme',
-    name = 'guttenbergovitz',
+    "guttenbergovitz/guttenbergovitz-theme",
+    name = "guttenbergovitz",
+    lazy = false,
+    priority = 1000,
     config = function()
-        vim.cmd.colorscheme 'guttenbergovitz'
+        vim.cmd.colorscheme("guttenbergovitz")
+    end,
+}
+```
+
+### Using [packer.nvim](https://github.com/wbthomason/packer.nvim)
+
+```lua
+use {
+    'guttenbergovitz/guttenbergovitz-theme',
+    as = 'guttenbergovitz',
+    config = function()
+        vim.cmd.colorscheme('guttenbergovitz')
     end
 }
 ```
