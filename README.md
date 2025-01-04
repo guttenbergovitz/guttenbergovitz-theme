@@ -10,6 +10,7 @@
 - [Zellij](zellij/README.md) - A Zellij terminal multiplexer theme
 - [Helix](helix/README.md) - A Helix editor theme
 - [Warp](warp/README.md) - A Warp terminal theme
+- [Zed](zed/README.md) - A Zed editor theme
 
 ## About
 
