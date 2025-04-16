@@ -1,0 +1,41 @@
+# Guttenbergovitz theme for Ghostty terminal
+# Inspired by vintage printing and jazz aesthetics
+
+# Base colors
+foreground #5C6A72
+background #EFEBD4
+cursor-color #BDC3AF
+selection-background #EAEDC8
+selection-foreground #5C6A72
+
+# Black
+color0 #EFEBD4
+color8 #FDF6E3
+
+# Red
+color1 #F85552
+color9 #EAEDC8
+
+# Green
+color2 #8DA101
+color10 #F0F1D2
+
+# Yellow
+color3 #DFA000
+color11 #FAEDCD
+
+# Blue
+color4 #8DA101
+color12 #E9F0E9
+
+# Magenta
+color5 #3A94C5
+color13 #FBE3DA
+
+# Cyan
+color6 #35A77C
+color14 #35A77C
+
+# White
+color7 #DF69BA
+color15 #5C6A72
