@@ -16,4 +16,5 @@ if not ok then
     return
 end
 
+-- Use vim.api.nvim_set_hl for setting highlight groups
 colors.setup()
