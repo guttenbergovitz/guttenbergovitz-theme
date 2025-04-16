@@ -40,6 +40,25 @@ use {
 }
 ```
 
+### Using [LazyVim](https://github.com/folke/LazyVim)
+
+To integrate Guttenbergovitz with LazyVim, add the following to your LazyVim configuration:
+
+```lua
+{
+    "guttenbergovitz/guttenbergovitz-theme",
+    submodules = false,
+    priority = 1000,
+    lazy = false,
+    dir = "nvim",
+    config = function()
+        vim.opt.termguicolors = true
+        require("guttenbergovitz").setup()
+        vim.cmd.colorscheme("guttenbergovitz")
+    end,
+}
+```
+
 ## Manual Activation
 
 If you want to activate the theme manually, add to your init.lua:

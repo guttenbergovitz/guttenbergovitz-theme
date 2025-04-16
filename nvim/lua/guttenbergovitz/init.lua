@@ -9,6 +9,7 @@ M.colors = {
     red = "#a96b69",
     green = "#89a87d",
     yellow = "#d6b986",
+    blue = "#d79969",
     orange = "#d79969",
     selection = "#3a3a3d",
     comment = "#7c7c7c",
@@ -103,4 +104,4 @@ function M.setup()
     end
 end
 
-return M 
+return M
