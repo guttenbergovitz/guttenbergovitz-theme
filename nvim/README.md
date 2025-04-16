@@ -2,6 +2,8 @@
 
 A minimalist theme for Neovim inspired by jazz and traditional printing aesthetics.
 
+Note: The `nvim` subfolder is now used for documentation purposes only.
+
 ## Requirements
 
 - Neovim >= 0.7.0
@@ -14,10 +16,8 @@ A minimalist theme for Neovim inspired by jazz and traditional printing aestheti
 ```lua
 {
     "guttenbergovitz/guttenbergovitz-theme",
-    submodules = false,
-    priority = 1000,
     lazy = false,
-    dir = "nvim",
+    priority = 1000,
     config = function()
         vim.opt.termguicolors = true
         require("guttenbergovitz").setup()
@@ -31,7 +31,6 @@ A minimalist theme for Neovim inspired by jazz and traditional printing aestheti
 ```lua
 use {
     'guttenbergovitz/guttenbergovitz-theme',
-    rtp = 'nvim',
     config = function()
         vim.opt.termguicolors = true
         require("guttenbergovitz").setup()
@@ -47,10 +46,8 @@ To integrate Guttenbergovitz with LazyVim, add the following to your LazyVim con
 ```lua
 {
     "guttenbergovitz/guttenbergovitz-theme",
-    submodules = false,
-    priority = 1000,
     lazy = false,
-    dir = "nvim",
+    priority = 1000,
     config = function()
         vim.opt.termguicolors = true
         require("guttenbergovitz").setup()
