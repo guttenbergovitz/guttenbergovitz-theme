@@ -11,6 +11,7 @@
     <property name="vendorUrl">https://github.com/guttenbergovitz/guttenbergovitz-theme</property>
   </metaInfo>
   <colors>
+    <!-- Base Colors -->
     <option name="ADDED_LINES_COLOR" value="89a87d" />
     <option name="CARET_COLOR" value="d4be98" />
     <option name="CARET_ROW_COLOR" value="2a2a2d" />
@@ -37,22 +38,58 @@
     <option name="SELECTION_FOREGROUND" value="d4be98" />
     <option name="TEARLINE_COLOR" value="3a3a3d" />
     <option name="WHITESPACES" value="3a3a3d" />
+
+    <!-- New JetBrains UI Elements -->
+    <option name="EDITOR_GUTTER_BACKGROUND" value="232326" />
+    <option name="VISUAL_INDENT_GUIDE" value="3a3a3d" />
+    <option name="FOLDED_TEXT_BORDER_COLOR" value="3a3a3d" />
+    <option name="INFORMATION_HINT" value="1d1d20" />
+    <option name="WARNING_HINT" value="d6b986" />
+
+    <!-- Tool Windows -->
+    <option name="TOOL_WINDOW_BACKGROUND" value="1d1d20" />
+    <option name="TOOL_WINDOW_HEADER_BACKGROUND" value="1d1d20" />
+    <option name="TOOL_WINDOW_HEADER_ACTIVE_BACKGROUND" value="1d1d20" />
+    <option name="TOOL_WINDOW_HEADER_BORDER_BACKGROUND" value="1d1d20" />
+    <option name="TOOL_WINDOW_TEXT" value="d4be98" />
+
+    <!-- Sidebar and Navigation -->
+    <option name="SIDEBAR_COLOR" value="1d1d20" />
+    <option name="SIDEBAR_HEADING_COLOR" value="1d1d20" />
+    <option name="NAVIGATION_BAR_BORDER_COLOR" value="1d1d20" />
+    <option name="NAVIGATION_BAR_SELECTED_BACKGROUND" value="232326" />
+    <option name="NAVIGATION_BAR_SELECTED_INACTIVE_BACKGROUND" value="1d1d20" />
+
+    <!-- Tabs -->
+    <option name="TAB_UNDERLINE" value="d79969" />
+    <option name="TAB_UNDERLINE_INACTIVE" value="3a3a3d" />
+    <option name="TABS_BACKGROUND" value="1d1d20" />
+    <option name="TABS_BORDER_COLOR" value="1d1d20" />
+
+    <!-- Status Bar -->
+    <option name="STATUSBAR_BACKGROUND" value="1d1d20" />
+    <option name="STATUSBAR_BORDER_COLOR" value="1d1d20" />
+    <option name="STATUSBAR_TEXT" value="d4be98" />
+    <option name="STATUSBAR_DISABLED_TEXT" value="7c7c7c" />
+
+    <!-- Scrollbars -->
+    <option name="SCROLLBAR_TRACK_COLOR" value="1d1d20" />
+    <option name="SCROLLBAR_THUMB_COLOR" value="3a3a3d" />
+    <option name="SCROLLBAR_THUMB_BORDER_COLOR" value="3a3a3d" />
+    <option name="SCROLLBAR_TRACK_BORDER_COLOR" value="1d1d20" />
   </colors>
   <attributes>
+    <!-- Comments -->
     <option name="DEFAULT_BLOCK_COMMENT">
       <value>
         <option name="FOREGROUND" value="7c7c7c" />
         <option name="FONT_TYPE" value="2" />
       </value>
     </option>
-    <option name="DEFAULT_CLASS_NAME">
+    <option name="DEFAULT_LINE_COMMENT">
       <value>
-        <option name="FOREGROUND" value="d6b986" />
-      </value>
-    </option>
-    <option name="DEFAULT_CONSTANT">
-      <value>
-        <option name="FOREGROUND" value="d6b986" />
+        <option name="FOREGROUND" value="7c7c7c" />
+        <option name="FONT_TYPE" value="2" />
       </value>
     </option>
     <option name="DEFAULT_DOC_COMMENT">
@@ -67,6 +104,63 @@
         <option name="FONT_TYPE" value="2" />
       </value>
     </option>
+    <option name="DEFAULT_DOC_MARKUP">
+      <value>
+        <option name="FOREGROUND" value="7c7c7c" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+
+    <!-- Classes and Types -->
+    <option name="DEFAULT_CLASS_NAME">
+      <value>
+        <option name="FOREGROUND" value="d6b986" />
+      </value>
+    </option>
+    <option name="DEFAULT_INTERFACE_NAME">
+      <value>
+        <option name="FOREGROUND" value="d6b986" />
+      </value>
+    </option>
+    <option name="DEFAULT_ENUM_NAME">
+      <value>
+        <option name="FOREGROUND" value="d6b986" />
+      </value>
+    </option>
+    <option name="DEFAULT_ENTITY">
+      <value>
+        <option name="FOREGROUND" value="d6b986" />
+      </value>
+    </option>
+    <option name="DEFAULT_TYPE_PARAMETER">
+      <value>
+        <option name="FOREGROUND" value="d6b986" />
+      </value>
+    </option>
+
+    <!-- Constants and Numbers -->
+    <option name="DEFAULT_CONSTANT">
+      <value>
+        <option name="FOREGROUND" value="d6b986" />
+      </value>
+    </option>
+    <option name="DEFAULT_STATIC_FIELD">
+      <value>
+        <option name="FOREGROUND" value="d6b986" />
+      </value>
+    </option>
+    <option name="DEFAULT_STATIC_METHOD">
+      <value>
+        <option name="FOREGROUND" value="d79969" />
+      </value>
+    </option>
+    <option name="DEFAULT_NUMBER">
+      <value>
+        <option name="FOREGROUND" value="d6b986" />
+      </value>
+    </option>
+
+    <!-- Functions and Methods -->
     <option name="DEFAULT_FUNCTION_CALL">
       <value>
         <option name="FOREGROUND" value="d79969" />
@@ -77,35 +171,21 @@
         <option name="FOREGROUND" value="d79969" />
       </value>
     </option>
-    <option name="DEFAULT_IDENTIFIER">
-      <value>
-        <option name="FOREGROUND" value="d4be98" />
-      </value>
-    </option>
     <option name="DEFAULT_INSTANCE_METHOD">
       <value>
         <option name="FOREGROUND" value="d79969" />
       </value>
     </option>
-    <option name="DEFAULT_KEYWORD">
+    <option name="DEFAULT_METADATA">
       <value>
-        <option name="FOREGROUND" value="a96b69" />
+        <option name="FOREGROUND" value="d79969" />
       </value>
     </option>
-    <option name="DEFAULT_LINE_COMMENT">
+
+    <!-- Variables and Parameters -->
+    <option name="DEFAULT_IDENTIFIER">
       <value>
-        <option name="FOREGROUND" value="7c7c7c" />
-        <option name="FONT_TYPE" value="2" />
-      </value>
-    </option>
-    <option name="DEFAULT_NUMBER">
-      <value>
-        <option name="FOREGROUND" value="d6b986" />
-      </value>
-    </option>
-    <option name="DEFAULT_OPERATION_SIGN">
-      <value>
-        <option name="FOREGROUND" value="a96b69" />
+        <option name="FOREGROUND" value="d4be98" />
       </value>
     </option>
     <option name="DEFAULT_PARAMETER">
@@ -113,6 +193,67 @@
         <option name="FOREGROUND" value="d4be98" />
       </value>
     </option>
+    <option name="DEFAULT_LOCAL_VARIABLE">
+      <value>
+        <option name="FOREGROUND" value="d4be98" />
+      </value>
+    </option>
+    <option name="DEFAULT_REASSIGNED_LOCAL_VARIABLE">
+      <value>
+        <option name="FOREGROUND" value="d4be98" />
+        <option name="EFFECT_TYPE" value="1" />
+      </value>
+    </option>
+    <option name="DEFAULT_REASSIGNED_PARAMETER">
+      <value>
+        <option name="FOREGROUND" value="d4be98" />
+        <option name="EFFECT_TYPE" value="1" />
+      </value>
+    </option>
+
+    <!-- Keywords and Operators -->
+    <option name="DEFAULT_KEYWORD">
+      <value>
+        <option name="FOREGROUND" value="a96b69" />
+      </value>
+    </option>
+    <option name="DEFAULT_OPERATION_SIGN">
+      <value>
+        <option name="FOREGROUND" value="a96b69" />
+      </value>
+    </option>
+    <option name="DEFAULT_BRACES">
+      <value>
+        <option name="FOREGROUND" value="d4be98" />
+      </value>
+    </option>
+    <option name="DEFAULT_BRACKETS">
+      <value>
+        <option name="FOREGROUND" value="d4be98" />
+      </value>
+    </option>
+    <option name="DEFAULT_PARENTHS">
+      <value>
+        <option name="FOREGROUND" value="d4be98" />
+      </value>
+    </option>
+    <option name="DEFAULT_SEMICOLON">
+      <value>
+        <option name="FOREGROUND" value="d4be98" />
+      </value>
+    </option>
+    <option name="DEFAULT_DOT">
+      <value>
+        <option name="FOREGROUND" value="d4be98" />
+      </value>
+    </option>
+    <option name="DEFAULT_COMMA">
+      <value>
+        <option name="FOREGROUND" value="d4be98" />
+      </value>
+    </option>
+
+    <!-- Strings -->
     <option name="DEFAULT_STRING">
       <value>
         <option name="FOREGROUND" value="89a87d" />
@@ -121,6 +262,218 @@
     <option name="DEFAULT_VALID_STRING_ESCAPE">
       <value>
         <option name="FOREGROUND" value="d79969" />
+      </value>
+    </option>
+    <option name="DEFAULT_TEMPLATE_LANGUAGE_COLOR">
+      <value>
+        <option name="FOREGROUND" value="d4be98" />
+      </value>
+    </option>
+
+    <!-- HTML/XML -->
+    <option name="HTML_TAG_NAME">
+      <value>
+        <option name="FOREGROUND" value="a96b69" />
+      </value>
+    </option>
+    <option name="HTML_ATTRIBUTE_NAME">
+      <value>
+        <option name="FOREGROUND" value="d6b986" />
+      </value>
+    </option>
+    <option name="HTML_ATTRIBUTE_VALUE">
+      <value>
+        <option name="FOREGROUND" value="89a87d" />
+      </value>
+    </option>
+    <option name="HTML_ENTITY_REFERENCE">
+      <value>
+        <option name="FOREGROUND" value="d79969" />
+      </value>
+    </option>
+    <option name="HTML_TAG">
+      <value>
+        <option name="FOREGROUND" value="a96b69" />
+      </value>
+    </option>
+    <option name="XML_TAG_NAME">
+      <value>
+        <option name="FOREGROUND" value="a96b69" />
+      </value>
+    </option>
+    <option name="XML_ATTRIBUTE_NAME">
+      <value>
+        <option name="FOREGROUND" value="d6b986" />
+      </value>
+    </option>
+    <option name="XML_TAG">
+      <value>
+        <option name="FOREGROUND" value="a96b69" />
+      </value>
+    </option>
+    <option name="XML_ENTITY_REFERENCE">
+      <value>
+        <option name="FOREGROUND" value="d79969" />
+      </value>
+    </option>
+
+    <!-- Markup (Markdown, etc.) -->
+    <option name="MARKDOWN_HEADING">
+      <value>
+        <option name="FOREGROUND" value="d79969" />
+        <option name="FONT_TYPE" value="1" />
+      </value>
+    </option>
+    <option name="MARKDOWN_LINK_TEXT">
+      <value>
+        <option name="FOREGROUND" value="89a87d" />
+        <option name="EFFECT_TYPE" value="1" />
+      </value>
+    </option>
+    <option name="MARKDOWN_BOLD">
+      <value>
+        <option name="FOREGROUND" value="d4be98" />
+        <option name="FONT_TYPE" value="1" />
+      </value>
+    </option>
+    <option name="MARKDOWN_ITALIC">
+      <value>
+        <option name="FOREGROUND" value="d4be98" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="MARKDOWN_CODE_SPAN">
+      <value>
+        <option name="FOREGROUND" value="89a87d" />
+        <option name="BACKGROUND" value="1d1d20" />
+      </value>
+    </option>
+    <option name="MARKDOWN_CODE_BLOCK">
+      <value>
+        <option name="FOREGROUND" value="89a87d" />
+        <option name="BACKGROUND" value="1d1d20" />
+      </value>
+    </option>
+
+    <!-- JavaScript/TypeScript -->
+    <option name="JS.KEYWORD">
+      <value>
+        <option name="FOREGROUND" value="a96b69" />
+      </value>
+    </option>
+    <option name="JS.FUNCTION">
+      <value>
+        <option name="FOREGROUND" value="d79969" />
+      </value>
+    </option>
+    <option name="JS.CLASS">
+      <value>
+        <option name="FOREGROUND" value="d6b986" />
+      </value>
+    </option>
+    <option name="JS.GLOBAL_VARIABLE">
+      <value>
+        <option name="FOREGROUND" value="d4be98" />
+      </value>
+    </option>
+    <option name="JS.INSTANCE_MEMBER_FUNCTION">
+      <value>
+        <option name="FOREGROUND" value="d79969" />
+      </value>
+    </option>
+    <option name="JS.REGEXP">
+      <value>
+        <option name="FOREGROUND" value="89a87d" />
+      </value>
+    </option>
+    <option name="TS.CLASS">
+      <value>
+        <option name="FOREGROUND" value="d6b986" />
+      </value>
+    </option>
+    <option name="TS.INTERFACE">
+      <value>
+        <option name="FOREGROUND" value="d6b986" />
+      </value>
+    </option>
+    <option name="TS.TYPE_PARAMETER">
+      <value>
+        <option name="FOREGROUND" value="d6b986" />
+      </value>
+    </option>
+
+    <!-- Python -->
+    <option name="PY.DECORATOR">
+      <value>
+        <option name="FOREGROUND" value="d79969" />
+      </value>
+    </option>
+    <option name="PY.SELF_PARAMETER">
+      <value>
+        <option name="FOREGROUND" value="a96b69" />
+      </value>
+    </option>
+    <option name="PY.PREDEFINED_DEFINITION">
+      <value>
+        <option name="FOREGROUND" value="d79969" />
+      </value>
+    </option>
+
+    <!-- Java/Kotlin -->
+    <option name="KOTLIN_FUNCTION_LITERAL_BRACES_AND_ARROW">
+      <value>
+        <option name="FOREGROUND" value="d4be98" />
+      </value>
+    </option>
+    <option name="KOTLIN_LABEL">
+      <value>
+        <option name="FOREGROUND" value="d6b986" />
+      </value>
+    </option>
+    <option name="KOTLIN_NAMED_ARGUMENT">
+      <value>
+        <option name="FOREGROUND" value="d6b986" />
+      </value>
+    </option>
+    <option name="KOTLIN_SMART_CAST_RECEIVER">
+      <value>
+        <option name="FOREGROUND" value="d4be98" />
+        <option name="BACKGROUND" value="2a2a2d" />
+      </value>
+    </option>
+    <option name="KOTLIN_SMART_CAST_VALUE">
+      <value>
+        <option name="FOREGROUND" value="d4be98" />
+        <option name="BACKGROUND" value="2a2a2d" />
+      </value>
+    </option>
+    <option name="KOTLIN_SMART_CONSTANT">
+      <value>
+        <option name="FOREGROUND" value="d6b986" />
+      </value>
+    </option>
+
+    <!-- New JetBrains UI Elements -->
+    <option name="BREADCRUMBS_CURRENT">
+      <value>
+        <option name="FOREGROUND" value="d4be98" />
+        <option name="BACKGROUND" value="2a2a2d" />
+      </value>
+    </option>
+    <option name="BREADCRUMBS_DEFAULT">
+      <value>
+        <option name="FOREGROUND" value="d4be98" />
+      </value>
+    </option>
+    <option name="BREADCRUMBS_HOVERED">
+      <value>
+        <option name="FOREGROUND" value="d4be98" />
+        <option name="BACKGROUND" value="3a3a3d" />
+      </value>
+    </option>
+    <option name="BREADCRUMBS_INACTIVE">
+      <value>
+        <option name="FOREGROUND" value="7c7c7c" />
       </value>
     </option>
     <option name="DELETED_TEXT_ATTRIBUTES">

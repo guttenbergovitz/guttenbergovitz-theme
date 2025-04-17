@@ -70,6 +70,16 @@ This theme works with all JetBrains IDEs, including:
 - DataGrip - Database tools
 - Android Studio - Android development
 
+### New JetBrains UI Support
+
+This theme fully supports the new JetBrains UI introduced in the 2023.3 release, including:
+- Updated tool window styling
+- New sidebar and navigation elements
+- Tab underlines and indicators
+- Breadcrumbs navigation
+- Updated scrollbars
+- Status bar styling
+
 ## Color Palette
 
 The theme uses a carefully curated palette inspired by vintage printing and jazz aesthetics:
@@ -102,14 +112,51 @@ The theme uses a carefully curated palette inspired by vintage printing and jazz
 
 ## Language-specific Highlights
 
-The theme uses JetBrains' default token mapping system, which means it will automatically adapt to different programming languages while maintaining consistency. For example:
+The theme includes enhanced syntax highlighting for various languages, with careful attention to language-specific constructs while maintaining consistency with the overall color palette:
 
-- **Java/Kotlin**: Classes and interfaces use type colors, annotations use keyword colors
-- **Python**: Decorators use function colors, self/cls uses keyword colors
-- **JavaScript/TypeScript**: JSX/TSX tags use keyword colors, template literals use string colors
-- **Go**: Struct fields use variable colors, interfaces use type colors
-- **PHP**: Magic methods use function colors, type hints use type colors
-- **Ruby**: Symbols use constant colors, blocks use keyword colors
+### Web Development
+- **HTML/XML**: Tags use keyword colors (red), attributes use type colors (yellow), and attribute values use string colors (green)
+- **CSS/SCSS**: Properties use variable colors, values use string or constant colors, and selectors use keyword colors
+- **JavaScript/TypeScript**: 
+  - Classes and interfaces use type colors (yellow)
+  - Functions and methods use function colors (orange)
+  - JSX/TSX tags use keyword colors (red)
+  - Template literals use string colors (green)
+  - Regular expressions use string colors (green)
+
+### Backend Development
+- **Python**: 
+  - Decorators use function colors (orange)
+  - Self/cls parameters use keyword colors (red)
+  - Predefined functions use function colors (orange)
+- **Java/Kotlin**: 
+  - Classes and interfaces use type colors (yellow)
+  - Annotations use keyword colors (red)
+  - Smart casts have subtle background highlighting
+  - Named arguments use type colors (yellow)
+- **Go**: 
+  - Struct fields use variable colors (foreground)
+  - Interfaces use type colors (yellow)
+  - Method receivers use parameter colors
+- **PHP**: 
+  - Magic methods use function colors (orange)
+  - Type hints use type colors (yellow)
+  - Heredoc/nowdoc syntax uses string colors (green)
+- **Ruby**: 
+  - Symbols use constant colors (yellow)
+  - Blocks use keyword colors (red)
+  - Instance variables use variable colors (foreground)
+
+### Markup and Data
+- **Markdown**: 
+  - Headings use function colors (orange) with bold styling
+  - Links use string colors (green) with underline
+  - Code blocks and spans have a darker background
+  - Bold and italic text maintain foreground color with appropriate styling
+- **JSON/YAML**: 
+  - Keys use variable colors (foreground)
+  - Values use appropriate type-based colors
+  - Structural elements use punctuation colors
 
 ## Contributing
 
