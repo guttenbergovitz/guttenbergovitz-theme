@@ -128,18 +128,43 @@ The theme includes support for many popular Vim plugins:
 
 ## Color Palette
 
-The theme uses a warm, low-contrast color palette:
+The theme uses a warm, low-contrast color palette inspired by vintage printing and jazz aesthetics:
 
-- **Background**: `#232326` (main) / `#1d1d20` (darker)
-- **Foreground**: `#d4be98` (main) / `#7c7c7c` (dimmed)
-- **Accent Colors**:
-  - Red: `#a96b69`
-  - Green: `#89a87d`
-  - Yellow: `#d6b986`
-  - Blue: `#7a9ec2`
-  - Orange: `#d79969`
-  - Purple: `#b194a3`
-  - Cyan: `#89b4ac`
+### Base Colors
+![#232326](https://via.placeholder.com/15/232326/000000?text=+) **Background**: `#232326` (main editor background)  
+![#1d1d20](https://via.placeholder.com/15/1d1d20/000000?text=+) **Background Dark**: `#1d1d20` (darker UI elements)  
+![#2a2a2d](https://via.placeholder.com/15/2a2a2d/000000?text=+) **Background Light**: `#2a2a2d` (lighter UI elements)  
+
+![#d4be98](https://via.placeholder.com/15/d4be98/000000?text=+) **Foreground**: `#d4be98` (main text)  
+![#7c7c7c](https://via.placeholder.com/15/7c7c7c/000000?text=+) **Foreground Dark**: `#7c7c7c` (dimmed text, comments)  
+![#e0d2a6](https://via.placeholder.com/15/e0d2a6/000000?text=+) **Foreground Light**: `#e0d2a6` (highlighted text)  
+
+### Accent Colors
+![#a96b69](https://via.placeholder.com/15/a96b69/000000?text=+) **Red**: `#a96b69` (keywords, statements)  
+![#89a87d](https://via.placeholder.com/15/89a87d/000000?text=+) **Green**: `#89a87d` (strings, success states)  
+![#d6b986](https://via.placeholder.com/15/d6b986/000000?text=+) **Yellow**: `#d6b986` (constants, types)  
+![#7a9ec2](https://via.placeholder.com/15/7a9ec2/000000?text=+) **Blue**: `#7a9ec2` (directories, links)  
+![#d79969](https://via.placeholder.com/15/d79969/000000?text=+) **Orange**: `#d79969` (functions, titles)  
+![#b194a3](https://via.placeholder.com/15/b194a3/000000?text=+) **Purple**: `#b194a3` (preprocessor, special)  
+![#89b4ac](https://via.placeholder.com/15/89b4ac/000000?text=+) **Cyan**: `#89b4ac` (regex, references)  
+
+### UI Colors
+![#3a3a3d](https://via.placeholder.com/15/3a3a3d/000000?text=+) **Selection**: `#3a3a3d` (visual selection, current line)  
+![#3a3a3d](https://via.placeholder.com/15/3a3a3d/000000?text=+) **Border**: `#3a3a3d` (window borders, separators)  
+
+### Status Colors
+![#cc6666](https://via.placeholder.com/15/cc6666/000000?text=+) **Error**: `#cc6666` (error messages, diagnostics)  
+![#de935f](https://via.placeholder.com/15/de935f/000000?text=+) **Warning**: `#de935f` (warning messages)  
+![#81a2be](https://via.placeholder.com/15/81a2be/000000?text=+) **Info**: `#81a2be` (info messages)  
+![#8abeb7](https://via.placeholder.com/15/8abeb7/000000?text=+) **Hint**: `#8abeb7` (hint messages)  
+![#b5bd68](https://via.placeholder.com/15/b5bd68/000000?text=+) **Success**: `#b5bd68` (success states)  
+
+### Git Colors
+![#89a87d](https://via.placeholder.com/15/89a87d/000000?text=+) **Added**: `#89a87d` (git additions)  
+![#d6b986](https://via.placeholder.com/15/d6b986/000000?text=+) **Modified**: `#d6b986` (git modifications)  
+![#a96b69](https://via.placeholder.com/15/a96b69/000000?text=+) **Deleted**: `#a96b69` (git deletions)  
+
+> **Note**: The color swatches above are generated using placeholder images and may not render in all markdown viewers. The hex values are the authoritative color references.
 
 ## Troubleshooting
 
