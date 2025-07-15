@@ -6,6 +6,7 @@
 
 - [VS Code](vscode/README.md) - A Visual Studio Code theme
 - [Neovim](nvim/README.md) - A Neovim colorscheme
+- [Vim](vim/README.md) - A Vim 8+ colorscheme
 - [Kitty](kitty/README.md) - A Kitty terminal theme
 - [Zellij](zellij/README.md) - A Zellij terminal multiplexer theme
 - [Helix](helix/README.md) - A Helix editor theme
