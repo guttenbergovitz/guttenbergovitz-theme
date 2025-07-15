@@ -69,6 +69,17 @@ The Neovim theme (`lua/guttenbergovitz/init.lua`) contains:
 - Terminal color support (16 ANSI colors)
 - Graceful fallback for older Neovim versions
 
+### Vim Implementation  
+The Vim theme (`vim/colors/guttenbergovitz.vim`) provides:
+- Vim 8+ compatibility with version checks
+- Pure Vimscript implementation using helper functions
+- Complete color palette matching the Neovim version
+- Comprehensive syntax highlighting for all standard Vim groups
+- Plugin support for popular Vim plugins (vim-airline, NERDTree, fzf, etc.)
+- Language-specific highlighting for HTML, CSS, JavaScript, Python, Ruby, PHP, Markdown, Git, and Vim script
+- True color support with fallback to 256 color mode
+- Terminal color support where available
+
 ### VS Code Implementation
 The VS Code theme (`vscode/themes/guttenbergovitz-color-theme.json`) follows the standard VS Code theme format with:
 - UI color definitions for editor, sidebar, status bar, etc.
