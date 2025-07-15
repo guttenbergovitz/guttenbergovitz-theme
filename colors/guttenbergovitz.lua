@@ -7,7 +7,7 @@ if vim.version().minor < 7 then
 end
 
 -- Try to load and setup the colorscheme
-local ok, colors = pcall(require, "guttenbergovitz")
+local ok, guttenbergovitz = pcall(require, "guttenbergovitz")
 if not ok then
     vim.notify(
         "guttenbergovitz.nvim: could not load the colorscheme",
@@ -17,4 +17,4 @@ if not ok then
 end
 
 -- Use vim.api.nvim_set_hl for setting highlight groups
-colors.setup()
+guttenbergovitz.setup()

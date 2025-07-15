@@ -82,13 +82,33 @@ The theme includes custom highlighting for popular plugins:
 
 - **File Navigation**
   - nvim-tree
+  - neo-tree.nvim
   - bufferline.nvim
 
 - **Git Integration**
   - gitsigns.nvim
 
 - **Editor Enhancement**
-  - indent-blankline.nvim
+  - indent-blankline.nvim (both v2 and v3)
+
+- **Fuzzy Finder**
+  - telescope.nvim
+
+- **Completion**
+  - nvim-cmp
+
+- **Key Bindings**
+  - which-key.nvim
+
+- **Debugging**
+  - nvim-dap
+  - nvim-dap-ui
+
+- **Modern Features**
+  - TreeSitter syntax highlighting
+  - LSP diagnostics and semantic tokens
+  - Floating windows and borders
+  - Terminal colors (16 ANSI colors)
 
 ## Troubleshooting
 
