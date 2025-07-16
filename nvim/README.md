@@ -20,6 +20,11 @@ Note: The `nvim` subfolder is now used for documentation purposes only.
     priority = 1000,
     config = function()
         vim.opt.termguicolors = true
+        
+        -- Optional: Configure theme options
+        -- vim.g.guttenbergovitz_variant = "light"
+        -- vim.g.guttenbergovitz_italics = false
+        
         require("guttenbergovitz").setup()
         vim.cmd.colorscheme("guttenbergovitz")
     end,
@@ -103,13 +108,24 @@ guttenbergovitz.toggle()
 
 ### Configuration Options
 
-You can set the default variant using a global variable:
+You can customize the theme behavior using global variables:
 
 ```lua
 -- Set light theme as default
 vim.g.guttenbergovitz_variant = "light"
+
+-- Disable italics globally (affects comments and emphasis)
+vim.g.guttenbergovitz_italics = false
+
 require("guttenbergovitz").setup()
 ```
+
+#### Available Options
+
+- **`vim.g.guttenbergovitz_variant`**: `"dark"` (default) or `"light"`
+- **`vim.g.guttenbergovitz_italics`**: `true` (default) or `false`
+  - When `false`, disables italics for comments, documentation comments, and text emphasis
+  - Useful for terminals or fonts that don't support italics well
 
 ## Features
 
@@ -121,6 +137,7 @@ require("guttenbergovitz").setup()
 - Inspired by traditional printing and jazz aesthetics
 - Programmatic theme switching with simple API
 - Consistent color harmony across both variants
+- **Configurable italics**: Optional global disable for terminals/fonts that don't support italics well
 
 ## Supported Plugins
 

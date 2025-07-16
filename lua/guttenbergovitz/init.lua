@@ -89,7 +89,7 @@ local function get_colors(variant)
     comment = "#a69a88",
     cursor = "#d4be98",
     border = "#3a3a3d",
-    type_hint = "#37373c",
+    type_hint = "#44444b",
     
     -- Status colors
     error = "#cc6666",
@@ -133,6 +133,9 @@ end
 
 -- Function to get highlight groups based on colors
 local function get_groups(colors)
+    -- Check if italics should be disabled globally
+    local use_italics = vim.g.guttenbergovitz_italics ~= false
+    
     return {
     -- Editor
     Normal = { fg = colors.fg, bg = colors.bg },
@@ -145,7 +148,7 @@ local function get_groups(colors)
     Search = { fg = colors.bg, bg = colors.yellow },
 
     -- Syntax
-    Comment = { fg = colors.comment, italic = true },
+    Comment = { fg = colors.comment, italic = use_italics },
     Constant = { fg = colors.yellow },
     String = { fg = colors.green },
     Identifier = { fg = colors.fg },
@@ -208,8 +211,8 @@ local function get_groups(colors)
     IblScope = { fg = colors.fg_dark },
 
     -- TreeSitter highlight groups
-    ["@comment"] = { fg = colors.comment, italic = true },
-    ["@comment.documentation"] = { fg = colors.comment, italic = true },
+    ["@comment"] = { fg = colors.comment, italic = use_italics },
+    ["@comment.documentation"] = { fg = colors.comment, italic = use_italics },
     ["@error"] = { fg = colors.error },
     ["@none"] = { fg = colors.fg },
     ["@preproc"] = { fg = colors.purple },
@@ -274,7 +277,7 @@ local function get_groups(colors)
     -- Text
     ["@text"] = { fg = colors.fg },
     ["@text.strong"] = { fg = colors.fg, bold = true },
-    ["@text.emphasis"] = { fg = colors.fg, italic = true },
+    ["@text.emphasis"] = { fg = colors.fg, italic = use_italics },
     ["@text.underline"] = { fg = colors.fg, underline = true },
     ["@text.strike"] = { fg = colors.fg, strikethrough = true },
     ["@text.title"] = { fg = colors.orange, bold = true },
@@ -401,7 +404,7 @@ local function get_groups(colors)
     LspSignatureActiveParameter = { bg = colors.selection, bold = true },
     
     -- LSP Inlay Hints (type hints)
-    LspInlayHint = { fg = colors.type_hint, bg = colors.bg, italic = true },
+    LspInlayHint = { fg = colors.type_hint, bg = colors.bg },
 
     -- Modern UI Elements
     -- Floating windows
