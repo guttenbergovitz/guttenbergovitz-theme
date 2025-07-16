@@ -1,5 +1,7 @@
+name: "Guttenbergovitz"
 accent: "#d79969"
 background: "#232326"
+cursor: "#d4be98"
 details: darker
 foreground: "#d4be98"
 terminal_colors:
