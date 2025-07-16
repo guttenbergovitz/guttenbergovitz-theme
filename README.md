@@ -53,7 +53,7 @@ The Guttenbergovitz theme uses a carefully curated color palette that maintains 
 ![#232326](https://placehold.co/20x20/232326/232326.png) **Background**: `#232326` (main editor background)  
 ![#1d1d20](https://placehold.co/20x20/1d1d20/1d1d20.png) **Background Dark**: `#1d1d20` (darker UI elements)  
 ![#d4be98](https://placehold.co/20x20/d4be98/d4be98.png) **Foreground**: `#d4be98` (main text)  
-![#7c7c7c](https://placehold.co/20x20/7c7c7c/7c7c7c.png) **Foreground Dark**: `#7c7c7c` (dimmed text, comments)  
+![#a69a88](https://placehold.co/20x20/a69a88/a69a88.png) **Foreground Dark**: `#a69a88` (dimmed text, comments)  
 
 #### Accent Colors
 ![#a96b69](https://placehold.co/20x20/a96b69/a96b69.png) **Red**: `#a96b69` (keywords, statements)  
@@ -85,7 +85,7 @@ The Guttenbergovitz theme uses a carefully curated color palette that maintains 
 ![#cc6666](https://placehold.co/20x20/cc6666/cc6666.png) **Error**: `#cc6666` (error messages, diagnostics)  
 ![#de935f](https://placehold.co/20x20/de935f/de935f.png) **Warning**: `#de935f` (warning messages)  
 ![#81a2be](https://placehold.co/20x20/81a2be/81a2be.png) **Info**: `#81a2be` (info messages)  
-![#8abeb7](https://placehold.co/20x20/8abeb7/8abeb7.png) **Hint**: `#8abeb7` (hint messages)  
+![#9cc5c0](https://placehold.co/20x20/9cc5c0/9cc5c0.png) **Hint**: `#9cc5c0` (hint messages)  
 ![#b5bd68](https://placehold.co/20x20/b5bd68/b5bd68.png) **Success**: `#b5bd68` (success states)  
 
 The light theme maintains the same warm, vintage aesthetic as the dark theme while providing a comfortable bright environment for daytime coding. Both variants create a comfortable environment that reduces eye strain while maintaining excellent readability.

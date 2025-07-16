@@ -71,7 +71,7 @@ local function get_colors(variant)
     bg_dark = "#1d1d20",
     bg_light = "#2a2a2d",
     fg = "#d4be98",
-    fg_dark = "#7c7c7c",
+    fg_dark = "#a69a88",
     fg_light = "#e0d2a6",
     
     -- Core colors
@@ -85,7 +85,7 @@ local function get_colors(variant)
     
     -- UI colors
     selection = "#3a3a3d",
-    comment = "#7c7c7c",
+    comment = "#a69a88",
     cursor = "#d4be98",
     border = "#3a3a3d",
     
@@ -93,7 +93,7 @@ local function get_colors(variant)
     error = "#cc6666",
     warn = "#de935f",
     info = "#81a2be",
-    hint = "#8abeb7",
+    hint = "#9cc5c0",
     ok = "#b5bd68",
     
     -- Diff colors
@@ -117,13 +117,13 @@ local function get_colors(variant)
         magenta = "#b194a3",
         cyan = "#89b4ac",
         white = "#d4be98",
-        bright_black = "#7c7c7c",
+        bright_black = "#a69a88",
         bright_red = "#cc6666",
         bright_green = "#b5bd68",
         bright_yellow = "#f0c674",
         bright_blue = "#81a2be",
         bright_magenta = "#b294bb",
-        bright_cyan = "#8abeb7",
+        bright_cyan = "#9cc5c0",
         bright_white = "#e0d2a6",
     },
 }
