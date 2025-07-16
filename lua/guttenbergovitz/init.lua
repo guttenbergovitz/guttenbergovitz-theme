@@ -89,7 +89,7 @@ local function get_colors(variant)
     comment = "#a69a88",
     cursor = "#d4be98",
     border = "#3a3a3d",
-    type_hint = "#2e2e32",
+    type_hint = "#37373c",
     
     -- Status colors
     error = "#cc6666",
