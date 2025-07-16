@@ -50,6 +50,7 @@ Each platform has its own installation and testing process documented in their r
 The theme uses a consistent color palette across all platforms:
 - **Background**: `#232326` (main) / `#1d1d20` (darker)
 - **Foreground**: `#d4be98` (main) / `#7c7c7c` (dimmed)
+- **Comments**: `#7c7c7c` (improved contrast for readability)
 - **Accent Colors**: 
   - Red: `#a96b69`
   - Green: `#89a87d`
@@ -62,12 +63,20 @@ The Neovim theme (`lua/guttenbergovitz/init.lua`) contains:
 - Comprehensive color palette definition in `M.colors` with terminal colors
 - Extensive highlight groups mapping in `M.groups` including:
   - All TreeSitter `@` groups for modern syntax highlighting
+  - Enhanced comment highlighting with comprehensive TreeSitter support for JSX/TSX
   - LSP diagnostic and semantic token support
   - Modern UI elements (floats, completion menus)
   - Plugin support for 15+ popular Neovim plugins
 - Setup function with error handling and version compatibility checks
 - Terminal color support (16 ANSI colors)
 - Graceful fallback for older Neovim versions
+
+#### Comment Highlighting
+The theme includes comprehensive comment highlighting support:
+- **TreeSitter Groups**: `@comment`, `@comment.documentation`, `@comment.line`, `@comment.block`
+- **Language-Specific**: Full support for JavaScript/TypeScript/JSX/TSX comment styles
+- **Special Comments**: TODO, FIXME, NOTE, WARNING highlighting with distinct colors
+- **Fallback Groups**: Traditional Vim comment groups for compatibility
 
 ### Vim Implementation  
 The Vim theme (`vim/colors/guttenbergovitz.vim`) provides:
