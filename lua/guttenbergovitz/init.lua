@@ -226,6 +226,12 @@ M.groups = {
     ["@tag.attribute"] = { fg = M.colors.yellow },
     ["@tag.delimiter"] = { fg = M.colors.fg_dark },
 
+    -- Punctuation
+    ["@punctuation"] = { fg = M.colors.fg },
+    ["@punctuation.delimiter"] = { fg = M.colors.fg },
+    ["@punctuation.bracket"] = { fg = M.colors.fg },
+    ["@punctuation.special"] = { fg = M.colors.orange },
+
     -- Conceal
     ["@conceal"] = { fg = M.colors.fg_dark },
 
@@ -284,6 +290,39 @@ M.groups = {
     ["@lsp.type.type"] = { fg = M.colors.yellow },
     ["@lsp.type.typeParameter"] = { fg = M.colors.yellow },
     ["@lsp.type.variable"] = { fg = M.colors.fg },
+
+    -- TypeScript specific highlighting
+    ["@type.typescript"] = { fg = M.colors.yellow },
+    ["@type.builtin.typescript"] = { fg = M.colors.yellow },
+    ["@keyword.type.typescript"] = { fg = M.colors.red },
+    ["@keyword.modifier.typescript"] = { fg = M.colors.red },
+    ["@keyword.operator.type.typescript"] = { fg = M.colors.red },
+    ["@punctuation.bracket.typescript"] = { fg = M.colors.fg },
+    ["@punctuation.delimiter.typescript"] = { fg = M.colors.fg },
+    ["@operator.typescript"] = { fg = M.colors.red },
+    
+    -- JavaScript/TypeScript specific tokens
+    ["@variable.builtin.javascript"] = { fg = M.colors.purple },
+    ["@variable.builtin.typescript"] = { fg = M.colors.purple },
+    ["@type.definition.typescript"] = { fg = M.colors.yellow },
+    ["@function.call.typescript"] = { fg = M.colors.orange },
+    ["@method.call.typescript"] = { fg = M.colors.orange },
+    ["@constructor.typescript"] = { fg = M.colors.yellow },
+    
+    -- Additional TypeScript/JavaScript groups
+    ["@keyword.import"] = { fg = M.colors.red },
+    ["@keyword.export"] = { fg = M.colors.red },
+    ["@module"] = { fg = M.colors.fg },
+    ["@string.special.url"] = { fg = M.colors.cyan },
+    ["@string.special.path"] = { fg = M.colors.cyan },
+    ["@variable.parameter.builtin"] = { fg = M.colors.purple },
+    ["@variable.member"] = { fg = M.colors.fg },
+    ["@property"] = { fg = M.colors.fg },
+    ["@lsp.type.selfKeyword"] = { fg = M.colors.purple },
+    ["@lsp.type.builtinType"] = { fg = M.colors.yellow },
+    ["@lsp.mod.declaration"] = { fg = M.colors.fg },
+    ["@lsp.mod.readonly"] = { fg = M.colors.fg },
+    ["@lsp.mod.static"] = { fg = M.colors.red },
 
     -- LSP References
     LspReferenceText = { bg = M.colors.selection },
