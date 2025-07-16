@@ -1,8 +1,72 @@
 local M = {}
 
--- Color palette
-M.colors = {
-    -- Base colors
+-- Function to get color palette based on variant
+local function get_colors(variant)
+    variant = variant or vim.g.guttenbergovitz_variant or "dark"
+    
+    return variant == "light" and {
+    -- Base colors (light theme)
+    bg = "#f5f3f0",
+    bg_dark = "#eae8e5",
+    bg_light = "#ffffff",
+    fg = "#5a4a3a",
+    fg_dark = "#7a6a5a",
+    fg_light = "#3a2a1a",
+    
+    -- Core colors (adjusted for light theme)
+    red = "#8b4c4a",
+    green = "#6b8860",
+    yellow = "#b8995a",
+    blue = "#5e7ea5",
+    orange = "#b8784c",
+    purple = "#956d7e",
+    cyan = "#6b958f",
+    
+    -- UI colors
+    selection = "#e8e6e3",
+    comment = "#8a7a6a",
+    cursor = "#5a4a3a",
+    border = "#d8d6d3",
+    
+    -- Status colors
+    error = "#cc6666",
+    warn = "#de935f",
+    info = "#5e7ea5",
+    hint = "#6b958f",
+    ok = "#6b8860",
+    
+    -- Diff colors
+    diff_add = "#e8f0e8",
+    diff_delete = "#f0e8e8",
+    diff_change = "#f0f0e8",
+    diff_text = "#e8e8d8",
+    
+    -- Git colors
+    git_add = "#6b8860",
+    git_change = "#b8995a",
+    git_delete = "#8b4c4a",
+    
+    -- Terminal colors (16 ANSI colors)
+    terminal = {
+        black = "#3a2a1a",
+        red = "#8b4c4a",
+        green = "#6b8860",
+        yellow = "#b8995a",
+        blue = "#5e7ea5",
+        magenta = "#956d7e",
+        cyan = "#6b958f",
+        white = "#7a6a5a",
+        bright_black = "#5a4a3a",
+        bright_red = "#cc6666",
+        bright_green = "#8ba168",
+        bright_yellow = "#d6b986",
+        bright_blue = "#81a2be",
+        bright_magenta = "#b294bb",
+        bright_cyan = "#8abeb7",
+        bright_white = "#f5f3f0",
+    },
+} or {
+    -- Base colors (dark theme)
     bg = "#232326",
     bg_dark = "#1d1d20",
     bg_light = "#2a2a2d",
@@ -63,6 +127,13 @@ M.colors = {
         bright_white = "#e0d2a6",
     },
 }
+end
+
+-- Theme variant selection
+M.variant = vim.g.guttenbergovitz_variant or "dark"
+
+-- Color palette
+M.colors = get_colors(M.variant)
 
 -- Highlight groups
 M.groups = {
@@ -548,13 +619,17 @@ function M.setup()
         return
     end
 
+    -- Refresh variant and colors
+    M.variant = vim.g.guttenbergovitz_variant or "dark"
+    M.colors = get_colors(M.variant)
+
     -- Neovim settings
     vim.cmd('hi clear')
     if vim.fn.exists('syntax_on') then
         vim.cmd('syntax reset')
     end
     vim.o.termguicolors = true
-    vim.g.colors_name = 'guttenbergovitz'
+    vim.g.colors_name = M.variant == "light" and 'guttenbergovitz-light' or 'guttenbergovitz'
 
     -- Apply highlight groups with error handling
     local function safe_set_hl(group, settings)
@@ -589,6 +664,27 @@ function M.setup()
         vim.g.terminal_color_13 = M.colors.terminal.bright_magenta
         vim.g.terminal_color_14 = M.colors.terminal.bright_cyan
         vim.g.terminal_color_15 = M.colors.terminal.bright_white
+    end
+end
+
+-- Function to switch between light and dark themes
+function M.toggle()
+    local current_variant = vim.g.guttenbergovitz_variant or "dark"
+    if current_variant == "light" then
+        vim.g.guttenbergovitz_variant = "dark"
+    else
+        vim.g.guttenbergovitz_variant = "light"
+    end
+    M.setup()
+end
+
+-- Function to set specific variant
+function M.set_variant(variant)
+    if variant == "light" or variant == "dark" then
+        vim.g.guttenbergovitz_variant = variant
+        M.setup()
+    else
+        vim.notify("guttenbergovitz.nvim: Invalid variant. Use 'light' or 'dark'", vim.log.levels.ERROR)
     end
 end
 

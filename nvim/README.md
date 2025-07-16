@@ -61,16 +61,66 @@ To integrate Guttenbergovitz with LazyVim, add the following to your LazyVim con
 If you want to activate the theme manually, add to your init.lua:
 
 ```lua
+-- Dark theme (default)
 vim.cmd.colorscheme('guttenbergovitz')
+
+-- Light theme
+vim.cmd.colorscheme('guttenbergovitz-light')
+```
+
+## Theme Variants
+
+The Guttenbergovitz theme is available in both **dark** and **light** variants:
+
+### Dark Theme (Default)
+```lua
+require("guttenbergovitz").setup()
+vim.cmd.colorscheme("guttenbergovitz")
+```
+
+### Light Theme
+```lua
+require("guttenbergovitz").setup()
+vim.cmd.colorscheme("guttenbergovitz-light")
+```
+
+### Switching Themes Programmatically
+
+You can also switch themes programmatically:
+
+```lua
+local guttenbergovitz = require("guttenbergovitz")
+
+-- Switch to light theme
+guttenbergovitz.set_variant("light")
+
+-- Switch to dark theme
+guttenbergovitz.set_variant("dark")
+
+-- Toggle between themes
+guttenbergovitz.toggle()
+```
+
+### Configuration Options
+
+You can set the default variant using a global variable:
+
+```lua
+-- Set light theme as default
+vim.g.guttenbergovitz_variant = "light"
+require("guttenbergovitz").setup()
 ```
 
 ## Features
 
-- Warm, ergonomic color palette
-- Optimized for readability
+- **Dual variants**: Dark and light themes with the same vintage aesthetic
+- Warm, ergonomic color palette designed for comfort
+- Optimized for readability and reduced eye strain
 - Minimal yet meaningful syntax highlighting
 - True color support
 - Inspired by traditional printing and jazz aesthetics
+- Programmatic theme switching with simple API
+- Consistent color harmony across both variants
 
 ## Supported Plugins
 
