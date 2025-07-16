@@ -45,15 +45,17 @@ Each of these themes contributed to our understanding of what makes a great codi
 
 ## Color Palette
 
-The Guttenbergovitz theme uses a carefully curated color palette that maintains consistency across all platforms:
+The Guttenbergovitz theme uses a carefully curated color palette that maintains consistency across all platforms. The theme is available in both **dark** and **light** variants:
 
-### Base Colors
+### Dark Theme (Default)
+
+#### Base Colors
 ![#232326](https://placehold.co/20x20/232326/232326.png) **Background**: `#232326` (main editor background)  
 ![#1d1d20](https://placehold.co/20x20/1d1d20/1d1d20.png) **Background Dark**: `#1d1d20` (darker UI elements)  
 ![#d4be98](https://placehold.co/20x20/d4be98/d4be98.png) **Foreground**: `#d4be98` (main text)  
 ![#7c7c7c](https://placehold.co/20x20/7c7c7c/7c7c7c.png) **Foreground Dark**: `#7c7c7c` (dimmed text, comments)  
 
-### Accent Colors
+#### Accent Colors
 ![#a96b69](https://placehold.co/20x20/a96b69/a96b69.png) **Red**: `#a96b69` (keywords, statements)  
 ![#89a87d](https://placehold.co/20x20/89a87d/89a87d.png) **Green**: `#89a87d` (strings, success states)  
 ![#d6b986](https://placehold.co/20x20/d6b986/d6b986.png) **Yellow**: `#d6b986` (constants, types)  
@@ -62,15 +64,31 @@ The Guttenbergovitz theme uses a carefully curated color palette that maintains 
 ![#b194a3](https://placehold.co/20x20/b194a3/b194a3.png) **Purple**: `#b194a3` (preprocessor, special)  
 ![#89b4ac](https://placehold.co/20x20/89b4ac/89b4ac.png) **Cyan**: `#89b4ac` (regex, references)  
 
-### UI & Status Colors
-![#3a3a3d](https://placehold.co/20x20/3a3a3d/3a3a3d.png) **Selection**: `#3a3a3d` (visual selection, current line)  
+### Light Theme
+
+#### Base Colors
+![#f5f3f0](https://placehold.co/20x20/f5f3f0/f5f3f0.png) **Background**: `#f5f3f0` (main editor background)  
+![#eae8e5](https://placehold.co/20x20/eae8e5/eae8e5.png) **Background Dark**: `#eae8e5` (darker UI elements)  
+![#5a4a3a](https://placehold.co/20x20/5a4a3a/5a4a3a.png) **Foreground**: `#5a4a3a` (main text)  
+![#7a6a5a](https://placehold.co/20x20/7a6a5a/7a6a5a.png) **Foreground Dark**: `#7a6a5a` (dimmed text, comments)  
+
+#### Accent Colors
+![#8b4c4a](https://placehold.co/20x20/8b4c4a/8b4c4a.png) **Red**: `#8b4c4a` (keywords, statements)  
+![#6b8860](https://placehold.co/20x20/6b8860/6b8860.png) **Green**: `#6b8860` (strings, success states)  
+![#b8995a](https://placehold.co/20x20/b8995a/b8995a.png) **Yellow**: `#b8995a` (constants, types)  
+![#5e7ea5](https://placehold.co/20x20/5e7ea5/5e7ea5.png) **Blue**: `#5e7ea5` (directories, links)  
+![#b8784c](https://placehold.co/20x20/b8784c/b8784c.png) **Orange**: `#b8784c` (functions, titles)  
+![#956d7e](https://placehold.co/20x20/956d7e/956d7e.png) **Purple**: `#956d7e` (preprocessor, special)  
+![#6b958f](https://placehold.co/20x20/6b958f/6b958f.png) **Cyan**: `#6b958f` (regex, references)  
+
+### UI & Status Colors (both themes)
 ![#cc6666](https://placehold.co/20x20/cc6666/cc6666.png) **Error**: `#cc6666` (error messages, diagnostics)  
 ![#de935f](https://placehold.co/20x20/de935f/de935f.png) **Warning**: `#de935f` (warning messages)  
 ![#81a2be](https://placehold.co/20x20/81a2be/81a2be.png) **Info**: `#81a2be` (info messages)  
 ![#8abeb7](https://placehold.co/20x20/8abeb7/8abeb7.png) **Hint**: `#8abeb7` (hint messages)  
 ![#b5bd68](https://placehold.co/20x20/b5bd68/b5bd68.png) **Success**: `#b5bd68` (success states)  
 
-This palette creates a warm, low-contrast environment that reduces eye strain while maintaining excellent readability. Each platform implementation adapts these core colors to its specific capabilities and conventions.
+The light theme maintains the same warm, vintage aesthetic as the dark theme while providing a comfortable bright environment for daytime coding. Both variants create a comfortable environment that reduces eye strain while maintaining excellent readability.
 
 ## Status
 
