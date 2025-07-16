@@ -24,7 +24,7 @@ local function get_colors(variant)
     
     -- UI colors
     selection = "#e8e6e3",
-    comment = "#8a7a6a",
+    comment = "#a19f9e",
     cursor = "#5a4a3a",
     border = "#d8d6d3",
     type_hint = "#a4a2a0",
@@ -86,7 +86,7 @@ local function get_colors(variant)
     
     -- UI colors
     selection = "#3a3a3d",
-    comment = "#a69a88",
+    comment = "#424249",
     cursor = "#d4be98",
     border = "#3a3a3d",
     type_hint = "#44444b",
@@ -133,8 +133,8 @@ end
 
 -- Function to get highlight groups based on colors
 local function get_groups(colors)
-    -- Check if italics should be disabled globally
-    local use_italics = vim.g.guttenbergovitz_italics ~= false
+    -- Check if italics should be enabled (default is false)
+    local use_italics = vim.g.guttenbergovitz_italics == true
     
     return {
     -- Editor
@@ -379,6 +379,24 @@ local function get_groups(colors)
     ["@function.call.typescript"] = { fg = colors.orange },
     ["@method.call.typescript"] = { fg = colors.orange },
     ["@constructor.typescript"] = { fg = colors.yellow },
+    
+    -- JavaScript/TypeScript comments
+    ["@comment.javascript"] = { fg = colors.comment, italic = use_italics },
+    ["@comment.typescript"] = { fg = colors.comment, italic = use_italics },
+    ["@comment.tsx"] = { fg = colors.comment, italic = use_italics },
+    ["@comment.jsx"] = { fg = colors.comment, italic = use_italics },
+    
+    -- Legacy TreeSitter comment groups (for compatibility)
+    ["@comment.line.javascript"] = { fg = colors.comment, italic = use_italics },
+    ["@comment.line.typescript"] = { fg = colors.comment, italic = use_italics },
+    ["@comment.block.javascript"] = { fg = colors.comment, italic = use_italics },
+    ["@comment.block.typescript"] = { fg = colors.comment, italic = use_italics },
+    
+    -- Standard Vim syntax groups for JavaScript/TypeScript
+    javascriptComment = { fg = colors.comment, italic = use_italics },
+    javascriptLineComment = { fg = colors.comment, italic = use_italics },
+    typescriptComment = { fg = colors.comment, italic = use_italics },
+    typescriptLineComment = { fg = colors.comment, italic = use_italics },
     
     -- Additional TypeScript/JavaScript groups
     ["@keyword.import"] = { fg = colors.red },

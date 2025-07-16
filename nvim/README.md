@@ -23,7 +23,7 @@ Note: The `nvim` subfolder is now used for documentation purposes only.
         
         -- Optional: Configure theme options
         -- vim.g.guttenbergovitz_variant = "light"
-        -- vim.g.guttenbergovitz_italics = false
+        -- vim.g.guttenbergovitz_italics = true
         
         require("guttenbergovitz").setup()
         vim.cmd.colorscheme("guttenbergovitz")
@@ -114,8 +114,8 @@ You can customize the theme behavior using global variables:
 -- Set light theme as default
 vim.g.guttenbergovitz_variant = "light"
 
--- Disable italics globally (affects comments and emphasis)
-vim.g.guttenbergovitz_italics = false
+-- Enable italics globally (affects comments and emphasis)
+vim.g.guttenbergovitz_italics = true
 
 require("guttenbergovitz").setup()
 ```
@@ -123,9 +123,9 @@ require("guttenbergovitz").setup()
 #### Available Options
 
 - **`vim.g.guttenbergovitz_variant`**: `"dark"` (default) or `"light"`
-- **`vim.g.guttenbergovitz_italics`**: `true` (default) or `false`
-  - When `false`, disables italics for comments, documentation comments, and text emphasis
-  - Useful for terminals or fonts that don't support italics well
+- **`vim.g.guttenbergovitz_italics`**: `false` (default) or `true`
+  - When `true`, enables italics for comments, documentation comments, and text emphasis
+  - Disabled by default for maximum compatibility with terminals and fonts
 
 ## Features
 
@@ -137,7 +137,7 @@ require("guttenbergovitz").setup()
 - Inspired by traditional printing and jazz aesthetics
 - Programmatic theme switching with simple API
 - Consistent color harmony across both variants
-- **Configurable italics**: Optional global disable for terminals/fonts that don't support italics well
+- **Configurable italics**: Optional global enable for terminals/fonts that support italics well
 
 ## Supported Plugins
 

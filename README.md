@@ -53,7 +53,7 @@ The Guttenbergovitz theme uses a carefully curated color palette that maintains 
 ![#232326](https://placehold.co/20x20/232326/232326.png) **Background**: `#232326` (main editor background)  
 ![#1d1d20](https://placehold.co/20x20/1d1d20/1d1d20.png) **Background Dark**: `#1d1d20` (darker UI elements)  
 ![#d4be98](https://placehold.co/20x20/d4be98/d4be98.png) **Foreground**: `#d4be98` (main text)  
-![#a69a88](https://placehold.co/20x20/a69a88/a69a88.png) **Foreground Dark**: `#a69a88` (dimmed text, comments)  
+![#424249](https://placehold.co/20x20/424249/424249.png) **Foreground Dark**: `#424249` (dimmed text, comments)  
 
 #### Accent Colors
 ![#a96b69](https://placehold.co/20x20/a96b69/a96b69.png) **Red**: `#a96b69` (keywords, statements)  
@@ -70,7 +70,7 @@ The Guttenbergovitz theme uses a carefully curated color palette that maintains 
 ![#f5f3f0](https://placehold.co/20x20/f5f3f0/f5f3f0.png) **Background**: `#f5f3f0` (main editor background)  
 ![#eae8e5](https://placehold.co/20x20/eae8e5/eae8e5.png) **Background Dark**: `#eae8e5` (darker UI elements)  
 ![#5a4a3a](https://placehold.co/20x20/5a4a3a/5a4a3a.png) **Foreground**: `#5a4a3a` (main text)  
-![#7a6a5a](https://placehold.co/20x20/7a6a5a/7a6a5a.png) **Foreground Dark**: `#7a6a5a` (dimmed text, comments)  
+![#a19f9e](https://placehold.co/20x20/a19f9e/a19f9e.png) **Foreground Dark**: `#a19f9e` (dimmed text, comments)  
 
 #### Accent Colors
 ![#8b4c4a](https://placehold.co/20x20/8b4c4a/8b4c4a.png) **Red**: `#8b4c4a` (keywords, statements)  
