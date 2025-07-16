@@ -389,14 +389,22 @@ local function get_groups(colors)
     -- Legacy TreeSitter comment groups (for compatibility)
     ["@comment.line.javascript"] = { fg = colors.comment, italic = use_italics },
     ["@comment.line.typescript"] = { fg = colors.comment, italic = use_italics },
+    ["@comment.line.tsx"] = { fg = colors.comment, italic = use_italics },
+    ["@comment.line.jsx"] = { fg = colors.comment, italic = use_italics },
     ["@comment.block.javascript"] = { fg = colors.comment, italic = use_italics },
     ["@comment.block.typescript"] = { fg = colors.comment, italic = use_italics },
+    ["@comment.block.tsx"] = { fg = colors.comment, italic = use_italics },
+    ["@comment.block.jsx"] = { fg = colors.comment, italic = use_italics },
     
     -- Standard Vim syntax groups for JavaScript/TypeScript
     javascriptComment = { fg = colors.comment, italic = use_italics },
     javascriptLineComment = { fg = colors.comment, italic = use_italics },
     typescriptComment = { fg = colors.comment, italic = use_italics },
     typescriptLineComment = { fg = colors.comment, italic = use_italics },
+    typescriptreactComment = { fg = colors.comment, italic = use_italics },
+    typescriptreactLineComment = { fg = colors.comment, italic = use_italics },
+    javascriptreactComment = { fg = colors.comment, italic = use_italics },
+    javascriptreactLineComment = { fg = colors.comment, italic = use_italics },
     
     -- Additional TypeScript/JavaScript groups
     ["@keyword.import"] = { fg = colors.red },
