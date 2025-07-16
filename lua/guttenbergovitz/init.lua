@@ -86,7 +86,7 @@ local function get_colors(variant)
     
     -- UI colors
     selection = "#3a3a3d",
-    comment = "#424249",
+    comment = "#7c7c7c",
     cursor = "#d4be98",
     border = "#3a3a3d",
     type_hint = "#44444b",
@@ -157,6 +157,10 @@ local function get_groups(colors)
     Keyword = { fg = colors.red },
     Type = { fg = colors.yellow },
     Special = { fg = colors.orange },
+    
+    -- Extra comment groups for fallback
+    CommentLine = { fg = colors.comment, italic = use_italics },
+    CommentBlock = { fg = colors.comment, italic = use_italics },
 
     -- Interface
     StatusLine = { fg = colors.fg, bg = colors.bg_dark },
@@ -213,6 +217,14 @@ local function get_groups(colors)
     -- TreeSitter highlight groups
     ["@comment"] = { fg = colors.comment, italic = use_italics },
     ["@comment.documentation"] = { fg = colors.comment, italic = use_italics },
+    ["@comment.error"] = { fg = colors.error, italic = use_italics },
+    ["@comment.warning"] = { fg = colors.warn, italic = use_italics },
+    ["@comment.todo"] = { fg = colors.info, italic = use_italics },
+    ["@comment.note"] = { fg = colors.hint, italic = use_italics },
+    
+    -- Additional comment groups for better coverage
+    ["@comment.line"] = { fg = colors.comment, italic = use_italics },
+    ["@comment.block"] = { fg = colors.comment, italic = use_italics },
     ["@error"] = { fg = colors.error },
     ["@none"] = { fg = colors.fg },
     ["@preproc"] = { fg = colors.purple },
@@ -380,21 +392,11 @@ local function get_groups(colors)
     ["@method.call.typescript"] = { fg = colors.orange },
     ["@constructor.typescript"] = { fg = colors.yellow },
     
-    -- JavaScript/TypeScript comments
+    -- JavaScript/TypeScript comments (language-specific variants)
     ["@comment.javascript"] = { fg = colors.comment, italic = use_italics },
     ["@comment.typescript"] = { fg = colors.comment, italic = use_italics },
     ["@comment.tsx"] = { fg = colors.comment, italic = use_italics },
     ["@comment.jsx"] = { fg = colors.comment, italic = use_italics },
-    
-    -- Legacy TreeSitter comment groups (for compatibility)
-    ["@comment.line.javascript"] = { fg = colors.comment, italic = use_italics },
-    ["@comment.line.typescript"] = { fg = colors.comment, italic = use_italics },
-    ["@comment.line.tsx"] = { fg = colors.comment, italic = use_italics },
-    ["@comment.line.jsx"] = { fg = colors.comment, italic = use_italics },
-    ["@comment.block.javascript"] = { fg = colors.comment, italic = use_italics },
-    ["@comment.block.typescript"] = { fg = colors.comment, italic = use_italics },
-    ["@comment.block.tsx"] = { fg = colors.comment, italic = use_italics },
-    ["@comment.block.jsx"] = { fg = colors.comment, italic = use_italics },
     
     -- Standard Vim syntax groups for JavaScript/TypeScript
     javascriptComment = { fg = colors.comment, italic = use_italics },
