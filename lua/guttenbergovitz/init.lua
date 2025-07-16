@@ -27,6 +27,7 @@ local function get_colors(variant)
     comment = "#8a7a6a",
     cursor = "#5a4a3a",
     border = "#d8d6d3",
+    type_hint = "#a4a2a0",
     
     -- Status colors
     error = "#cc6666",
@@ -88,6 +89,7 @@ local function get_colors(variant)
     comment = "#a69a88",
     cursor = "#d4be98",
     border = "#3a3a3d",
+    type_hint = "#2e2e32",
     
     -- Status colors
     error = "#cc6666",
@@ -397,6 +399,9 @@ local function get_groups(colors)
     
     -- LSP Signature Help
     LspSignatureActiveParameter = { bg = colors.selection, bold = true },
+    
+    -- LSP Inlay Hints (type hints)
+    LspInlayHint = { fg = colors.type_hint, bg = colors.bg, italic = true },
 
     -- Modern UI Elements
     -- Floating windows
