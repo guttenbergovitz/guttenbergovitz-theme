@@ -83,3 +83,7 @@ Feel free to open an issue or submit a pull request on our [GitHub repository](h
 ## License
 
 This theme is released under the MIT License. See the [LICENSE](../LICENSE) file for more details. 
+## Design Notes
+
+- Warm-first palette; ANSI roles skew warm (blue→`#d79969`).
+- Keep theme parity with other ports when adjusting colors.

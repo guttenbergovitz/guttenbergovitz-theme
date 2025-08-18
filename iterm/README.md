@@ -49,10 +49,25 @@ The theme uses a consistent color palette:
 - **Red**: `#a96b69` / `#cc6666` (bright)
 - **Green**: `#89a87d` / `#b5bd68` (bright)
 - **Yellow**: `#d6b986` / `#f0c674` (bright)
-- **Blue**: `#7a9ec2` / `#81a2be` (bright)
-- **Magenta**: `#b194a3` / `#b294bb` (bright)
-- **Cyan**: `#89b4ac` / `#8abeb7` (bright)
+- **Blue**: `#d79969` / `#d79969` (bright)
+- **Magenta**: `#a96b69` / `#a96b69` (bright)
+- **Cyan**: `#89a87d` / `#89a87d` (bright)
 - **White**: `#d4be98` / `#e0d2a6` (bright)
+
+## Design Notes
+
+- Warm-first palette; ANSI blue intentionally mapped to orange (`#d79969`).
+- If imported colors deviate, re-export `.itermcolors` from the shared palette.
+
+## Generate from Palette
+
+You can regenerate the `.itermcolors` file from the central palette:
+
+```bash
+make gen.iterm
+```
+
+This writes `iterm/Guttenbergovitz.itermcolors` using `palette.json`.
 
 ## Compatibility
 

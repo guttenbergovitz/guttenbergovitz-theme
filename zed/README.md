@@ -82,6 +82,12 @@ The theme uses a carefully curated palette inspired by vintage printing and jazz
 - Border: `#3a3a3d`
 - Disabled Text: `#7c7c7c`
 
+## Design Notes
+
+- Warm-first palette; avoid cold blues in favor of orange/brown.
+- Intentional ANSI remap for terminals: blue→`#d79969`, magenta→`#a96b69`, cyan→`#89a87d`.
+- Comments often italicized to improve hierarchy; disable in settings if preferred.
+
 ## Contributing
 
 Feel free to open an issue or submit a pull request on our [GitHub repository](https://github.com/guttenbergovitz/guttenbergovitz-theme).

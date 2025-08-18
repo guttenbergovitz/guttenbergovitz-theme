@@ -1,0 +1,14 @@
+<idea-plugin>
+  <id>com.guttenbergovitz.theme.ui</id>
+  <name>Guttenbergovitz UI Theme</name>
+  <vendor email="guttenbergovitz@github.com" url="https://github.com/guttenbergovitz/guttenbergovitz-theme">Guttenbergovitz</vendor>
+  <description>UI theme to complement the Guttenbergovitz editor color scheme.</description>
+  <version>0.0.1</version>
+
+  <depends>com.intellij.modules.platform</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <themeProvider id="guttenbergovitz-ui" path="/themes/Guttenbergovitz.theme.json"/>
+  </extensions>
+</idea-plugin>
+

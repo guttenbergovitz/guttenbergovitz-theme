@@ -85,3 +85,7 @@ Feel free to open an issue or submit a pull request on our [GitHub repository](h
 ## License
 
 This theme is released under the MIT License. See the [LICENSE](../LICENSE) file for more details. 
+## Design Notes
+
+- Warm-first palette; ANSI blue is intentionally mapped to orange (`#d79969`).
+- Align any future palette tweaks across all ports and READMEs.

@@ -1,0 +1,76 @@
+{
+  "dark": {
+    "base": {
+      "bg": "#232326",
+      "bg_dark": "#1d1d20",
+      "bg_light": "#2a2a2d",
+      "fg": "#d4be98",
+      "fg_dim": "#7c7c7c"
+    },
+    "accents": {
+      "red": "#a96b69",
+      "green": "#89a87d",
+      "yellow": "#d6b986",
+      "orange": "#d79969",
+      "purple": "#b194a3",
+      "cyan": "#89b4ac",
+      "blue_doc": "#7a9ec2"
+    },
+    "ui": {
+      "border": "#3a3a3d",
+      "line_number": "#7c7c7c",
+      "highlight_line": "#2a2a2d",
+      "selection": "#3a3a3d"
+    },
+    "status": {
+      "error": "#cc6666",
+      "warning": "#de935f",
+      "info": "#81a2be",
+      "hint": "#9cc5c0",
+      "success": "#b5bd68"
+    },
+    "ansi_remap": {
+      "black": "#1d1d20",
+      "red": "#a96b69",
+      "green": "#89a87d",
+      "yellow": "#d6b986",
+      "blue": "#d79969",
+      "magenta": "#a96b69",
+      "cyan": "#89a87d",
+      "white": "#d4be98",
+      "bright_black": "#7c7c7c",
+      "bright_red": "#a96b69",
+      "bright_green": "#89a87d",
+      "bright_yellow": "#d6b986",
+      "bright_blue": "#d79969",
+      "bright_magenta": "#a96b69",
+      "bright_cyan": "#89a87d",
+      "bright_white": "#d4be98"
+    },
+    "extras": [
+      "#e0d2a6", "#a69a88", "#44444b", "#2d3c2d", "#3c2d2d", "#3c3c2d", "#4c4c2d"
+    ]
+  },
+  "light": {
+    "base": {
+      "bg": "#f5f3f0",
+      "bg_dark": "#eae8e5",
+      "bg_light": "#ffffff",
+      "fg": "#5a4a3a",
+      "fg_dim": "#a19f9e"
+    },
+    "accents": {
+      "red": "#8b4c4a",
+      "green": "#6b8860",
+      "yellow": "#b8995a",
+      "orange": "#b8784c",
+      "purple": "#956d7e",
+      "cyan": "#6b958f",
+      "blue_doc": "#5e7ea5"
+    },
+    "extras": [
+      "#7a6a5a", "#3a2a1a", "#e8e6e3", "#d8d6d3", "#a4a2a0",
+      "#e8f0e8", "#f0e8e8", "#f0f0e8", "#e8e8d8", "#8ba168", "#b294bb", "#8abeb7"
+    ]
+  }
+}

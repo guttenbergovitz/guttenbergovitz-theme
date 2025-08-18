@@ -40,3 +40,8 @@ This is a Work in Progress (WIP). Like jazz itself, we believe in constant evolu
 ---
 
 *"Make it simple, but significant"*
+## Design Notes
+
+- Warm-first: orange/brown accents reduce blue light without losing contrast.
+- ANSI remap: terminals and terminal panels use warm equivalents (blue→`#d79969`, magenta→`#a96b69`, cyan→`#89a87d`).
+- Comments: italics are preferred for hierarchy; adjust via editor settings if needed.

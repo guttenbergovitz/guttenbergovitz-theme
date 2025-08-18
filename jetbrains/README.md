@@ -165,3 +165,16 @@ Feel free to open an issue or submit a pull request on our [GitHub repository](h
 ## License
 
 This theme is released under the MIT License. See the [LICENSE](../LICENSE) file for more details. 
+## UI Theme Support (Outside Editor)
+
+The `.icls` file styles the editor only. To style the IDE UI (tool windows, tabs, status bar), install a UI theme plugin:
+
+- Option A: Use the included preview UI theme
+  1) Zip `jetbrains/ui-theme/resources` contents so the archive contains `META-INF/plugin.xml` and `themes/Guttenbergovitz.theme.json` at the root.
+  2) In the IDE: `Settings → Plugins → ⚙ → Install Plugin from Disk…` and select the zip.
+  3) Switch theme: `Settings → Appearance & Behavior → Appearance → Theme: Guttenbergovitz UI`.
+
+- Option B: Keep Darcula/New UI and set accent
+  - Appearance: enable New UI, set accent color to `#d79969`, disable Colorful Headers for a minimal look.
+
+Note: UI theming uses JetBrains’ Theme JSON. The provided theme sets conservative UI colors to match the palette. If parts of the IDE remain default, that’s expected; extend the JSON incrementally as you spot gaps.

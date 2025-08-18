@@ -81,6 +81,11 @@ The theme uses a carefully curated palette inspired by vintage printing and jazz
 - Cyan: `#89a87d`
 - White: `#d4be98`
 
+## Design Notes
+
+- Warm-first palette; ANSI blue is intentionally remapped to orange (`#d79969`).
+- Comments are often italicized in editors for better hierarchy.
+
 ## Contributing
 
 Feel free to open an issue or submit a pull request on our [GitHub repository](https://github.com/guttenbergovitz/guttenbergovitz-theme).

@@ -1,0 +1,37 @@
+{
+  "name": "Guttenbergovitz UI",
+  "dark": true,
+  "author": "Guttenbergovitz",
+  "editorScheme": null,
+  "ui": {
+    "*": {
+      "Background": "#232326",
+      "Panel.background": "#1d1d20",
+      "Label.foreground": "#d4be98",
+      "Component.infoForeground": "#d4be98",
+      "Borders.color": "#3a3a3d",
+      "Separator.foreground": "#3a3a3d",
+      "Viewport.background": "#232326",
+      "Link.activeForeground": "#d79969",
+      "Button.startBorderColor": "#3a3a3d",
+      "Button.endBorderColor": "#3a3a3d",
+      "ScrollBar.Mac.thumbColor": "#3a3a3d",
+      "ScrollBar.thumbColor": "#3a3a3d",
+      "ScrollBar.trackColor": "#1d1d20",
+      "StatusBar.background": "#1d1d20",
+      "StatusBar.borderColor": "#1d1d20",
+      "ToolWindow.Header.background": "#1d1d20",
+      "ToolWindow.Header.inactiveBackground": "#1d1d20",
+      "ToolWindow.HeaderTab.underlineColor": "#d79969",
+      "Tree.background": "#1d1d20",
+      "Tree.foreground": "#d4be98",
+      "Focus.color": "#3a3a3d"
+    }
+  },
+  "icons": {
+    "ColorPalette": {
+      "AccentColor": "#d79969"
+    }
+  }
+}
+

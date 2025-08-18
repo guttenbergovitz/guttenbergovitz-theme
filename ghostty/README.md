@@ -32,7 +32,7 @@ mkdir -p ~/.config/ghostty/themes
 
 2. Download the theme file:
 ```bash
-curl -o ~/.config/ghostty/themes/guttenbergovitz.conf https://raw.githubusercontent.com/guttenbergovitz/guttenbergovitz-theme/main/ghostty/guttenbergovitz.conf
+curl -o ~/.config/ghostty/themes/guttenbergovitz https://raw.githubusercontent.com/guttenbergovitz/guttenbergovitz-theme/main/ghostty/guttenbergovitz
 ```
 
 ### Manual Installation (Alternative)
@@ -49,15 +49,15 @@ mkdir -p ~/.config/ghostty/themes
 
 3. Copy the theme file:
 ```bash
-cp guttenbergovitz-theme/ghostty/guttenbergovitz.conf ~/.config/ghostty/themes/
+cp guttenbergovitz-theme/ghostty/guttenbergovitz ~/.config/ghostty/themes/
 ```
 
 ## Activation
 
-To use the theme, you need to specify it in your Ghostty config file (`~/.config/ghostty/config.conf`):
+To use the theme, specify it in your Ghostty config file (`~/.config/ghostty/config`):
 
 ```conf
-include themes/guttenbergovitz.conf
+include themes/guttenbergovitz
 ```
 
 ## Color Palette
@@ -74,6 +74,11 @@ The theme uses a carefully curated palette inspired by vintage printing and jazz
 - Magenta: `#a96b69`
 - Cyan: `#89a87d`
 - White: `#d4be98`
+
+## Design Notes
+
+- Warm-first palette; ANSI blue intentionally remapped to orange (`#d79969`) to reduce blue light.
+- Use `include themes/guttenbergovitz` in `~/.config/ghostty/config`.
 
 ## Contributing
 

@@ -1,0 +1,83 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Palette check
+        run: |
+          python scripts/check_palette.py
+
+      - name: Validate JSON files
+        run: |
+          python - <<'PY'
+          import json
+          for f in [
+            'vscode/themes/guttenbergovitz-color-theme.json',
+            'zed/guttenbergovitz.json',
+            'palette.json',
+          ]:
+              with open(f) as fh:
+                  json.load(fh)
+              print('JSON OK:', f)
+          PY
+
+      - name: Validate TOML (helix)
+        run: |
+          python - <<'PY'
+          import tomllib
+          tomllib.loads(open('helix/guttenbergovitz.toml','rb').read())
+          print('TOML OK: helix/guttenbergovitz.toml')
+          PY
+
+      - name: Generate iTerm .itermcolors
+        run: |
+          python scripts/gen_itermcolors.py
+
+      - name: Package VS Code extension (on tag)
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Build VS Code vsix
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          cd vscode
+          npm ci
+          npm run package
+
+      - name: Upload VS Code artifact
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: actions/upload-artifact@v4
+        with:
+          name: vscode-vsix
+          path: vscode/*.vsix
+
+      - name: Zip JetBrains UI plugin (on tag)
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          cd jetbrains/ui-theme/resources
+          zip -r ../guttenbergovitz-ui-theme.zip .
+
+      - name: Upload JetBrains UI theme zip
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: actions/upload-artifact@v4
+        with:
+          name: jetbrains-ui-theme
+          path: jetbrains/ui-theme/guttenbergovitz-ui-theme.zip
+

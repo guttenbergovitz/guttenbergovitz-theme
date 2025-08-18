@@ -90,6 +90,13 @@ The Guttenbergovitz theme uses a carefully curated color palette that maintains 
 
 The light theme maintains the same warm, vintage aesthetic as the dark theme while providing a comfortable bright environment for daytime coding. Both variants create a comfortable environment that reduces eye strain while maintaining excellent readability.
 
+## Design Notes
+
+- Warm-first philosophy: we lean into warm browns/oranges to reduce blue light while preserving contrast and readability.
+- Intentional remap: in terminals and places expecting ANSI “blue/magenta/cyan”, we map them to warm equivalents (blue→orange `#d79969`, magenta→warm red `#a96b69`, cyan→warm green `#89a87d`) to keep the organic, cohesive look.
+- Comments: italics are generally preferred for hierarchy; Neovim ships italics disabled by default (enable with `vim.g.guttenbergovitz_italics = true`).
+- Cross‑platform parity: when adjusting the palette, synchronize all ports (VS Code, terminals, Helix, Zed, JetBrains) and update their READMEs.
+
 ## Status
 
 This is a Work in Progress (WIP). Like jazz itself, we believe in constant evolution and improvement.

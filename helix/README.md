@@ -89,3 +89,8 @@ Feel free to open an issue or submit a pull request on our [GitHub repository](h
 ## License
 
 This theme is released under the MIT License. See the [LICENSE](../LICENSE) file for more details. 
+## Design Notes
+
+- Warm-first: prefer orange/brown over blue to keep the UI cozy and reduce blue light.
+- Intentional ANSI remap in terminals: blue→`#d79969`, magenta→`#a96b69`, cyan→`#89a87d`.
+- Comments: italics by default for readability; tweak if your font/terminal renders italics poorly.

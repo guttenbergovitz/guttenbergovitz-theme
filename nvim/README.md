@@ -20,10 +20,11 @@ Note: The `nvim` subfolder is now used for documentation purposes only.
     priority = 1000,
     config = function()
         vim.opt.termguicolors = true
+        -- Optional: enable italics for comments
+        -- vim.g.guttenbergovitz_italics = true
         
         -- Optional: Configure theme options
         -- vim.g.guttenbergovitz_variant = "light"
-        -- vim.g.guttenbergovitz_italics = true
         
         require("guttenbergovitz").setup()
         vim.cmd.colorscheme("guttenbergovitz")
@@ -38,6 +39,8 @@ use {
     'guttenbergovitz/guttenbergovitz-theme',
     config = function()
         vim.opt.termguicolors = true
+        -- Optional: enable italics for comments
+        -- vim.g.guttenbergovitz_italics = true
         require("guttenbergovitz").setup()
         vim.cmd.colorscheme('guttenbergovitz')
     end
@@ -55,6 +58,8 @@ To integrate Guttenbergovitz with LazyVim, add the following to your LazyVim con
     priority = 1000,
     config = function()
         vim.opt.termguicolors = true
+        -- Optional: enable italics for comments
+        -- vim.g.guttenbergovitz_italics = true
         require("guttenbergovitz").setup()
         vim.cmd.colorscheme("guttenbergovitz")
     end,
@@ -125,7 +130,7 @@ require("guttenbergovitz").setup()
 - **`vim.g.guttenbergovitz_variant`**: `"dark"` (default) or `"light"`
 - **`vim.g.guttenbergovitz_italics`**: `false` (default) or `true`
   - When `true`, enables italics for comments, documentation comments, and text emphasis
-  - Disabled by default for maximum compatibility with terminals and fonts
+  - Disabled by default for maximum terminal/font compatibility
 
 ## Features
 
@@ -138,6 +143,11 @@ require("guttenbergovitz").setup()
 - Programmatic theme switching with simple API
 - Consistent color harmony across both variants
 - **Configurable italics**: Optional global enable for terminals/fonts that support italics well
+
+## Design Notes
+
+- Warm-first palette: to reduce blue light, ANSI roles are intentionally remapped (blue→`#d79969`, magenta→`#a96b69`, cyan→`#89a87d`).
+- Comments are non-italic by default for compatibility. Enable via `vim.g.guttenbergovitz_italics = true` if your font/terminal renders italics well.
 
 ## Supported Plugins
 
