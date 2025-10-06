@@ -2,13 +2,53 @@
   <id>com.guttenbergovitz.theme.ui</id>
   <name>Guttenbergovitz UI Theme</name>
   <vendor email="guttenbergovitz@github.com" url="https://github.com/guttenbergovitz/guttenbergovitz-theme">Guttenbergovitz</vendor>
-  <description>UI theme to complement the Guttenbergovitz editor color scheme.</description>
-  <version>0.0.1</version>
-
+  
+  <description><![CDATA[
+    <h2>Guttenbergovitz UI Theme</h2>
+    <p>A warm, vintage-inspired UI theme for JetBrains IDEs, designed to complement the Guttenbergovitz editor color scheme.</p>
+    <br/>
+    <p><strong>Features:</strong></p>
+    <ul>
+      <li>Complete UI theming for all JetBrains IDEs</li>
+      <li>Support for New UI (2023.3+)</li>
+      <li>Warm, low blue-light color palette</li>
+      <li>Consistent with Guttenbergovitz editor scheme</li>
+      <li>Optimized for reduced eye strain</li>
+    </ul>
+    <br/>
+    <p><strong>Color Philosophy:</strong></p>
+    <ul>
+      <li>Less blue light, more warmth</li>
+      <li>Minimal but meaningful highlighting</li>
+      <li>Focus on readability</li>
+      <li>Inspired by vintage book printing and jazz aesthetics</li>
+    </ul>
+    <br/>
+    <p>Install the matching <a href="https://github.com/guttenbergovitz/guttenbergovitz-theme">Guttenbergovitz editor color scheme</a> for the complete experience.</p>
+  ]]></description>
+  
+  <change-notes><![CDATA[
+    <h3>1.0.0</h3>
+    <ul>
+      <li>Complete UI theme for all JetBrains IDEs</li>
+      <li>Full support for New UI (2023.3+)</li>
+      <li>Comprehensive theming for all UI components</li>
+      <li>Consistent color palette aligned with palette.json</li>
+      <li>Support for tool windows, tabs, menus, popups, and more</li>
+      <li>Welcome screen theming</li>
+      <li>SearchEverywhere theming</li>
+      <li>Notification theming</li>
+      <li>Version control UI theming</li>
+    </ul>
+  ]]></change-notes>
+  
+  <version>1.0.0</version>
+  
+  <idea-version since-build="233.0"/>
+  
   <depends>com.intellij.modules.platform</depends>
-
+  
   <extensions defaultExtensionNs="com.intellij">
     <themeProvider id="guttenbergovitz-ui" path="/themes/Guttenbergovitz.theme.json"/>
   </extensions>
 </idea-plugin>
-

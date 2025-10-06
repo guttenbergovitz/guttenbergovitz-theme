@@ -165,16 +165,54 @@ Feel free to open an issue or submit a pull request on our [GitHub repository](h
 ## License
 
 This theme is released under the MIT License. See the [LICENSE](../LICENSE) file for more details. 
-## UI Theme Support (Outside Editor)
 
-The `.icls` file styles the editor only. To style the IDE UI (tool windows, tabs, status bar), install a UI theme plugin:
+## UI Theme Support (Complete IDE Theming)
 
-- Option A: Use the included preview UI theme
-  1) Zip `jetbrains/ui-theme/resources` contents so the archive contains `META-INF/plugin.xml` and `themes/Guttenbergovitz.theme.json` at the root.
-  2) In the IDE: `Settings → Plugins → ⚙ → Install Plugin from Disk…` and select the zip.
-  3) Switch theme: `Settings → Appearance & Behavior → Appearance → Theme: Guttenbergovitz UI`.
+### Comprehensive UI Theme Plugin
 
-- Option B: Keep Darcula/New UI and set accent
-  - Appearance: enable New UI, set accent color to `#d79969`, disable Colorful Headers for a minimal look.
+The Guttenbergovitz theme includes a **complete UI theme plugin** that themes the entire IDE, not just the editor.
 
-Note: UI theming uses JetBrains’ Theme JSON. The provided theme sets conservative UI colors to match the palette. If parts of the IDE remain default, that’s expected; extend the JSON incrementally as you spot gaps.
+**What's Included:**
+
+1. **Editor Color Scheme** (`Guttenbergovitz.icls`) - ~600 lines
+   - Complete syntax highlighting for all languages
+   - Git/VCS colors, diff colors, error/warning colors
+   - Terminal colors
+
+2. **UI Theme Plugin** (`ui-theme/`) - 500+ lines
+   - Themes all IDE components outside the editor
+   - Full support for New UI (JetBrains 2023.3+)
+   - Includes tool windows, tabs, menus, popups, dialogs, and more
+
+**Themed Components:**
+Main window • Tool windows • Tabs • Status bar • Navigation bar • Menus and popups • Search everywhere • Welcome screen • Notifications • Lists and trees • Tables • Buttons and inputs • Progress bars • Scrollbars • Version control UI • And much more!
+
+### Installation
+
+**Build and Install UI Theme Plugin:**
+
+```bash
+# From repository root
+make zip.jetbrains-ui
+
+# Or manually
+cd jetbrains/ui-theme/resources
+zip -r ../guttenbergovitz-ui-theme.jar META-INF themes
+```
+
+Then in your IDE:
+1. `Settings → Plugins → ⚙ → Install Plugin from Disk…`
+2. Select the `.jar` file
+3. Restart IDE
+4. `Settings → Appearance → Theme: Guttenbergovitz UI`
+
+**Alternative:** Use only the editor color scheme (`.icls`) with your current UI theme. Set accent color to `#d79969` in Appearance settings for best results.
+
+### Version Compatibility
+
+- **JetBrains IDEs 2023.3+** - Full support including New UI
+- **JetBrains IDEs 2022.x - 2023.2** - Compatible
+
+### Color Consistency
+
+All colors are sourced from `palette.json`, ensuring perfect consistency across all Guttenbergovitz implementations (VS Code, Neovim, Vim, terminals, etc.). Run `make validate` from repository root to verify.
