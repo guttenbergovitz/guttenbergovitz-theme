@@ -236,11 +236,14 @@ If you want to theme the **entire IDE** (not just the editor), you can install t
 ```bash
 # From repository root
 make zip.jetbrains-ui
+# This creates: jetbrains/ui-theme/guttenbergovitz-ui-theme.jar
 
 # Or manually
 cd jetbrains/ui-theme/resources
 zip -r ../guttenbergovitz-ui-theme.jar META-INF themes
 ```
+
+> **Note:** JetBrains plugins use `.jar` extension, but they're actually ZIP files. Both work!
 
 **Step 2: Install the plugin**
 

@@ -37,3 +37,7 @@ Thumbs.db
 
 # ai
 .junie/*
+
+# JetBrains UI theme build artifacts
+jetbrains/ui-theme/*.jar
+jetbrains/ui-theme/*.zip
