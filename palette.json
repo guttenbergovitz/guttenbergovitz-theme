@@ -1,11 +1,22 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "meta": {
+    "name": "Guttenbergovitz",
+    "version": "2.0.0",
+    "description": "A minimalist, ergonomic theme inspired by vintage printing and jazz aesthetics",
+    "author": "Guttenbergovitz",
+    "reference": "VSCode theme (vscode/themes/guttenbergovitz-color-theme.json)",
+    "license": "MIT"
+  },
   "dark": {
     "base": {
       "bg": "#232326",
       "bg_dark": "#1d1d20",
       "bg_light": "#2a2a2d",
       "fg": "#d4be98",
-      "fg_dim": "#7c7c7c"
+      "fg_dim": "#7c7c7c",
+      "fg_light": "#e0d2a6",
+      "fg_dark": "#a69a88"
     },
     "accents": {
       "red": "#a96b69",
@@ -14,13 +25,36 @@
       "orange": "#d79969",
       "purple": "#b194a3",
       "cyan": "#89b4ac",
-      "blue_doc": "#7a9ec2"
+      "blue": "#7a9ec2"
     },
     "ui": {
       "border": "#3a3a3d",
       "line_number": "#7c7c7c",
-      "highlight_line": "#2a2a2d",
-      "selection": "#3a3a3d"
+      "line_number_active": "#d4be98",
+      "line_highlight": "#2a2a2d",
+      "selection": "#3a3a3d",
+      "cursor": "#d4be98",
+      "whitespace": "#3a3a3d"
+    },
+    "semantic": {
+      "comment": "#7c7c7c",
+      "keyword": "#a96b69",
+      "operator": "#a96b69",
+      "function": "#d79969",
+      "method": "#d79969",
+      "string": "#89a87d",
+      "type": "#d6b986",
+      "class": "#d6b986",
+      "constant": "#d6b986",
+      "number": "#d6b986",
+      "boolean": "#d6b986",
+      "variable": "#d4be98",
+      "parameter": "#d4be98",
+      "property": "#d4be98",
+      "punctuation": "#d4be98",
+      "tag": "#a96b69",
+      "attribute": "#d6b986",
+      "special": "#d79969"
     },
     "status": {
       "error": "#cc6666",
@@ -29,27 +63,43 @@
       "hint": "#9cc5c0",
       "success": "#b5bd68"
     },
-    "ansi_remap": {
-      "black": "#1d1d20",
-      "red": "#a96b69",
-      "green": "#89a87d",
-      "yellow": "#d6b986",
-      "blue": "#d79969",
-      "magenta": "#a96b69",
-      "cyan": "#89a87d",
-      "white": "#d4be98",
-      "bright_black": "#7c7c7c",
-      "bright_red": "#a96b69",
-      "bright_green": "#89a87d",
-      "bright_yellow": "#d6b986",
-      "bright_blue": "#d79969",
-      "bright_magenta": "#a96b69",
-      "bright_cyan": "#89a87d",
-      "bright_white": "#d4be98"
+    "terminal": {
+      "ansi": {
+        "black": "#1d1d20",
+        "red": "#a96b69",
+        "green": "#89a87d",
+        "yellow": "#d6b986",
+        "blue": "#d79969",
+        "magenta": "#a96b69",
+        "cyan": "#89a87d",
+        "white": "#d4be98"
+      },
+      "ansi_bright": {
+        "black": "#7c7c7c",
+        "red": "#a96b69",
+        "green": "#89a87d",
+        "yellow": "#d6b986",
+        "blue": "#d79969",
+        "magenta": "#a96b69",
+        "cyan": "#89a87d",
+        "white": "#d4be98"
+      }
     },
-    "extras": [
-      "#e0d2a6", "#a69a88", "#44444b", "#2d3c2d", "#3c2d2d", "#3c3c2d", "#4c4c2d"
-    ]
+    "diff": {
+      "add": "#2d3c2d",
+      "delete": "#3c2d2d",
+      "change": "#3c3c2d",
+      "text": "#4c4c2d"
+    },
+    "git": {
+      "added": "#89a87d",
+      "modified": "#d6b986",
+      "deleted": "#a96b69",
+      "renamed": "#d79969",
+      "untracked": "#7c7c7c",
+      "ignored": "#44444b",
+      "conflict": "#cc6666"
+    }
   },
   "light": {
     "base": {
@@ -57,7 +107,9 @@
       "bg_dark": "#eae8e5",
       "bg_light": "#ffffff",
       "fg": "#5a4a3a",
-      "fg_dim": "#a19f9e"
+      "fg_dim": "#a19f9e",
+      "fg_light": "#3a2a1a",
+      "fg_dark": "#7a6a5a"
     },
     "accents": {
       "red": "#8b4c4a",
@@ -66,11 +118,80 @@
       "orange": "#b8784c",
       "purple": "#956d7e",
       "cyan": "#6b958f",
-      "blue_doc": "#5e7ea5"
+      "blue": "#5e7ea5"
     },
-    "extras": [
-      "#7a6a5a", "#3a2a1a", "#e8e6e3", "#d8d6d3", "#a4a2a0",
-      "#e8f0e8", "#f0e8e8", "#f0f0e8", "#e8e8d8", "#8ba168", "#b294bb", "#8abeb7"
-    ]
+    "ui": {
+      "border": "#d8d6d3",
+      "line_number": "#a19f9e",
+      "line_number_active": "#5a4a3a",
+      "line_highlight": "#e8e6e3",
+      "selection": "#e8e6e3",
+      "cursor": "#5a4a3a",
+      "whitespace": "#d8d6d3"
+    },
+    "semantic": {
+      "comment": "#a19f9e",
+      "keyword": "#8b4c4a",
+      "operator": "#8b4c4a",
+      "function": "#b8784c",
+      "method": "#b8784c",
+      "string": "#6b8860",
+      "type": "#b8995a",
+      "class": "#b8995a",
+      "constant": "#b8995a",
+      "number": "#b8995a",
+      "boolean": "#b8995a",
+      "variable": "#5a4a3a",
+      "parameter": "#5a4a3a",
+      "property": "#5a4a3a",
+      "punctuation": "#5a4a3a",
+      "tag": "#8b4c4a",
+      "attribute": "#b8995a",
+      "special": "#b8784c"
+    },
+    "status": {
+      "error": "#cc6666",
+      "warning": "#de935f",
+      "info": "#5e7ea5",
+      "hint": "#6b958f",
+      "success": "#6b8860"
+    },
+    "terminal": {
+      "ansi": {
+        "black": "#3a2a1a",
+        "red": "#8b4c4a",
+        "green": "#6b8860",
+        "yellow": "#b8995a",
+        "blue": "#5e7ea5",
+        "magenta": "#956d7e",
+        "cyan": "#6b958f",
+        "white": "#7a6a5a"
+      },
+      "ansi_bright": {
+        "black": "#5a4a3a",
+        "red": "#cc6666",
+        "green": "#8ba168",
+        "yellow": "#d6b986",
+        "blue": "#81a2be",
+        "magenta": "#b294bb",
+        "cyan": "#8abeb7",
+        "white": "#f5f3f0"
+      }
+    },
+    "diff": {
+      "add": "#e8f0e8",
+      "delete": "#f0e8e8",
+      "change": "#f0f0e8",
+      "text": "#e8e8d8"
+    },
+    "git": {
+      "added": "#6b8860",
+      "modified": "#b8995a",
+      "deleted": "#8b4c4a",
+      "renamed": "#b8784c",
+      "untracked": "#a19f9e",
+      "ignored": "#a4a2a0",
+      "conflict": "#cc6666"
+    }
   }
 }

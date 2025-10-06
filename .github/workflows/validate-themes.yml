@@ -1,0 +1,65 @@
+name: Validate Theme Consistency
+
+on:
+  push:
+    branches: [ main, master, develop ]
+    paths:
+      - 'palette.json'
+      - 'vscode/themes/**'
+      - 'lua/**'
+      - 'vim/**'
+      - 'helix/**'
+      - 'kitty/**'
+      - 'warp/**'
+      - 'ghostty/**'
+      - 'zed/**'
+      - 'jetbrains/**'
+      - 'scripts/validate_consistency.py'
+      - '.github/workflows/validate-themes.yml'
+  pull_request:
+    branches: [ main, master, develop ]
+    paths:
+      - 'palette.json'
+      - 'vscode/themes/**'
+      - 'lua/**'
+      - 'vim/**'
+      - 'helix/**'
+      - 'kitty/**'
+      - 'warp/**'
+      - 'ghostty/**'
+      - 'zed/**'
+      - 'jetbrains/**'
+      - 'scripts/validate_consistency.py'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    name: Validate Color Consistency
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+          
+      - name: Validate theme consistency
+        run: |
+          echo "🎨 Validating Guttenbergovitz theme consistency..."
+          make validate
+          
+      - name: Check palette usage
+        run: |
+          echo "🎨 Checking palette usage..."
+          make check.palette
+        continue-on-error: true
+        
+      - name: Success
+        if: success()
+        run: |
+          echo "✅ All themes are consistent!"
+          echo "✅ Reference: VSCode theme (vscode/themes/guttenbergovitz-color-theme.json)"
+          echo "✅ Source of truth: palette.json"

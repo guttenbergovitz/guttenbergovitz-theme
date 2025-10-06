@@ -15,13 +15,40 @@ The Guttenbergovitz theme follows these design principles:
 - Inspired by vintage book printing
 - Professional without being corporate
 
+## Color Consistency Architecture
+
+**IMPORTANT:** This theme guarantees color consistency across all platforms through automated validation.
+
+### Source of Truth
+- **Primary Reference**: VSCode theme (`vscode/themes/guttenbergovitz-color-theme.json`)
+- **Color Palette**: `palette.json` - single source of truth for all color definitions
+- **Validation**: All implementations are automatically validated against the reference
+
+### Making Color Changes
+1. **ALWAYS edit `palette.json` first** - this is the single source of truth
+2. Update corresponding theme implementations
+3. Run `make validate` to ensure consistency
+4. All theme files must match the reference palette
+
+### Validation Commands
+```bash
+make validate       # Validate color consistency across all themes
+make check.palette  # Validate palette usage
+make analyze        # Run detailed color analysis
+make help          # Show all available commands
+```
+
+### CI/CD
+All pull requests automatically run color validation via GitHub Actions (`.github/workflows/validate-themes.yml`). Changes must pass validation before merging.
+
 ## Repository Structure
 
 The repository is organized as a monorepo with separate implementations for each platform:
 
+- `palette.json` - **Single source of truth for all colors**
 - `colors/` - Neovim colorscheme entry point (legacy vim colorscheme format)
 - `lua/guttenbergovitz/` - Main Neovim theme implementation
-- `vscode/` - VS Code theme extension
+- `vscode/` - VS Code theme extension (reference implementation)
 - `helix/` - Helix editor theme
 - `kitty/` - Kitty terminal theme
 - `zellij/` - Zellij terminal multiplexer theme
@@ -29,8 +56,15 @@ The repository is organized as a monorepo with separate implementations for each
 - `zed/` - Zed editor theme
 - `jetbrains/` - JetBrains IDEs theme
 - `ghostty/` - Ghostty terminal theme
+- `vim/` - Vim 8+ colorscheme
+- `scripts/` - Build and validation scripts
 
 ## Common Development Commands
+
+### Validation (Always Run Before Commit)
+```bash
+make validate       # Validate all themes against palette
+```
 
 ### VS Code Extension
 ```bash
@@ -46,8 +80,8 @@ Each platform has its own installation and testing process documented in their r
 
 ## Core Architecture
 
-### Color Palette
-The theme uses a consistent color palette across all platforms:
+### Color Palette (from palette.json)
+The theme uses a consistent color palette across all platforms, defined in `palette.json`:
 - **Background**: `#232326` (main) / `#1d1d20` (darker)
 - **Foreground**: `#d4be98` (main) / `#7c7c7c` (dimmed)
 - **Comments**: `#7c7c7c` (improved contrast for readability)
