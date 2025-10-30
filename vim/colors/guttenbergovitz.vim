@@ -187,7 +187,7 @@ call s:hi('ColorColumn', '', s:colors.bg_light, '', '')
 call s:hi('SignColumn', s:colors.fg_dark, s:colors.bg, '', '')
 
 " Directory
-call s:hi('Directory', s:colors.blue, '', '', '')
+call s:hi('Directory', s:colors.yellow, '', '', '')
 
 " Title
 call s:hi('Title', s:colors.orange, '', 'bold', '')

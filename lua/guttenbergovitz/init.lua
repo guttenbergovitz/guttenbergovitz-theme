@@ -500,7 +500,7 @@ local function get_groups(colors)
     ModeMsg = { fg = colors.fg },
     
     -- Directory
-    Directory = { fg = colors.blue },
+    Directory = { fg = colors.yellow },
     
     -- Title
     Title = { fg = colors.orange, bold = true },
@@ -568,7 +568,7 @@ local function get_groups(colors)
     CmpItemKindColor = { fg = colors.purple },
     CmpItemKindFile = { fg = colors.blue },
     CmpItemKindReference = { fg = colors.cyan },
-    CmpItemKindFolder = { fg = colors.blue },
+    CmpItemKindFolder = { fg = colors.yellow },
     CmpItemKindEnumMember = { fg = colors.purple },
     CmpItemKindConstant = { fg = colors.yellow },
     CmpItemKindStruct = { fg = colors.yellow },
@@ -589,7 +589,7 @@ local function get_groups(colors)
     NeoTreeNormal = { fg = colors.fg, bg = colors.bg_dark },
     NeoTreeNormalNC = { fg = colors.fg, bg = colors.bg_dark },
     NeoTreeDirectoryName = { fg = colors.fg },
-    NeoTreeDirectoryIcon = { fg = colors.blue },
+    NeoTreeDirectoryIcon = { fg = colors.yellow },
     NeoTreeRootName = { fg = colors.orange, bold = true },
     NeoTreeFileName = { fg = colors.fg },
     NeoTreeFileIcon = { fg = colors.fg },
