@@ -397,6 +397,12 @@ local function get_groups(colors)
     ["@comment.typescript"] = { fg = colors.comment, italic = use_italics },
     ["@comment.tsx"] = { fg = colors.comment, italic = use_italics },
     ["@comment.jsx"] = { fg = colors.comment, italic = use_italics },
+
+    -- Documentation comments (language-specific variants)
+    ["@comment.documentation.javascript"] = { fg = colors.comment, italic = use_italics },
+    ["@comment.documentation.typescript"] = { fg = colors.comment, italic = use_italics },
+    ["@comment.documentation.tsx"] = { fg = colors.comment, italic = use_italics },
+    ["@comment.documentation.jsx"] = { fg = colors.comment, italic = use_italics },
     
     -- Standard Vim syntax groups for JavaScript/TypeScript
     javascriptComment = { fg = colors.comment, italic = use_italics },
