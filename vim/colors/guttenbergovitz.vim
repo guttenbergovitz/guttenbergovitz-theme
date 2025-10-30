@@ -152,9 +152,9 @@ call s:hi('PmenuThumb', '', s:colors.fg_dark, '', '')
 
 " Diff
 call s:hi('DiffAdd', s:colors.git_add, s:colors.diff_add, '', '')
-call s:hi('DiffChange', s:colors.git_change, s:colors.diff_change, '', '')
+call s:hi('DiffChange', s:colors.blue, s:colors.diff_change, '', '')
 call s:hi('DiffDelete', s:colors.git_delete, s:colors.diff_delete, '', '')
-call s:hi('DiffText', s:colors.git_change, s:colors.diff_text, '', '')
+call s:hi('DiffText', s:colors.blue, s:colors.diff_text, '', '')
 
 " Spell checking
 call s:hi('SpellBad', '', '', 'undercurl', s:colors.error)

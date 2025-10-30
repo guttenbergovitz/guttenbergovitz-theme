@@ -205,7 +205,7 @@ local function get_groups(colors)
 
     -- Plugin Support: gitsigns.nvim
     GitSignsAdd = { fg = colors.green },
-    GitSignsChange = { fg = colors.yellow },
+    GitSignsChange = { fg = colors.blue },
     GitSignsDelete = { fg = colors.red },
 
     -- Plugin Support: indent-blankline.nvim
@@ -475,9 +475,9 @@ local function get_groups(colors)
     
     -- Diff
     DiffAdd = { fg = colors.git_add, bg = colors.diff_add },
-    DiffChange = { fg = colors.git_change, bg = colors.diff_change },
+    DiffChange = { fg = colors.blue, bg = colors.diff_change },
     DiffDelete = { fg = colors.git_delete, bg = colors.diff_delete },
-    DiffText = { fg = colors.git_change, bg = colors.diff_text },
+    DiffText = { fg = colors.blue, bg = colors.diff_text },
     
     -- Messages
     MsgArea = { fg = colors.fg, bg = colors.bg },
@@ -599,7 +599,7 @@ local function get_groups(colors)
     NeoTreeDotfile = { fg = colors.fg_dark },
     NeoTreeGitAdded = { fg = colors.git_add },
     NeoTreeGitDeleted = { fg = colors.git_delete },
-    NeoTreeGitModified = { fg = colors.git_change },
+    NeoTreeGitModified = { fg = colors.blue },
     NeoTreeGitConflict = { fg = colors.error },
     NeoTreeGitUntracked = { fg = colors.hint },
     NeoTreeGitIgnored = { fg = colors.fg_dark },
