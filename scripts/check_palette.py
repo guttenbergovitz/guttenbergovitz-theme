@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 FILES = [
     ROOT / "vscode/themes/guttenbergovitz-color-theme.json",
+    ROOT / "vscode/themes/guttenbergovitz-light-color-theme.json",
     ROOT / "ghostty/guttenbergovitz",
     ROOT / "warp/guttenbergovitz.yaml",
     ROOT / "zellij/guttenbergovitz.kdl",

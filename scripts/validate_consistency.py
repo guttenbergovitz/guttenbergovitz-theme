@@ -63,16 +63,29 @@ class ColorValidator:
         
         return True
     
-    def validate_vscode(self) -> bool:
-        """Validate VSCode theme against palette"""
-        print("\n🔍 Validating VSCode theme...")
-        vscode_file = ROOT / "vscode" / "themes" / "guttenbergovitz-color-theme.json"
+    def validate_vscode_variant(self, variant: str) -> bool:
+        """Validate VSCode theme variant against palette"""
+        suffix = "-light" if variant == "light" else ""
+        filename = f"guttenbergovitz{suffix}-color-theme.json"
+        print(f"  🔍 Validating VSCode theme ({variant})...")
+        vscode_file = ROOT / "vscode" / "themes" / filename
         
+        if not vscode_file.exists():
+            self.issues.append({
+                'severity': 'error',
+                'implementation': 'VSCode',
+                'color_name': f'{variant} theme file',
+                'expected': 'File exists',
+                'actual': 'NOT FOUND',
+                'context': str(vscode_file)
+            })
+            return False
+            
         with open(vscode_file) as f:
             theme = json.load(f)
         
         colors = theme['colors']
-        palette = self.palette['dark']
+        palette = self.palette[variant]
         
         checks = [
             ('editor.background', palette['base']['bg']),
@@ -87,7 +100,7 @@ class ColorValidator:
         all_ok = True
         for key, expected in checks:
             actual = colors.get(key, '')
-            if not self.check_color('VSCode', key, expected, actual):
+            if not self.check_color(f'VSCode ({variant})', key, expected, actual):
                 all_ok = False
         
         # Check token colors
@@ -95,40 +108,36 @@ class ColorValidator:
             name = token.get('name', '')
             if 'Comment' in name:
                 fg = token['settings'].get('foreground', '')
-                if not self.check_color('VSCode', 'comment', palette['semantic']['comment'], fg, name):
+                if not self.check_color(f'VSCode ({variant})', 'comment', palette['semantic']['comment'], fg, name):
                     all_ok = False
             elif 'Keyword' in name:
                 fg = token['settings'].get('foreground', '')
-                if not self.check_color('VSCode', 'keyword', palette['semantic']['keyword'], fg, name):
+                if not self.check_color(f'VSCode ({variant})', 'keyword', palette['semantic']['keyword'], fg, name):
                     all_ok = False
         
-        if all_ok:
-            print("  ✅ VSCode theme is consistent")
-        else:
-            print("  ❌ VSCode theme has inconsistencies")
+        return all_ok
+
+    def validate_vscode(self) -> bool:
+        """Validate VSCode themes against palette"""
+        print("\n🔍 Validating VSCode themes...")
+        dark_ok = self.validate_vscode_variant('dark')
+        light_ok = self.validate_vscode_variant('light')
         
+        all_ok = dark_ok and light_ok
+        if all_ok:
+            print("  ✅ VSCode themes are consistent")
+        else:
+            print("  ❌ VSCode themes have inconsistencies")
         return all_ok
     
-    def validate_neovim(self) -> bool:
-        """Validate Neovim theme against palette"""
-        print("\n🔍 Validating Neovim theme...")
-        nvim_file = ROOT / "lua" / "guttenbergovitz" / "init.lua"
-        
-        with open(nvim_file) as f:
-            content = f.read()
-        
-        palette = self.palette['dark']
-        
-        # Extract dark theme colors
-        dark_match = re.search(r'} or \{(.*?)-- Terminal', content, re.DOTALL)
-        if not dark_match:
-            print("  ❌ Could not parse Neovim theme")
-            return False
+    def validate_neovim_variant(self, variant: str, block_content: str) -> bool:
+        """Validate Neovim theme variant colors"""
+        palette = self.palette[variant]
         
         colors = {}
-        for match in re.finditer(r'(\w+)\s*=\s*"(#[0-9a-fA-F]{6})"', dark_match.group(1)):
+        for match in re.finditer(r'(\w+)\s*=\s*"(#[0-9a-fA-F]{6})"', block_content):
             colors[match.group(1)] = match.group(2)
-        
+            
         checks = [
             ('bg', palette['base']['bg']),
             ('bg_dark', palette['base']['bg_dark']),
@@ -146,14 +155,31 @@ class ColorValidator:
         all_ok = True
         for key, expected in checks:
             actual = colors.get(key, '')
-            if not self.check_color('Neovim', key, expected, actual):
+            if not self.check_color(f'Neovim ({variant})', key, expected, actual):
                 all_ok = False
+        return all_ok
+
+    def validate_neovim(self) -> bool:
+        """Validate Neovim theme against palette"""
+        print("\n🔍 Validating Neovim theme...")
+        nvim_file = ROOT / "lua" / "guttenbergovitz" / "init.lua"
         
+        with open(nvim_file) as f:
+            content = f.read()
+            
+        parts = content.split("} or {")
+        if len(parts) < 2:
+            print("  ❌ Could not parse Neovim theme variants")
+            return False
+            
+        light_ok = self.validate_neovim_variant('light', parts[0])
+        dark_ok = self.validate_neovim_variant('dark', parts[1])
+        
+        all_ok = light_ok and dark_ok
         if all_ok:
             print("  ✅ Neovim theme is consistent")
         else:
             print("  ❌ Neovim theme has inconsistencies")
-        
         return all_ok
     
     def validate_helix(self) -> bool:
