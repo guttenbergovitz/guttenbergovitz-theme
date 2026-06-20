@@ -32,7 +32,7 @@ zip.jetbrains-ui:
 	@echo "Created: jetbrains/ui-theme/guttenbergovitz-ui-theme.jar"
 
 gen.iterm:
-	python3 scripts/gen_itermcolors.py
+	python3 scripts/generate_terminal_themes.py
 
 check.palette:
 	python3 scripts/check_palette.py

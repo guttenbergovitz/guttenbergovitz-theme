@@ -1,0 +1,25 @@
+name: "Guttenbergovitz Light"
+accent: "#b8784c"
+background: "#f5f3f0"
+cursor: "#5a4a3a"
+details: lighter
+foreground: "#5a4a3a"
+terminal_colors:
+  bright:
+    black: "#5a4a3a"
+    blue: "#81a2be"
+    cyan: "#8abeb7"
+    green: "#8ba168"
+    magenta: "#b294bb"
+    red: "#cc6666"
+    white: "#f5f3f0"
+    yellow: "#d6b986"
+  normal:
+    black: "#3a2a1a"
+    blue: "#5e7ea5"
+    cyan: "#6b958f"
+    green: "#6b8860"
+    magenta: "#956d7e"
+    red: "#8b4c4a"
+    white: "#7a6a5a"
+    yellow: "#b8995a"

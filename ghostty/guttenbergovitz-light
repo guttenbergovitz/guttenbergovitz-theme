@@ -1,0 +1,23 @@
+# Guttenbergovitz theme for Ghostty terminal (light variant)
+background = #f5f3f0
+foreground = #5a4a3a
+cursor-color = #5a4a3a
+selection-background = #e8e6e3
+selection-foreground = #f5f3f0
+
+palette = 0=#3a2a1a
+palette = 1=#8b4c4a
+palette = 2=#6b8860
+palette = 3=#b8995a
+palette = 4=#5e7ea5
+palette = 5=#956d7e
+palette = 6=#6b958f
+palette = 7=#7a6a5a
+palette = 8=#5a4a3a
+palette = 9=#cc6666
+palette = 10=#8ba168
+palette = 11=#d6b986
+palette = 12=#81a2be
+palette = 13=#b294bb
+palette = 14=#8abeb7
+palette = 15=#f5f3f0

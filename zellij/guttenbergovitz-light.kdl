@@ -1,0 +1,26 @@
+themes {
+    guttenbergovitz-light {
+        fg "#5a4a3a"
+        bg "#d8d6d3"
+        black "#3a2a1a"
+        red "#8b4c4a"
+        green "#6b8860"
+        yellow "#b8995a"
+        blue "#5e7ea5"
+        magenta "#956d7e"
+        cyan "#6b958f"
+        white "#7a6a5a"
+        orange "#b8784c"
+
+        // Bright variants
+        black_bright "#5a4a3a"
+        red_bright "#cc6666"
+        green_bright "#8ba168"
+        yellow_bright "#d6b986"
+        blue_bright "#81a2be"
+        magenta_bright "#b294bb"
+        cyan_bright "#8abeb7"
+        white_bright "#f5f3f0"
+        orange_bright "#b8784c"
+    }
+}
