@@ -63,16 +63,29 @@ class ColorValidator:
         
         return True
     
-    def validate_vscode(self) -> bool:
-        """Validate VSCode theme against palette"""
-        print("\n🔍 Validating VSCode theme...")
-        vscode_file = ROOT / "vscode" / "themes" / "guttenbergovitz-color-theme.json"
+    def validate_vscode_variant(self, variant: str) -> bool:
+        """Validate VSCode theme variant against palette"""
+        suffix = "-light" if variant == "light" else ""
+        filename = f"guttenbergovitz{suffix}-color-theme.json"
+        print(f"  🔍 Validating VSCode theme ({variant})...")
+        vscode_file = ROOT / "vscode" / "themes" / filename
         
+        if not vscode_file.exists():
+            self.issues.append({
+                'severity': 'error',
+                'implementation': 'VSCode',
+                'color_name': f'{variant} theme file',
+                'expected': 'File exists',
+                'actual': 'NOT FOUND',
+                'context': str(vscode_file)
+            })
+            return False
+            
         with open(vscode_file) as f:
             theme = json.load(f)
         
         colors = theme['colors']
-        palette = self.palette['dark']
+        palette = self.palette[variant]
         
         checks = [
             ('editor.background', palette['base']['bg']),
@@ -87,7 +100,7 @@ class ColorValidator:
         all_ok = True
         for key, expected in checks:
             actual = colors.get(key, '')
-            if not self.check_color('VSCode', key, expected, actual):
+            if not self.check_color(f'VSCode ({variant})', key, expected, actual):
                 all_ok = False
         
         # Check token colors
@@ -95,40 +108,36 @@ class ColorValidator:
             name = token.get('name', '')
             if 'Comment' in name:
                 fg = token['settings'].get('foreground', '')
-                if not self.check_color('VSCode', 'comment', palette['semantic']['comment'], fg, name):
+                if not self.check_color(f'VSCode ({variant})', 'comment', palette['semantic']['comment'], fg, name):
                     all_ok = False
             elif 'Keyword' in name:
                 fg = token['settings'].get('foreground', '')
-                if not self.check_color('VSCode', 'keyword', palette['semantic']['keyword'], fg, name):
+                if not self.check_color(f'VSCode ({variant})', 'keyword', palette['semantic']['keyword'], fg, name):
                     all_ok = False
         
-        if all_ok:
-            print("  ✅ VSCode theme is consistent")
-        else:
-            print("  ❌ VSCode theme has inconsistencies")
+        return all_ok
+
+    def validate_vscode(self) -> bool:
+        """Validate VSCode themes against palette"""
+        print("\n🔍 Validating VSCode themes...")
+        dark_ok = self.validate_vscode_variant('dark')
+        light_ok = self.validate_vscode_variant('light')
         
+        all_ok = dark_ok and light_ok
+        if all_ok:
+            print("  ✅ VSCode themes are consistent")
+        else:
+            print("  ❌ VSCode themes have inconsistencies")
         return all_ok
     
-    def validate_neovim(self) -> bool:
-        """Validate Neovim theme against palette"""
-        print("\n🔍 Validating Neovim theme...")
-        nvim_file = ROOT / "lua" / "guttenbergovitz" / "init.lua"
-        
-        with open(nvim_file) as f:
-            content = f.read()
-        
-        palette = self.palette['dark']
-        
-        # Extract dark theme colors
-        dark_match = re.search(r'} or \{(.*?)-- Terminal', content, re.DOTALL)
-        if not dark_match:
-            print("  ❌ Could not parse Neovim theme")
-            return False
+    def validate_neovim_variant(self, variant: str, block_content: str) -> bool:
+        """Validate Neovim theme variant colors"""
+        palette = self.palette[variant]
         
         colors = {}
-        for match in re.finditer(r'(\w+)\s*=\s*"(#[0-9a-fA-F]{6})"', dark_match.group(1)):
+        for match in re.finditer(r'(\w+)\s*=\s*"(#[0-9a-fA-F]{6})"', block_content):
             colors[match.group(1)] = match.group(2)
-        
+            
         checks = [
             ('bg', palette['base']['bg']),
             ('bg_dark', palette['base']['bg_dark']),
@@ -146,30 +155,74 @@ class ColorValidator:
         all_ok = True
         for key, expected in checks:
             actual = colors.get(key, '')
-            if not self.check_color('Neovim', key, expected, actual):
+            if not self.check_color(f'Neovim ({variant})', key, expected, actual):
                 all_ok = False
+        return all_ok
+
+    def validate_neovim(self) -> bool:
+        """Validate Neovim theme against palette"""
+        print("\n🔍 Validating Neovim theme...")
+        nvim_file = ROOT / "lua" / "guttenbergovitz" / "init.lua"
         
+        with open(nvim_file) as f:
+            content = f.read()
+            
+        parts = content.split("} or {")
+        if len(parts) < 2:
+            print("  ❌ Could not parse Neovim theme variants")
+            return False
+            
+        light_ok = self.validate_neovim_variant('light', parts[0])
+        dark_ok = self.validate_neovim_variant('dark', parts[1])
+        
+        all_ok = light_ok and dark_ok
         if all_ok:
             print("  ✅ Neovim theme is consistent")
         else:
             print("  ❌ Neovim theme has inconsistencies")
-        
         return all_ok
     
-    def validate_helix(self) -> bool:
-        """Validate Helix theme against palette"""
-        print("\n🔍 Validating Helix theme...")
-        helix_file = ROOT / "helix" / "guttenbergovitz.toml"
+    def validate_helix_variant(self, variant: str) -> bool:
+        """Validate Helix theme variant against the reference palette.
         
+        Args:
+            variant: Either 'dark' or 'light'.
+            
+        Returns:
+            True if all colors in Helix theme variant match the reference palette, False otherwise.
+        """
+        suffix = "-light" if variant == "light" else ""
+        filename = f"guttenbergovitz{suffix}.toml"
+        print(f"  🔍 Validating Helix theme ({variant})...")
+        helix_file = ROOT / "helix" / filename
+        
+        if not helix_file.exists():
+            self.issues.append({
+                'severity': 'error',
+                'implementation': 'Helix',
+                'color_name': f'{variant} theme file',
+                'expected': 'File exists',
+                'actual': 'NOT FOUND',
+                'context': str(helix_file)
+            })
+            return False
+            
         with open(helix_file) as f:
             content = f.read()
         
-        palette = self.palette['dark']
+        palette = self.palette[variant]
         
-        # Extract palette section
+        # Extract the [palette] section from TOML file
         palette_match = re.search(r'\[palette\](.*)', content, re.DOTALL)
         if not palette_match:
-            print("  ❌ Could not parse Helix theme")
+            self.issues.append({
+                'severity': 'error',
+                'implementation': f'Helix ({variant})',
+                'color_name': 'palette section',
+                'expected': '[palette] section present',
+                'actual': 'NOT FOUND',
+                'context': str(helix_file)
+            })
             return False
         
         colors = {}
@@ -192,21 +245,48 @@ class ColorValidator:
         all_ok = True
         for key, expected in checks:
             actual = colors.get(key, '')
-            if not self.check_color('Helix', key, expected, actual):
+            if not self.check_color(f'Helix ({variant})', key, expected, actual):
                 all_ok = False
         
-        if all_ok:
-            print("  ✅ Helix theme is consistent")
-        else:
-            print("  ❌ Helix theme has inconsistencies")
-        
         return all_ok
-    
+
+    def validate_helix(self) -> bool:
+        """Validate both Helix dark and light themes against the palette.
+        
+        Returns:
+            True if all Helix themes are consistent, False otherwise.
+        """
+        print("\n🔍 Validating Helix themes...")
+        dark_ok = self.validate_helix_variant('dark')
+        light_ok = self.validate_helix_variant('light')
+        
+        all_ok = dark_ok and light_ok
+        if all_ok:
+            print("  ✅ Helix themes are consistent")
+        else:
+            print("  ❌ Helix themes have inconsistencies")
+        return all_ok
+
     def validate_kitty(self) -> bool:
-        """Validate Kitty theme against palette"""
+        """Validate Kitty theme against the dark reference palette.
+        
+        Returns:
+            True if the Kitty theme matches reference values, False otherwise.
+        """
         print("\n🔍 Validating Kitty theme...")
         kitty_file = ROOT / "kitty" / "guttenbergovitz.conf"
         
+        if not kitty_file.exists():
+            self.issues.append({
+                'severity': 'error',
+                'implementation': 'Kitty',
+                'color_name': 'theme file',
+                'expected': 'File exists',
+                'actual': 'NOT FOUND',
+                'context': str(kitty_file)
+            })
+            return False
+            
         with open(kitty_file) as f:
             content = f.read()
         
@@ -242,9 +322,165 @@ class ColorValidator:
             print("  ❌ Kitty theme has inconsistencies")
         
         return all_ok
-    
+
+    def validate_zed(self) -> bool:
+        """Validate both dark and light Zed themes against the reference palette.
+        
+        Returns:
+            True if both Zed themes are consistent with the palette, False otherwise.
+        """
+        print("\n🔍 Validating Zed themes...")
+        zed_file = ROOT / "zed" / "guttenbergovitz.json"
+        
+        if not zed_file.exists():
+            self.issues.append({
+                'severity': 'error',
+                'implementation': 'Zed',
+                'color_name': 'theme file',
+                'expected': 'File exists',
+                'actual': 'NOT FOUND',
+                'context': str(zed_file)
+            })
+            return False
+            
+        with open(zed_file) as f:
+            data = json.load(f)
+            
+        all_ok = True
+        found_variants = []
+        for theme in data.get('themes', []):
+            variant = theme.get('appearance', '')
+            found_variants.append(variant)
+            if variant not in ['dark', 'light']:
+                continue
+                
+            print(f"  🔍 Validating Zed theme ({variant})...")
+            style = theme.get('style', {})
+            palette = self.palette[variant]
+            
+            checks = [
+                ('editor.background', palette['base']['bg']),
+                ('text', palette['base']['fg']),
+                ('panel.background', palette['base']['bg_dark']),
+                ('editor.active_line.background', palette['ui']['line_highlight']),
+                ('editor.line_number', palette['ui']['line_number']),
+                ('border', palette['ui']['border']),
+            ]
+            
+            for key, expected in checks:
+                actual = style.get(key, '')
+                if not self.check_color(f'Zed ({variant})', key, expected, actual):
+                    all_ok = False
+                    
+            # Check syntax highlighting colors
+            syntax = style.get('syntax', {})
+            syntax_checks = [
+                ('comment', palette['semantic']['comment']),
+                ('keyword', palette['semantic']['keyword']),
+                ('string', palette['semantic']['string']),
+                ('type', palette['semantic']['type']),
+                ('function', palette['semantic']['function']),
+            ]
+            for key, expected in syntax_checks:
+                actual = syntax.get(key, {}).get('color', '')
+                if not self.check_color(f'Zed ({variant}) syntax', key, expected, actual):
+                    all_ok = False
+                    
+        for req in ['dark', 'light']:
+            if req not in found_variants:
+                self.issues.append({
+                    'severity': 'error',
+                    'implementation': 'Zed',
+                    'color_name': f'{req} variant',
+                    'expected': 'Variant present',
+                    'actual': 'MISSING',
+                    'context': ''
+                })
+                all_ok = False
+                
+        if all_ok:
+            print("  ✅ Zed themes are consistent")
+        else:
+            print("  ❌ Zed themes have inconsistencies")
+        return all_ok
+
+    def validate_vim(self) -> bool:
+        """Validate both dark and light Vim colorscheme configurations.
+        
+        Returns:
+            True if both Vim background configurations are consistent, False otherwise.
+        """
+        print("\n🔍 Validating Vim theme...")
+        vim_file = ROOT / "vim" / "colors" / "guttenbergovitz.vim"
+        
+        if not vim_file.exists():
+            self.issues.append({
+                'severity': 'error',
+                'implementation': 'Vim',
+                'color_name': 'theme file',
+                'expected': 'File exists',
+                'actual': 'NOT FOUND',
+                'context': str(vim_file)
+            })
+            return False
+            
+        with open(vim_file) as f:
+            content = f.read()
+            
+        # Extract the two s:colors dictionary blocks (light and dark)
+        blocks = re.findall(r'let s:colors = \{(.*?)\}', content, re.DOTALL)
+        if len(blocks) < 2:
+            self.issues.append({
+                'severity': 'error',
+                'implementation': 'Vim',
+                'color_name': 's:colors blocks',
+                'expected': 'At least 2 blocks found',
+                'actual': f'{len(blocks)} blocks found',
+                'context': ''
+            })
+            return False
+            
+        all_ok = True
+        # ZIP expects light theme as the first block and dark theme as the second block
+        for variant, block in zip(['light', 'dark'], blocks):
+            print(f"  🔍 Validating Vim theme ({variant})...")
+            colors = {}
+            for match in re.finditer(r"\\\s*'(\w+)'\s*:\s*'([^']+)'", block):
+                colors[match.group(1)] = match.group(2)
+                
+            palette = self.palette[variant]
+            
+            checks = [
+                ('bg', palette['base']['bg']),
+                ('bg_dark', palette['base']['bg_dark']),
+                ('bg_light', palette['base']['bg_light']),
+                ('fg', palette['base']['fg']),
+                ('comment', palette['semantic']['comment']),
+                ('red', palette['accents']['red']),
+                ('green', palette['accents']['green']),
+                ('yellow', palette['accents']['yellow']),
+                ('orange', palette['accents']['orange']),
+                ('selection', palette['ui']['selection']),
+                ('border', palette['ui']['border']),
+            ]
+            
+            for key, expected in checks:
+                actual = colors.get(key, '')
+                if not self.check_color(f'Vim ({variant})', key, expected, actual):
+                    all_ok = False
+                    
+        if all_ok:
+            print("  ✅ Vim theme is consistent")
+        else:
+            print("  ❌ Vim theme has inconsistencies")
+        return all_ok
+
     def validate_all(self) -> bool:
-        """Run all validations"""
+        """Run all theme validations.
+        
+        Returns:
+            True if all implementations are consistent, False otherwise.
+        """
         print("=" * 80)
         print("GUTTENBERGOVITZ THEME - CONSISTENCY VALIDATION")
         print("=" * 80)
@@ -254,6 +490,8 @@ class ColorValidator:
         results.append(self.validate_neovim())
         results.append(self.validate_helix())
         results.append(self.validate_kitty())
+        results.append(self.validate_zed())
+        results.append(self.validate_vim())
         
         # Print summary
         print("\n" + "=" * 80)

@@ -24,6 +24,11 @@
                 "label": "Guttenbergovitz",
                 "uiTheme": "vs-dark",
                 "path": "./themes/guttenbergovitz-color-theme.json"
+            },
+            {
+                "label": "Guttenbergovitz Light",
+                "uiTheme": "vs",
+                "path": "./themes/guttenbergovitz-light-color-theme.json"
             }
         ]
     },

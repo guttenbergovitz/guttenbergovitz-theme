@@ -26,8 +26,11 @@ PLATFORMS = {
     "1": {
         "name": "Helix",
         "dest_dir": Path("~/.config/helix/themes").expanduser(),
-        "files": [(ROOT / "helix" / "guttenbergovitz.toml", "guttenbergovitz.toml")],
-        "instructions": "Add `theme = \"guttenbergovitz\"` to your ~/.config/helix/config.toml"
+        "files": [
+            (ROOT / "helix" / "guttenbergovitz.toml", "guttenbergovitz.toml"),
+            (ROOT / "helix" / "guttenbergovitz-light.toml", "guttenbergovitz-light.toml")
+        ],
+        "instructions": "Add `theme = \"guttenbergovitz\"` (or `theme = \"guttenbergovitz-light\"`) to your ~/.config/helix/config.toml"
     },
     "2": {
         "name": "Zed",
@@ -38,20 +41,29 @@ PLATFORMS = {
     "3": {
         "name": "Ghostty",
         "dest_dir": Path("~/.config/ghostty/themes").expanduser(),
-        "files": [(ROOT / "ghostty" / "guttenbergovitz", "guttenbergovitz")],
-        "instructions": "Add `theme = guttenbergovitz` to your ~/.config/ghostty/config"
+        "files": [
+            (ROOT / "ghostty" / "guttenbergovitz", "guttenbergovitz"),
+            (ROOT / "ghostty" / "guttenbergovitz-light", "guttenbergovitz-light")
+        ],
+        "instructions": "Add `theme = guttenbergovitz` (or `theme = guttenbergovitz-light`) to your ~/.config/ghostty/config"
     },
     "4": {
         "name": "Kitty",
         "dest_dir": Path("~/.config/kitty/themes").expanduser(),
-        "files": [(ROOT / "kitty" / "guttenbergovitz.conf", "guttenbergovitz.conf")],
-        "instructions": "Add `include themes/guttenbergovitz.conf` to your ~/.config/kitty/kitty.conf"
+        "files": [
+            (ROOT / "kitty" / "guttenbergovitz.conf", "guttenbergovitz.conf"),
+            (ROOT / "kitty" / "guttenbergovitz-light.conf", "guttenbergovitz-light.conf")
+        ],
+        "instructions": "Add `include themes/guttenbergovitz.conf` (or `themes/guttenbergovitz-light.conf`) to your ~/.config/kitty/kitty.conf"
     },
     "5": {
         "name": "Zellij",
         "dest_dir": Path("~/.config/zellij/themes").expanduser(),
-        "files": [(ROOT / "zellij" / "guttenbergovitz.kdl", "guttenbergovitz.kdl")],
-        "instructions": "Add `theme \"guttenbergovitz\"` to your ~/.config/zellij/config.kdl"
+        "files": [
+            (ROOT / "zellij" / "guttenbergovitz.kdl", "guttenbergovitz.kdl"),
+            (ROOT / "zellij" / "guttenbergovitz-light.kdl", "guttenbergovitz-light.kdl")
+        ],
+        "instructions": "Add `theme \"guttenbergovitz\"` (or `theme \"guttenbergovitz-light\"`) to your ~/.config/zellij/config.kdl"
     },
     "6": {
         "name": "Vim",

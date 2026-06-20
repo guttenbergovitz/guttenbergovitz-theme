@@ -50,5 +50,6 @@
   
   <extensions defaultExtensionNs="com.intellij">
     <themeProvider id="guttenbergovitz-ui" path="/themes/Guttenbergovitz.theme.json"/>
+    <themeProvider id="guttenbergovitz-light-ui" path="/themes/Guttenbergovitz-Light.theme.json"/>
   </extensions>
 </idea-plugin>

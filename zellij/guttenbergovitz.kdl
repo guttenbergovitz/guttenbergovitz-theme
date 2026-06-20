@@ -9,7 +9,7 @@ themes {
         blue "#d79969"
         magenta "#a96b69"
         cyan "#89a87d"
-        white "#7c7c7c"
+        white "#d4be98"
         orange "#d79969"
 
         // Bright variants
@@ -23,4 +23,4 @@ themes {
         white_bright "#d4be98"
         orange_bright "#d79969"
     }
-} 
+}

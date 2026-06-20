@@ -28,11 +28,13 @@ package.vscode:
 	cd vscode && npm install && npm run package
 
 zip.jetbrains-ui:
+	cp jetbrains/*.icls jetbrains/ui-theme/resources/
 	cd jetbrains/ui-theme/resources && zip -r ../guttenbergovitz-ui-theme.jar .
+	rm -f jetbrains/ui-theme/resources/*.icls
 	@echo "Created: jetbrains/ui-theme/guttenbergovitz-ui-theme.jar"
 
 gen.iterm:
-	python3 scripts/gen_itermcolors.py
+	python3 scripts/generate_terminal_themes.py
 
 check.palette:
 	python3 scripts/check_palette.py
