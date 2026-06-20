@@ -3,6 +3,7 @@
   "dark": true,
   "author": "Guttenbergovitz",
   "editorScheme": "/Guttenbergovitz.icls",
+  "parentTheme": "Darcula",
   "ui": {
     "*": {
       "background": "#232326",
@@ -227,6 +228,21 @@
       "selectionForeground": "#d4be98",
       "disabledForeground": "#7c7c7c",
       "disabledBackground": "#1d1d20"
+    },
+    
+    "MainToolbar": {
+      "background": "#1d1d20",
+      "inactiveBackground": "#1d1d20",
+      "infoForeground": "#7c7c7c",
+      "Dropdown": {
+        "background": "#1d1d20",
+        "hoverBackground": "#2a2a2d",
+        "pressedBackground": "#3a3a3d"
+      },
+      "IconButton": {
+        "hoverBackground": "#2a2a2d",
+        "pressedBackground": "#3a3a3d"
+      }
     },
     
     "Notification": {
