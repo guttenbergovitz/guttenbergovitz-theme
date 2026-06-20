@@ -38,3 +38,9 @@ Thumbs.db
 # JetBrains UI theme build artifacts
 jetbrains/ui-theme/*.jar
 jetbrains/ui-theme/*.zip
+
+# AI / Agent files
+.junie/
+.agents/
+AGENTS.md
+CLAUDE.md
