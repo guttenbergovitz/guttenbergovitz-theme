@@ -39,7 +39,7 @@ let s:colors = {
     \ 'bg_dark': '#1d1d20',
     \ 'bg_light': '#2a2a2d',
     \ 'fg': '#d4be98',
-    \ 'fg_dark': '#7c7c7c',
+    \ 'fg_dark': '#a69a88',
     \ 'fg_light': '#e0d2a6',
     \ 'red': '#a96b69',
     \ 'green': '#89a87d',

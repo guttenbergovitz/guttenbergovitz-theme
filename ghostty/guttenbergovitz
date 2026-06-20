@@ -1,8 +1,8 @@
-background = 232326
-foreground = d4be98
-cursor-color = d4be98
-selection-background = 3a3a3d
-selection-foreground = 232326
+background = #232326
+foreground = #d4be98
+cursor-color = #d4be98
+selection-background = #3a3a3d
+selection-foreground = #232326
 
 palette = 0=#1d1d20
 palette = 1=#a96b69

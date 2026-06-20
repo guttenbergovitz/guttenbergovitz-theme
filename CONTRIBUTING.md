@@ -91,7 +91,6 @@ guttenbergovitz-theme/
 make help           # Show all available commands
 make validate       # Validate color consistency
 make check.palette  # Check palette usage
-make analyze        # Run detailed color analysis
 ```
 
 ## Validation in CI/CD
@@ -123,7 +122,6 @@ When proposing color changes, keep in mind the Guttenbergovitz design principles
 
 - Open an issue for general questions
 - Check existing documentation in `CLAUDE.md` and `README.md`
-- Review `REFACTORING_PLAN.md` for architectural details
 
 ## Code of Conduct
 
