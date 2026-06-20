@@ -26,8 +26,11 @@ PLATFORMS = {
     "1": {
         "name": "Helix",
         "dest_dir": Path("~/.config/helix/themes").expanduser(),
-        "files": [(ROOT / "helix" / "guttenbergovitz.toml", "guttenbergovitz.toml")],
-        "instructions": "Add `theme = \"guttenbergovitz\"` to your ~/.config/helix/config.toml"
+        "files": [
+            (ROOT / "helix" / "guttenbergovitz.toml", "guttenbergovitz.toml"),
+            (ROOT / "helix" / "guttenbergovitz-light.toml", "guttenbergovitz-light.toml")
+        ],
+        "instructions": "Add `theme = \"guttenbergovitz\"` (or `theme = \"guttenbergovitz-light\"`) to your ~/.config/helix/config.toml"
     },
     "2": {
         "name": "Zed",

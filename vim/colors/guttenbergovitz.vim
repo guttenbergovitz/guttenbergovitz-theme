@@ -26,7 +26,11 @@ if exists('syntax_on')
 endif
 
 " Set colorscheme name
-let g:colors_name = 'guttenbergovitz'
+if &background ==# 'light'
+    let g:colors_name = 'guttenbergovitz-light'
+else
+    let g:colors_name = 'guttenbergovitz'
+endif
 
 " Enable true color support
 if has('termguicolors')
@@ -34,38 +38,105 @@ if has('termguicolors')
 endif
 
 " Color palette
-let s:colors = {
-    \ 'bg': '#232326',
-    \ 'bg_dark': '#1d1d20',
-    \ 'bg_light': '#2a2a2d',
-    \ 'fg': '#d4be98',
-    \ 'fg_dark': '#a69a88',
-    \ 'fg_light': '#e0d2a6',
-    \ 'red': '#a96b69',
-    \ 'green': '#89a87d',
-    \ 'yellow': '#d6b986',
-    \ 'blue': '#7a9ec2',
-    \ 'orange': '#d79969',
-    \ 'purple': '#b194a3',
-    \ 'cyan': '#89b4ac',
-    \ 'selection': '#3a3a3d',
-    \ 'comment': '#7c7c7c',
-    \ 'cursor': '#d4be98',
-    \ 'border': '#3a3a3d',
-    \ 'error': '#cc6666',
-    \ 'warn': '#de935f',
-    \ 'info': '#81a2be',
-    \ 'hint': '#8abeb7',
-    \ 'ok': '#b5bd68',
-    \ 'diff_add': '#2d3c2d',
-    \ 'diff_delete': '#3c2d2d',
-    \ 'diff_change': '#3c3c2d',
-    \ 'diff_text': '#4c4c2d',
-    \ 'git_add': '#89a87d',
-    \ 'git_change': '#d6b986',
-    \ 'git_delete': '#a96b69',
-    \ 'none': 'NONE'
-\ }
+if &background ==# 'light'
+    let s:colors = {
+        \ 'bg': '#f5f3f0',
+        \ 'bg_dark': '#eae8e5',
+        \ 'bg_light': '#ffffff',
+        \ 'fg': '#5a4a3a',
+        \ 'fg_dark': '#7a6a5a',
+        \ 'fg_light': '#3a2a1a',
+        \ 'red': '#8b4c4a',
+        \ 'green': '#6b8860',
+        \ 'yellow': '#b8995a',
+        \ 'blue': '#5e7ea5',
+        \ 'orange': '#b8784c',
+        \ 'purple': '#956d7e',
+        \ 'cyan': '#6b958f',
+        \ 'selection': '#e8e6e3',
+        \ 'comment': '#a19f9e',
+        \ 'cursor': '#5a4a3a',
+        \ 'border': '#d8d6d3',
+        \ 'error': '#cc6666',
+        \ 'warn': '#de935f',
+        \ 'info': '#5e7ea5',
+        \ 'hint': '#6b958f',
+        \ 'ok': '#6b8860',
+        \ 'diff_add': '#e8f0e8',
+        \ 'diff_delete': '#f0e8e8',
+        \ 'diff_change': '#f0f0e8',
+        \ 'diff_text': '#e8e8d8',
+        \ 'git_add': '#6b8860',
+        \ 'git_change': '#b8995a',
+        \ 'git_delete': '#8b4c4a',
+        \ 't_black': '#3a2a1a',
+        \ 't_red': '#8b4c4a',
+        \ 't_green': '#6b8860',
+        \ 't_yellow': '#b8995a',
+        \ 't_blue': '#5e7ea5',
+        \ 't_magenta': '#956d7e',
+        \ 't_cyan': '#6b958f',
+        \ 't_white': '#7a6a5a',
+        \ 't_bright_black': '#5a4a3a',
+        \ 't_bright_red': '#cc6666',
+        \ 't_bright_green': '#8ba168',
+        \ 't_bright_yellow': '#d6b986',
+        \ 't_bright_blue': '#81a2be',
+        \ 't_bright_magenta': '#b294bb',
+        \ 't_bright_cyan': '#8abeb7',
+        \ 't_bright_white': '#f5f3f0',
+        \ 'none': 'NONE'
+    \ }
+else
+    let s:colors = {
+        \ 'bg': '#232326',
+        \ 'bg_dark': '#1d1d20',
+        \ 'bg_light': '#2a2a2d',
+        \ 'fg': '#d4be98',
+        \ 'fg_dark': '#a69a88',
+        \ 'fg_light': '#e0d2a6',
+        \ 'red': '#a96b69',
+        \ 'green': '#89a87d',
+        \ 'yellow': '#d6b986',
+        \ 'blue': '#7a9ec2',
+        \ 'orange': '#d79969',
+        \ 'purple': '#b194a3',
+        \ 'cyan': '#89b4ac',
+        \ 'selection': '#3a3a3d',
+        \ 'comment': '#7c7c7c',
+        \ 'cursor': '#d4be98',
+        \ 'border': '#3a3a3d',
+        \ 'error': '#cc6666',
+        \ 'warn': '#de935f',
+        \ 'info': '#81a2be',
+        \ 'hint': '#8abeb7',
+        \ 'ok': '#b5bd68',
+        \ 'diff_add': '#2d3c2d',
+        \ 'diff_delete': '#3c2d2d',
+        \ 'diff_change': '#3c3c2d',
+        \ 'diff_text': '#4c4c2d',
+        \ 'git_add': '#89a87d',
+        \ 'git_change': '#d6b986',
+        \ 'git_delete': '#a96b69',
+        \ 't_black': '#1d1d20',
+        \ 't_red': '#a96b69',
+        \ 't_green': '#89a87d',
+        \ 't_yellow': '#d6b986',
+        \ 't_blue': '#7a9ec2',
+        \ 't_magenta': '#b194a3',
+        \ 't_cyan': '#89b4ac',
+        \ 't_white': '#d4be98',
+        \ 't_bright_black': '#a69a88',
+        \ 't_bright_red': '#a96b69',
+        \ 't_bright_green': '#89a87d',
+        \ 't_bright_yellow': '#d6b986',
+        \ 't_bright_blue': '#7a9ec2',
+        \ 't_bright_magenta': '#b194a3',
+        \ 't_bright_cyan': '#89b4ac',
+        \ 't_bright_white': '#e0d2a6',
+        \ 'none': 'NONE'
+    \ }
+endif
 
 " Helper function to set highlight groups
 function! s:hi(group, fg, bg, attr, sp)
@@ -407,22 +478,22 @@ call s:hi('vimContinue', s:colors.fg_dark, '', '', '')
 " Terminal colors (if supported)
 if exists('*term_setansicolors')
     let g:terminal_ansi_colors = [
-        \ s:colors.bg_dark,
-        \ s:colors.red,
-        \ s:colors.green,
-        \ s:colors.yellow,
-        \ s:colors.blue,
-        \ s:colors.purple,
-        \ s:colors.cyan,
-        \ s:colors.fg,
-        \ s:colors.fg_dark,
-        \ s:colors.error,
-        \ s:colors.ok,
-        \ s:colors.warn,
-        \ s:colors.info,
-        \ s:colors.purple,
-        \ s:colors.hint,
-        \ s:colors.fg_light
+        \ s:colors.t_black,
+        \ s:colors.t_red,
+        \ s:colors.t_green,
+        \ s:colors.t_yellow,
+        \ s:colors.t_blue,
+        \ s:colors.t_magenta,
+        \ s:colors.t_cyan,
+        \ s:colors.t_white,
+        \ s:colors.t_bright_black,
+        \ s:colors.t_bright_red,
+        \ s:colors.t_bright_green,
+        \ s:colors.t_bright_yellow,
+        \ s:colors.t_bright_blue,
+        \ s:colors.t_bright_magenta,
+        \ s:colors.t_bright_cyan,
+        \ s:colors.t_bright_white
     \ ]
 endif
 
