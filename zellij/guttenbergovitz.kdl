@@ -1,7 +1,7 @@
 themes {
     guttenbergovitz {
         fg "#d4be98"
-        bg "#232326"
+        bg "#3a3a3d"
         black "#1d1d20"
         red "#a96b69"
         green "#89a87d"
@@ -9,7 +9,7 @@ themes {
         blue "#d79969"
         magenta "#a96b69"
         cyan "#89a87d"
-        white "#d4be98"
+        white "#7c7c7c"
         orange "#d79969"
 
         // Bright variants
