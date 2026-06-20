@@ -16,6 +16,16 @@
 - [JetBrains](jetbrains/README.md) - A theme for all JetBrains IDEs (IntelliJ, PyCharm, WebStorm, etc.)
 - [Ghostty](ghostty/README.md) - A Ghostty terminal theme
 
+## Installation
+
+You can easily install the theme for your preferred editor or terminal using our interactive CLI installer:
+
+```bash
+make install
+```
+
+This script automatically creates the correct directory structures and copies the theme files to their local configuration locations (Helix, Zed, Ghostty, Kitty, Zellij, Vim, and Neovim).
+
 ## About
 
 Guttenbergovitz was conceived during a deep dive into jazz history, evolving from a discussion about the parallels between music evolution and code aesthetics. Just as Miles Davis stripped jazz to its essence in "Kind of Blue", this theme aims to reduce visual noise while maintaining depth and character.

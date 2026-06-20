@@ -42,7 +42,8 @@ def main():
     root = Path(__file__).resolve().parents[1]
     palette = json.loads((root / 'palette.json').read_text())
     dark = palette['dark']
-    ansi = dark['ansi_remap']
+    ansi = dark['terminal']['ansi']
+    ansi_bright = dark['terminal']['ansi_bright']
 
     out = []
     out.append(TPL_HEADER)
@@ -56,25 +57,25 @@ def main():
 
     # ANSI 0..15
     order = [
-        ('Ansi 0 Color', 'black'),
-        ('Ansi 1 Color', 'red'),
-        ('Ansi 2 Color', 'green'),
-        ('Ansi 3 Color', 'yellow'),
-        ('Ansi 4 Color', 'blue'),
-        ('Ansi 5 Color', 'magenta'),
-        ('Ansi 6 Color', 'cyan'),
-        ('Ansi 7 Color', 'white'),
-        ('Ansi 8 Color', 'bright_black'),
-        ('Ansi 9 Color', 'bright_red'),
-        ('Ansi 10 Color', 'bright_green'),
-        ('Ansi 11 Color', 'bright_yellow'),
-        ('Ansi 12 Color', 'bright_blue'),
-        ('Ansi 13 Color', 'bright_magenta'),
-        ('Ansi 14 Color', 'bright_cyan'),
-        ('Ansi 15 Color', 'bright_white'),
+        ('Ansi 0 Color', ansi['black']),
+        ('Ansi 1 Color', ansi['red']),
+        ('Ansi 2 Color', ansi['green']),
+        ('Ansi 3 Color', ansi['yellow']),
+        ('Ansi 4 Color', ansi['blue']),
+        ('Ansi 5 Color', ansi['magenta']),
+        ('Ansi 6 Color', ansi['cyan']),
+        ('Ansi 7 Color', ansi['white']),
+        ('Ansi 8 Color', ansi_bright['black']),
+        ('Ansi 9 Color', ansi_bright['red']),
+        ('Ansi 10 Color', ansi_bright['green']),
+        ('Ansi 11 Color', ansi_bright['yellow']),
+        ('Ansi 12 Color', ansi_bright['blue']),
+        ('Ansi 13 Color', ansi_bright['magenta']),
+        ('Ansi 14 Color', ansi_bright['cyan']),
+        ('Ansi 15 Color', ansi_bright['white']),
     ]
-    for key, name in order:
-        out.append(color_block(key, ansi[name]))
+    for key, val in order:
+        out.append(color_block(key, val))
 
     out.append(TPL_FOOTER)
 

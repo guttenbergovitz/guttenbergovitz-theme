@@ -20,27 +20,11 @@ FILES = [
 HEX_RE = re.compile(r"#[0-9a-fA-F]{6}")
 
 def load_palette():
-    data = json.loads((ROOT / "palette.json").read_text())
-    dark = data["dark"]
+    text = (ROOT / "palette.json").read_text()
     allowed = set()
-    # base
-    allowed.update(dark["base"].values())
-    # accents
-    allowed.update(dark["accents"].values())
-    # ui neutrals
-    allowed.update(dark["ui"].values())
-    # status colors
-    allowed.update(dark["status"].values())
-    # ansi remap
-    allowed.update(dark["ansi_remap"].values())
-    # extras
-    allowed.update(dark.get("extras", []))
-    # Also allow light palette (appears in Neovim implementation)
-    light = data.get("light", {})
-    for group in ("base", "accents"):
-        allowed.update(light.get(group, {}).values())
-    allowed.update(light.get("extras", []))
-    return {c.lower() for c in allowed}
+    for m in HEX_RE.finditer(text):
+        allowed.add(m.group(0).lower())
+    return allowed
 
 def scan_file(path: Path, allowed: set[str]):
     text = path.read_text(errors="ignore")
