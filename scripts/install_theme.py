@@ -116,6 +116,15 @@ PLATFORMS = {
             (ROOT / "vscode" / "themes" / "guttenbergovitz-light-color-theme.json", "themes/guttenbergovitz-light-color-theme.json")
         ],
         "instructions": "Restart Cursor, then switch themes (`cmd+k cmd+t`) and select \"Guttenbergovitz\" or \"Guttenbergovitz Light\""
+    },
+    "11": {
+        "name": "Warp",
+        "dest_dir": Path("~/.warp/themes").expanduser(),
+        "files": [
+            (ROOT / "warp" / "guttenbergovitz.yaml", "guttenbergovitz.yaml"),
+            (ROOT / "warp" / "guttenbergovitz-light.yaml", "guttenbergovitz-light.yaml")
+        ],
+        "instructions": "Open Warp, navigate to Settings → Appearance → Theme, and select \"Guttenbergovitz\" or \"Guttenbergovitz Light\""
     }
 }
 

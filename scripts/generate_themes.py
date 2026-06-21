@@ -1,16 +1,19 @@
 #!/usr/bin/env python3
 """
-Generate terminal and multiplexer themes from palette.json.
-Supports Kitty, Ghostty, Warp, Zellij, and iTerm (both light and dark variants).
+Unified theme generator from palette.json.
+Generates terminal themes (Kitty, Ghostty, Warp, Zellij, iTerm) and renders
+editor templates (VS Code, Cursor, Kiro, Zed) for both dark and light variants.
 """
 
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PALETTE_FILE = ROOT / "palette.json"
+TEMPLATES_DIR = ROOT / "templates"
 
-# plist header and footer templates for iTerm colors generation
+# plist templates for iTerm colors generation
 ITERM_HEADER = """<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -32,48 +35,6 @@ def hex_to_rgb_f(c: str):
 
 def iterm_color_block(key: str, hex_color: str) -> str:
     """Generate a single color entry for iTerm plist format."""
-    r, g, b = hex_to_rgb_f(hex_color)
-    return f"""
-\t<key>{key}</key>
-\t<dict>
-\t\t<key>Alpha Component</key>
-\t\t<real>1</real>
-\t\t<key>Blue Component</key>
-\t\t<real>{b:.9f}</real>
-\t\t<key>Color Space</key>
-\t\t<string>srgb</string>
-\t\t<key>Green Component</key>
-\t\t<real>{g:.9f}</real>
-\t\t<key>Red Component</key>
-\t\t<real>{r:.9f}</real>
-\t\t<key>/key>
-\t\t<string>srgb</string>
-\t\t<key>Green Component</key>
-\t\t<real>{g:.9f}</real>
-\t\t<key>Red Component</key>
-\t\t<real>{r:.9f}</real>
-\t</dict>
-"""
-
-# Wait, let's fix the duplicated tags in iterm_color_block
-# The original script had:
-#     return f"""
-# 	<key>{key}</key>
-# 	<dict>
-# 		<key>Alpha Component</key>
-# 		<real>1</real>
-# 		<key>Blue Component</key>
-# 		<real>{b:.9f}</real>
-# 		<key>Color Space</key>
-# 		<string>srgb</string>
-# 		<key>Green Component</key>
-# 		<real>{g:.9f}</real>
-# 		<key>Red Component</key>
-# 		<real>{r:.9f}</real>
-# 	</dict>
-# """
-
-def iterm_color_block_correct(key: str, hex_color: str) -> str:
     r, g, b = hex_to_rgb_f(hex_color)
     return f"""\t<key>{key}</key>
 \t<dict>
@@ -275,11 +236,11 @@ def generate_iterm(palette: dict, variant: str) -> str:
     
     out = [ITERM_HEADER]
     
-    out.append(iterm_color_block_correct('Background Color', base['bg']))
-    out.append(iterm_color_block_correct('Foreground Color', base['fg']))
-    out.append(iterm_color_block_correct('Cursor Color', ui['cursor']))
-    out.append(iterm_color_block_correct('Selection Color', ui['selection']))
-    out.append(iterm_color_block_correct('Selected Text Color', base['bg']))
+    out.append(iterm_color_block('Background Color', base['bg']))
+    out.append(iterm_color_block('Foreground Color', base['fg']))
+    out.append(iterm_color_block('Cursor Color', ui['cursor']))
+    out.append(iterm_color_block('Selection Color', ui['selection']))
+    out.append(iterm_color_block('Selected Text Color', base['bg']))
     
     order = [
         ('Ansi 0 Color', ansi['black']),
@@ -301,10 +262,38 @@ def generate_iterm(palette: dict, variant: str) -> str:
     ]
     
     for key, val in order:
-        out.append(iterm_color_block_correct(key, val))
+        out.append(iterm_color_block(key, val))
         
     out.append(ITERM_FOOTER)
     return ''.join(out)
+
+def get_nested_val(data, path_str):
+    """Retrieve nested dictionary value using a dot-separated path string."""
+    parts = path_str.split('.')
+    cur = data
+    for part in parts:
+        cur = cur[part]
+    return cur
+
+def render_template_obj(obj, palette, variant):
+    """Recursively render template placeholders in dict or list structures."""
+    if isinstance(obj, str):
+        if obj.startswith('{{') and obj.endswith('}}'):
+            path = obj[2:-2]
+            return get_nested_val(palette[variant], path)
+        elif '{{' in obj:
+            m = re.match(r'\{\{([^}]+)\}\}(.*)', obj)
+            if m:
+                path = m.group(1)
+                suffix = m.group(2)
+                val = get_nested_val(palette[variant], path)
+                return f"{val}{suffix}"
+        return obj
+    elif isinstance(obj, dict):
+        return {k: render_template_obj(v, palette, variant) for k, v in obj.items()}
+    elif isinstance(obj, list):
+        return [render_template_obj(x, palette, variant) for x in obj]
+    return obj
 
 def main():
     if not PALETTE_FILE.exists():
@@ -313,6 +302,7 @@ def main():
         
     palette = json.loads(PALETTE_FILE.read_text())
     
+    # 1. Generate Terminal Themes
     for variant in ['dark', 'light']:
         print(f"Generating terminal configs for '{variant}' variant...")
         
@@ -350,6 +340,31 @@ def main():
         iterm_path = ROOT / "iterm" / f"{iterm_name}.itermcolors"
         iterm_path.write_text(iterm_content)
         print(f"  ✔ iTerm: {iterm_path.name}")
+
+    # 2. Render Editor Themes from Templates
+    print("\nRendering editor themes from templates...")
+    
+    # VS Code (dark & light)
+    for variant in ['dark', 'light']:
+        suffix = "-light" if variant == "light" else ""
+        tmpl_file = TEMPLATES_DIR / f"vscode-{variant}.json.tmpl"
+        if tmpl_file.exists():
+            tmpl_data = json.loads(tmpl_file.read_text())
+            rendered = render_template_obj(tmpl_data, palette, variant)
+            dest_file = ROOT / "vscode" / "themes" / f"guttenbergovitz{suffix}-color-theme.json"
+            dest_file.write_text(json.dumps(rendered, indent=4))
+            print(f"  ✔ VS Code ({variant}): {dest_file.name}")
+            
+    # Zed
+    zed_tmpl_file = TEMPLATES_DIR / "zed.json.tmpl"
+    if zed_tmpl_file.exists():
+        zed_tmpl = json.loads(zed_tmpl_file.read_text())
+        for theme in zed_tmpl.get("themes", []):
+            theme_variant = theme.get("appearance", "dark")
+            theme["style"] = render_template_obj(theme["style"], palette, theme_variant)
+        dest_file = ROOT / "zed" / "guttenbergovitz.json"
+        dest_file.write_text(json.dumps(zed_tmpl, indent=4))
+        print(f"  ✔ Zed (combined): {dest_file.name}")
 
 if __name__ == '__main__':
     main()
