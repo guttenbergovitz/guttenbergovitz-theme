@@ -80,10 +80,24 @@ colorscheme guttenbergovitz
 ### Basic Setup
 
 ```vim
-\" Enable true color support
+" Enable true color support
 set termguicolors
 
-\" Set the colorscheme
+" Set the colorscheme
+colorscheme guttenbergovitz
+```
+
+### Switching between Dark and Light Variants
+
+The theme dynamically branches on Vim's `background` setting (`light` vs `dark`). You can switch variants dynamically or configure your preferred default variant in your `~/.vimrc`:
+
+```vim
+" To use the Dark variant (default)
+set background=dark
+colorscheme guttenbergovitz
+
+" To use the Light variant
+set background=light
 colorscheme guttenbergovitz
 ```
 
@@ -92,23 +106,20 @@ colorscheme guttenbergovitz
 For the best experience, consider these additional settings:
 
 ```vim
-\" Enable syntax highlighting
+" Enable syntax highlighting
 syntax on
 
-\" Show line numbers
+" Show line numbers
 set number
 
-\" Highlight current line
+" Highlight current line
 set cursorline
 
-\" Enable true color support
+" Enable true color support
 set termguicolors
 
-\" Set the colorscheme
+" Set the colorscheme
 colorscheme guttenbergovitz
-
-\" Optional: Set background (usually not needed)
-\" set background=dark
 ```
 
 ## Plugin Support
