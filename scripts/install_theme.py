@@ -104,6 +104,18 @@ PLATFORMS = {
             (ROOT / "vscode" / "themes" / "guttenbergovitz-light-color-theme.json", "themes/guttenbergovitz-light-color-theme.json")
         ],
         "instructions": "Restart Kiro, then switch themes (`cmd+k cmd+t`) and select \"Guttenbergovitz\" or \"Guttenbergovitz Light\""
+    },
+    "10": {
+        "name": "Cursor",
+        "dest_dir": Path("~/.cursor/extensions/guttenbergovitz").expanduser(),
+        "files": [
+            (ROOT / "vscode" / "package.json", "package.json"),
+            (ROOT / "vscode" / "README.md", "README.md"),
+            (ROOT / "vscode" / "assets" / "icon.png", "assets/icon.png"),
+            (ROOT / "vscode" / "themes" / "guttenbergovitz-color-theme.json", "themes/guttenbergovitz-color-theme.json"),
+            (ROOT / "vscode" / "themes" / "guttenbergovitz-light-color-theme.json", "themes/guttenbergovitz-light-color-theme.json")
+        ],
+        "instructions": "Restart Cursor, then switch themes (`cmd+k cmd+t`) and select \"Guttenbergovitz\" or \"Guttenbergovitz Light\""
     }
 }
 
