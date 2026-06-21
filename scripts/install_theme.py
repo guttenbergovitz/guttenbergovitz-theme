@@ -125,6 +125,15 @@ PLATFORMS = {
             (ROOT / "warp" / "guttenbergovitz-light.yaml", "guttenbergovitz-light.yaml")
         ],
         "instructions": "Open Warp, navigate to Settings → Appearance → Theme, and select \"Guttenbergovitz\" or \"Guttenbergovitz Light\""
+    },
+    "12": {
+        "name": "JetBrains",
+        "dest_dir": None,
+        "files": [
+            (ROOT / "jetbrains" / "Guttenbergovitz.icls", "Guttenbergovitz.icls"),
+            (ROOT / "jetbrains" / "Guttenbergovitz-Light.icls", "Guttenbergovitz-Light.icls")
+        ],
+        "instructions": "Restart your IDE, navigate to Settings → Editor → Color Scheme, and select \"Guttenbergovitz\" or \"Guttenbergovitz Light\"\nTo build/install the UI Theme plugin, run: make zip.jetbrains-ui"
     }
 }
 
@@ -143,6 +152,18 @@ def print_warning(message):
 def print_error(message):
     print(f"{RED}✘ {message}{RESET}")
 
+def find_jetbrains_dirs():
+    """Scan standard locations for installed JetBrains IDE configuration folders."""
+    jb_base = Path("~/Library/Application Support/JetBrains").expanduser()
+    if not jb_base.exists():
+        return []
+    
+    dirs = []
+    for p in jb_base.iterdir():
+        if p.is_dir() and not p.name.startswith('.'):
+            dirs.append(p)
+    return dirs
+
 def install_platform(key):
     platform = PLATFORMS[key]
     name = platform["name"]
@@ -152,6 +173,25 @@ def install_platform(key):
     print(f"\n{BOLD}{CYAN}Installing theme for: {name}...{RESET}")
     
     try:
+        if name == "JetBrains":
+            jb_dirs = find_jetbrains_dirs()
+            if not jb_dirs:
+                print_warning("No active JetBrains IDE configuration directories found under ~/Library/Application Support/JetBrains/")
+                print_info("Please import the scheme manually inside your IDE using File -> Settings -> Editor -> Color Scheme -> Import Scheme.")
+                return
+                
+            for jb_dir in jb_dirs:
+                colors_dir = jb_dir / "colors"
+                colors_dir.mkdir(parents=True, exist_ok=True)
+                for src, rel_dest in files:
+                    dest = colors_dir / rel_dest
+                    shutil.copy2(src, dest)
+                    print_success(f"Copied to {jb_dir.name}: {src.name} -> {dest}")
+                    
+            print_success(f"{name}: Installed successfully on {len(jb_dirs)} IDE directories!")
+            print(f"{BOLD}Activation:{RESET} {platform['instructions']}")
+            return
+
         # Check and create directory if needed
         if not dest_dir.exists():
             dest_dir.mkdir(parents=True, exist_ok=True)
