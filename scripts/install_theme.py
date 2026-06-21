@@ -80,6 +80,30 @@ PLATFORMS = {
             (ROOT / "lua" / "guttenbergovitz" / "init.lua", "lua/guttenbergovitz/init.lua")
         ],
         "instructions": "Open Neovim and run `:colorscheme guttenbergovitz` (or `:colorscheme guttenbergovitz-light`)\nTo enable italicized comments: `vim.g.guttenbergovitz_italics = true`"
+    },
+    "8": {
+        "name": "VS Code",
+        "dest_dir": Path("~/.vscode/extensions/guttenbergovitz").expanduser(),
+        "files": [
+            (ROOT / "vscode" / "package.json", "package.json"),
+            (ROOT / "vscode" / "README.md", "README.md"),
+            (ROOT / "vscode" / "assets" / "icon.png", "assets/icon.png"),
+            (ROOT / "vscode" / "themes" / "guttenbergovitz-color-theme.json", "themes/guttenbergovitz-color-theme.json"),
+            (ROOT / "vscode" / "themes" / "guttenbergovitz-light-color-theme.json", "themes/guttenbergovitz-light-color-theme.json")
+        ],
+        "instructions": "Restart VS Code, then switch themes (`cmd+k cmd+t`) and select \"Guttenbergovitz\" or \"Guttenbergovitz Light\""
+    },
+    "9": {
+        "name": "Kiro",
+        "dest_dir": Path("~/.kiro/extensions/guttenbergovitz").expanduser(),
+        "files": [
+            (ROOT / "vscode" / "package.json", "package.json"),
+            (ROOT / "vscode" / "README.md", "README.md"),
+            (ROOT / "vscode" / "assets" / "icon.png", "assets/icon.png"),
+            (ROOT / "vscode" / "themes" / "guttenbergovitz-color-theme.json", "themes/guttenbergovitz-color-theme.json"),
+            (ROOT / "vscode" / "themes" / "guttenbergovitz-light-color-theme.json", "themes/guttenbergovitz-light-color-theme.json")
+        ],
+        "instructions": "Restart Kiro, then switch themes (`cmd+k cmd+t`) and select \"Guttenbergovitz\" or \"Guttenbergovitz Light\""
     }
 }
 
