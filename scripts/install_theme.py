@@ -134,6 +134,14 @@ PLATFORMS = {
             (ROOT / "jetbrains" / "Guttenbergovitz-Light.icls", "Guttenbergovitz-Light.icls")
         ],
         "instructions": "Restart your IDE, navigate to Settings → Editor → Color Scheme, and select \"Guttenbergovitz\" or \"Guttenbergovitz Light\"\nTo build/install the UI Theme plugin, run: make zip.jetbrains-ui"
+    },
+    "13": {
+        "name": "OpenCode",
+        "dest_dir": Path("~/.config/opencode/themes").expanduser(),
+        "files": [
+            (ROOT / "opencode" / "guttenbergovitz.json", "guttenbergovitz.json")
+        ],
+        "instructions": "Open OpenCode, then switch themes and select \"Guttenbergovitz\""
     }
 }
 
