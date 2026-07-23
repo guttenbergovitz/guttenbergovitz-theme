@@ -475,6 +475,129 @@ class ColorValidator:
             print("  ❌ Vim theme has inconsistencies")
         return all_ok
 
+    def validate_zellij(self) -> bool:
+        """Validate both dark and light Zellij themes against the reference palette.
+
+        Returns:
+            True if all Zellij themes are consistent, False otherwise.
+        """
+        print("\n🔍 Validating Zellij themes...")
+        all_ok = True
+
+        for variant in ['dark', 'light']:
+            suffix = "-light" if variant == "light" else ""
+            filename = f"guttenbergovitz{suffix}.kdl"
+            zellij_file = ROOT / "zellij" / filename
+
+            if not zellij_file.exists():
+                self.issues.append({
+                    'severity': 'error',
+                    'implementation': 'Zellij',
+                    'color_name': f'{variant} theme file',
+                    'expected': 'File exists',
+                    'actual': 'NOT FOUND',
+                    'context': str(zellij_file)
+                })
+                all_ok = False
+                continue
+
+            print(f"  🔍 Validating Zellij theme ({variant})...")
+            content = zellij_file.read_text()
+            palette = self.palette[variant]
+
+            colors = {}
+            for match in re.finditer(r'(\w+)\s+"(#[0-9a-fA-F]{6})"', content):
+                colors[match.group(1)] = match.group(2)
+
+            checks = [
+                ('fg', palette['base']['fg']),
+                ('bg', palette['ui']['border']),
+                ('black', palette['terminal']['ansi']['black']),
+                ('red', palette['terminal']['ansi']['red']),
+                ('green', palette['terminal']['ansi']['green']),
+                ('yellow', palette['terminal']['ansi']['yellow']),
+                ('blue', palette['terminal']['ansi']['blue']),
+                ('magenta', palette['terminal']['ansi']['magenta']),
+                ('cyan', palette['terminal']['ansi']['cyan']),
+                ('white', palette['terminal']['ansi']['white']),
+                ('orange', palette['accents']['orange']),
+                ('black_bright', palette['terminal']['ansi_bright']['black']),
+                ('red_bright', palette['terminal']['ansi_bright']['red']),
+                ('green_bright', palette['terminal']['ansi_bright']['green']),
+                ('yellow_bright', palette['terminal']['ansi_bright']['yellow']),
+                ('blue_bright', palette['terminal']['ansi_bright']['blue']),
+                ('magenta_bright', palette['terminal']['ansi_bright']['magenta']),
+                ('cyan_bright', palette['terminal']['ansi_bright']['cyan']),
+                ('white_bright', palette['terminal']['ansi_bright']['white']),
+                ('orange_bright', palette['accents']['orange']),
+            ]
+
+            for key, expected in checks:
+                actual = colors.get(key, '')
+                if not self.check_color(f'Zellij ({variant})', key, expected, actual):
+                    all_ok = False
+
+        if all_ok:
+            print("  ✅ Zellij themes are consistent")
+        else:
+            print("  ❌ Zellij themes have inconsistencies")
+        return all_ok
+
+    def validate_opencode(self) -> bool:
+        """Validate OpenCode theme against the reference palette."""
+        print("\n🔍 Validating OpenCode theme...")
+        opencode_file = ROOT / "opencode" / "guttenbergovitz.json"
+
+        if not opencode_file.exists():
+            self.issues.append({
+                'severity': 'error',
+                'implementation': 'OpenCode',
+                'color_name': 'theme file',
+                'expected': 'File exists',
+                'actual': 'NOT FOUND',
+                'context': str(opencode_file)
+            })
+            return False
+
+        with open(opencode_file) as f:
+            data = json.load(f)
+
+        theme = data.get('theme', {})
+        all_ok = True
+
+        mapping = {
+            'text': ('base', 'fg'),
+            'textMuted': ('base', 'fg_dim'),
+            'background': ('base', 'bg'),
+            'backgroundPanel': ('base', 'bg_light'),
+            'backgroundElement': ('base', 'bg_dark'),
+            'border': ('ui', 'border'),
+            'syntaxComment': ('semantic', 'comment'),
+            'syntaxKeyword': ('semantic', 'keyword'),
+            'syntaxFunction': ('semantic', 'function'),
+            'syntaxVariable': ('semantic', 'variable'),
+            'syntaxString': ('semantic', 'string'),
+            'syntaxNumber': ('semantic', 'number'),
+            'syntaxType': ('semantic', 'type'),
+            'syntaxOperator': ('semantic', 'operator'),
+            'syntaxPunctuation': ('semantic', 'punctuation'),
+        }
+
+        for variant in ['dark', 'light']:
+            palette = self.palette[variant]
+            for key, (section, color_key) in mapping.items():
+                entry = theme.get(key, {})
+                actual = entry.get(variant, '')
+                expected = palette[section][color_key]
+                if not self.check_color(f'OpenCode ({variant})', key, expected, actual):
+                    all_ok = False
+
+        if all_ok:
+            print("  ✅ OpenCode theme is consistent")
+        else:
+            print("  ❌ OpenCode theme has inconsistencies")
+        return all_ok
+
     def validate_all(self) -> bool:
         """Run all theme validations.
         
@@ -492,6 +615,8 @@ class ColorValidator:
         results.append(self.validate_kitty())
         results.append(self.validate_zed())
         results.append(self.validate_vim())
+        results.append(self.validate_zellij())
+        results.append(self.validate_opencode())
         
         # Print summary
         print("\n" + "=" * 80)
