@@ -142,6 +142,15 @@ PLATFORMS = {
             (ROOT / "opencode" / "guttenbergovitz.json", "guttenbergovitz.json")
         ],
         "instructions": "Open OpenCode, then switch themes and select \"Guttenbergovitz\""
+    },
+    "14": {
+        "name": "Pi",
+        "dest_dir": Path("~/.pi/agent/themes").expanduser(),
+        "files": [
+            (ROOT / "pi" / "guttenbergovitz.json", "guttenbergovitz.json"),
+            (ROOT / "pi" / "guttenbergovitz-light.json", "guttenbergovitz-light.json")
+        ],
+        "instructions": "Open Pi, run `/settings` and select \"guttenbergovitz\" or \"guttenbergovitz-light\""
     }
 }
 
