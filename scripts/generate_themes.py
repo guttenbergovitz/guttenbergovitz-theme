@@ -267,6 +267,73 @@ def generate_iterm(palette: dict, variant: str) -> str:
     out.append(ITERM_FOOTER)
     return ''.join(out)
 
+def generate_opencode(palette: dict) -> str:
+    """Generate OpenCode theme JSON with both dark and light variants."""
+
+    def c(variant: str, section: str, key: str) -> str:
+        return palette[variant][section][key]
+
+    def pair(section: str, key: str) -> dict:
+        return {"dark": c("dark", section, key), "light": c("light", section, key)}
+
+    theme = {
+        "$schema": "https://opencode.ai/theme.json",
+        "defs": {},
+        "theme": {
+            "primary": pair("accents", "blue"),
+            "secondary": pair("accents", "purple"),
+            "accent": pair("accents", "cyan"),
+            "error": pair("status", "error"),
+            "warning": pair("status", "warning"),
+            "success": pair("status", "success"),
+            "info": pair("status", "info"),
+            "text": pair("base", "fg"),
+            "textMuted": pair("base", "fg_dim"),
+            "background": pair("base", "bg"),
+            "backgroundPanel": pair("base", "bg_light"),
+            "backgroundElement": pair("base", "bg_dark"),
+            "border": pair("ui", "border"),
+            "borderActive": {"dark": c("dark", "accents", "cyan"), "light": c("light", "accents", "cyan")},
+            "borderSubtle": pair("ui", "border"),
+            "diffAdded": {"dark": c("dark", "git", "added"), "light": c("light", "git", "added")},
+            "diffRemoved": {"dark": c("dark", "git", "deleted"), "light": c("light", "git", "deleted")},
+            "diffContext": pair("base", "fg_dim"),
+            "diffHunkHeader": pair("ui", "border"),
+            "diffHighlightAdded": {"dark": c("dark", "git", "added"), "light": c("light", "git", "added")},
+            "diffHighlightRemoved": {"dark": c("dark", "git", "deleted"), "light": c("light", "git", "deleted")},
+            "diffAddedBg": pair("diff", "add"),
+            "diffRemovedBg": pair("diff", "delete"),
+            "diffContextBg": pair("base", "bg"),
+            "diffLineNumber": pair("ui", "line_number"),
+            "diffAddedLineNumberBg": pair("diff", "add"),
+            "diffRemovedLineNumberBg": pair("diff", "delete"),
+            "markdownText": pair("base", "fg"),
+            "markdownHeading": pair("accents", "yellow"),
+            "markdownLink": pair("accents", "blue"),
+            "markdownLinkText": pair("accents", "cyan"),
+            "markdownCode": pair("accents", "green"),
+            "markdownBlockQuote": pair("base", "fg_dim"),
+            "markdownEmph": pair("accents", "orange"),
+            "markdownStrong": pair("accents", "yellow"),
+            "markdownHorizontalRule": pair("ui", "border"),
+            "markdownListItem": pair("accents", "yellow"),
+            "markdownListEnumeration": pair("accents", "orange"),
+            "markdownImage": pair("accents", "blue"),
+            "markdownImageText": pair("accents", "cyan"),
+            "markdownCodeBlock": pair("base", "fg"),
+            "syntaxComment": pair("semantic", "comment"),
+            "syntaxKeyword": pair("semantic", "keyword"),
+            "syntaxFunction": pair("semantic", "function"),
+            "syntaxVariable": pair("semantic", "variable"),
+            "syntaxString": pair("semantic", "string"),
+            "syntaxNumber": pair("semantic", "number"),
+            "syntaxType": pair("semantic", "type"),
+            "syntaxOperator": pair("semantic", "operator"),
+            "syntaxPunctuation": pair("semantic", "punctuation"),
+        }
+    }
+    return json.dumps(theme, indent=4) + "\n"
+
 def get_nested_val(data, path_str):
     """Retrieve nested dictionary value using a dot-separated path string."""
     parts = path_str.split('.')
@@ -355,6 +422,15 @@ def main():
             dest_file.write_text(json.dumps(rendered, indent=4))
             print(f"  ✔ VS Code ({variant}): {dest_file.name}")
             
+    # 3. Generate OpenCode Theme
+    print("\nGenerating OpenCode theme...")
+    opencode_content = generate_opencode(palette)
+    opencode_dir = ROOT / "opencode"
+    opencode_dir.mkdir(exist_ok=True)
+    opencode_path = opencode_dir / "guttenbergovitz.json"
+    opencode_path.write_text(opencode_content)
+    print(f"  ✔ OpenCode: {opencode_path.name}")
+
     # Zed
     zed_tmpl_file = TEMPLATES_DIR / "zed.json.tmpl"
     if zed_tmpl_file.exists():

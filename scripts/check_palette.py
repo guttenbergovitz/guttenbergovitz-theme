@@ -12,6 +12,7 @@ FILES = [
     ROOT / "ghostty/guttenbergovitz",
     ROOT / "warp/guttenbergovitz.yaml",
     ROOT / "zellij/guttenbergovitz.kdl",
+    ROOT / "zellij/guttenbergovitz-light.kdl",
     ROOT / "helix/guttenbergovitz.toml",
     ROOT / "kitty/guttenbergovitz.conf",
     ROOT / "lua/guttenbergovitz/init.lua",
