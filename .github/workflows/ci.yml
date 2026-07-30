@@ -42,7 +42,7 @@ jobs:
         run: |
           python - <<'PY'
           import tomllib
-          tomllib.loads(open('helix/guttenbergovitz.toml','rb').read())
+          tomllib.loads(open('helix/guttenbergovitz.toml','r').read())
           print('TOML OK: helix/guttenbergovitz.toml')
           PY
 
