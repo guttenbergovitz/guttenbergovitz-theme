@@ -436,6 +436,130 @@
       </value>
     </option>
 
+    <!-- Go -->
+    <option name="go.keyword">
+      <value>
+        <option name="FOREGROUND" value="8b4c4a" />
+      </value>
+    </option>
+    <option name="go.string">
+      <value>
+        <option name="FOREGROUND" value="6b8860" />
+      </value>
+    </option>
+    <option name="go.number">
+      <value>
+        <option name="FOREGROUND" value="b8995a" />
+      </value>
+    </option>
+    <option name="go.type.name">
+      <value>
+        <option name="FOREGROUND" value="b8995a" />
+      </value>
+    </option>
+    <option name="go.const">
+      <value>
+        <option name="FOREGROUND" value="b8995a" />
+      </value>
+    </option>
+    <option name="go.variable">
+      <value>
+        <option name="FOREGROUND" value="5a4a3a" />
+      </value>
+    </option>
+    <option name="go.brackets">
+      <value>
+        <option name="FOREGROUND" value="5a4a3a" />
+      </value>
+    </option>
+    <option name="go.operators">
+      <value>
+        <option name="FOREGROUND" value="5a4a3a" />
+      </value>
+    </option>
+    <option name="go.line.comment">
+      <value>
+        <option name="FOREGROUND" value="a19f9e" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="go.block.comment">
+      <value>
+        <option name="FOREGROUND" value="a19f9e" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="GO_KEYWORD">
+      <value>
+        <option name="FOREGROUND" value="8b4c4a" />
+      </value>
+    </option>
+    <option name="GO_BUILTIN_FUNCTION_CALL">
+      <value>
+        <option name="FOREGROUND" value="b8784c" />
+      </value>
+    </option>
+    <option name="GO_EXPORTED_FUNCTION_CALL">
+      <value>
+        <option name="FOREGROUND" value="b8784c" />
+      </value>
+    </option>
+    <option name="GO_LOCAL_FUNCTION_CALL">
+      <value>
+        <option name="FOREGROUND" value="b8784c" />
+      </value>
+    </option>
+    <option name="GO_EXPORTED_FUNCTION">
+      <value>
+        <option name="FOREGROUND" value="b8784c" />
+      </value>
+    </option>
+    <option name="GO_LOCAL_FUNCTION">
+      <value>
+        <option name="FOREGROUND" value="b8784c" />
+      </value>
+    </option>
+    <option name="GO_TYPE_REFERENCE">
+      <value>
+        <option name="FOREGROUND" value="b8995a" />
+      </value>
+    </option>
+    <option name="GO_BUILTIN_TYPE_REFERENCE">
+      <value>
+        <option name="FOREGROUND" value="b8995a" />
+      </value>
+    </option>
+    <option name="GO_PACKAGE">
+      <value>
+        <option name="FOREGROUND" value="5a4a3a" />
+      </value>
+    </option>
+    <option name="GO_FUNCTION_PARAMETER">
+      <value>
+        <option name="FOREGROUND" value="5a4a3a" />
+      </value>
+    </option>
+    <option name="GO_METHOD_RECEIVER">
+      <value>
+        <option name="FOREGROUND" value="5a4a3a" />
+      </value>
+    </option>
+    <option name="GO_LOCAL_VARIABLE">
+      <value>
+        <option name="FOREGROUND" value="5a4a3a" />
+      </value>
+    </option>
+    <option name="GO_BUILTIN_CONSTANT">
+      <value>
+        <option name="FOREGROUND" value="956d7e" />
+      </value>
+    </option>
+    <option name="GO_BUILTIN_VARIABLE">
+      <value>
+        <option name="FOREGROUND" value="956d7e" />
+      </value>
+    </option>
+
     <!-- Java/Kotlin -->
     <option name="KOTLIN_FUNCTION_LITERAL_BRACES_AND_ARROW">
       <value>

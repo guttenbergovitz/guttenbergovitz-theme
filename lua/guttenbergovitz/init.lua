@@ -392,6 +392,36 @@ local function get_groups(colors)
     ["@method.call.typescript"] = { fg = colors.orange },
     ["@constructor.typescript"] = { fg = colors.yellow },
     
+    -- Python specific highlighting
+    ["@function.call.python"] = { fg = colors.orange },
+    ["@method.call.python"] = { fg = colors.orange },
+    ["@function.builtin.python"] = { fg = colors.orange },
+    ["@decorator.python"] = { fg = colors.orange },
+    ["@keyword.import.python"] = { fg = colors.red },
+    ["@keyword.conditional.python"] = { fg = colors.red },
+    ["@keyword.repeat.python"] = { fg = colors.red },
+    ["@keyword.exception.python"] = { fg = colors.red },
+    ["@type.builtin.python"] = { fg = colors.yellow },
+    ["@string.special.python"] = { fg = colors.green },
+    ["@variable.builtin.python"] = { fg = colors.purple },
+    ["@variable.parameter.builtin.python"] = { fg = colors.purple },
+    ["@comment.python"] = { fg = colors.comment, italic = use_italics },
+
+    -- Go specific highlighting
+    ["@function.call.go"] = { fg = colors.orange },
+    ["@method.call.go"] = { fg = colors.orange },
+    ["@function.builtin.go"] = { fg = colors.orange },
+    ["@keyword.import.go"] = { fg = colors.red },
+    ["@type.builtin.go"] = { fg = colors.yellow },
+    ["@type.definition.go"] = { fg = colors.yellow },
+    ["@keyword.go"] = { fg = colors.red },
+    ["@string.go"] = { fg = colors.green },
+    ["@number.go"] = { fg = colors.yellow },
+    ["@variable.builtin.go"] = { fg = colors.purple },
+    ["@variable.parameter.go"] = { fg = colors.fg },
+    ["@comment.go"] = { fg = colors.comment, italic = use_italics },
+    ["@operator.go"] = { fg = colors.fg },
+
     -- JavaScript/TypeScript comments (language-specific variants)
     ["@comment.javascript"] = { fg = colors.comment, italic = use_italics },
     ["@comment.typescript"] = { fg = colors.comment, italic = use_italics },
