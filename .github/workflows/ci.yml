@@ -10,6 +10,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
 
@@ -79,5 +81,12 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: jetbrains-ui-theme
+          path: jetbrains/ui-theme/guttenbergovitz-ui-theme.zip
+
+      - name: Publish JetBrains plugin to Marketplace
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: JetBrains/plugin-upload-action@v1
+        with:
+          token: ${{ secrets.JETBRAINS_MARKETPLACE_TOKEN }}
           path: jetbrains/ui-theme/guttenbergovitz-ui-theme.zip
 

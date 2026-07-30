@@ -3,7 +3,7 @@
   "dark": true,
   "author": "Guttenbergovitz",
   "editorScheme": "/Guttenbergovitz.icls",
-  "parentTheme": "Darcula",
+  "parentTheme": "Islands Dark",
   "ui": {
     "*": {
       "background": "#232326",
@@ -32,6 +32,20 @@
       "lightSelectionInactiveForeground": "#d4be98"
     },
     
+    "Islands": 1,
+    "Island": {
+      "arc": 20,
+      "arc.compact": 16,
+      "borderWidth": 5,
+      "borderWidth.compact": 4,
+      "borderColor": "#1d1d20",
+      "inactiveAlpha": 0.44
+    },
+
+    "MainWindow": {
+      "background": "#2e2e31"
+    },
+
     "ActionButton": {
       "hoverBackground": "#2a2a2d",
       "hoverBorderColor": "#3a3a3d",
@@ -233,6 +247,7 @@
     "MainToolbar": {
       "background": "#1d1d20",
       "inactiveBackground": "#1d1d20",
+      "borderColor": "#1d1d2000",
       "infoForeground": "#7c7c7c",
       "Dropdown": {
         "background": "#1d1d20",
@@ -388,7 +403,7 @@
     "StatusBar": {
       "background": "#1d1d20",
       "foreground": "#d4be98",
-      "borderColor": "#3a3a3d",
+      "borderColor": "#1d1d2000",
       "hoverBackground": "#2a2a2d",
       "lightForeground": "#7c7c7c"
     },
@@ -492,6 +507,7 @@
     
     "ToolWindow": {
       "background": "#1d1d20",
+      "Stripe.borderColor": "#1d1d2000",
       "Header.background": "#1d1d20",
       "Header.inactiveBackground": "#1d1d20",
       "Header.borderColor": "#3a3a3d",

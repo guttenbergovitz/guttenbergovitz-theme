@@ -225,6 +225,7 @@ If you want to theme the **entire IDE** (not just the editor), you can install t
 
 **Full support for:**
 - New UI (JetBrains 2023.3+)
+- Islands Theme (JetBrains 2025.3+)
 - All JetBrains IDEs (IntelliJ, PyCharm, WebStorm, etc.)
 
 ### Installing UI Theme Plugin
@@ -271,6 +272,7 @@ You can also:
 
 ### Version Compatibility
 
+- **JetBrains IDEs 2025.3+**: Full support including Islands Theme
 - **JetBrains IDEs 2023.3+**: Full support including New UI
 - **JetBrains IDEs 2022.x - 2023.2**: Compatible
 

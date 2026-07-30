@@ -22,6 +22,8 @@
     <option name="FILESTATUS_ADDED" value="89a87d" />
     <option name="FILESTATUS_DELETED" value="a96b69" />
     <option name="FILESTATUS_MODIFIED" value="d79969" />
+    <option name="FILESTATUS_IDEA_FILESTATUS_IGNORED" value="5a5a5c" />
+    <option name="FILESTATUS_IGNORE.PROJECT_VIEW.IGNORED" value="5a5a5c" />
     <option name="FILESTATUS_RENAMED" value="d6b986" />
     <option name="GUTTER_BACKGROUND" value="232326" />
     <option name="INDENT_GUIDE" value="3a3a3d" />
@@ -414,6 +416,21 @@
       </value>
     </option>
     <option name="PY.PREDEFINED_DEFINITION">
+      <value>
+        <option name="FOREGROUND" value="d79969" />
+      </value>
+    </option>
+    <option name="PY.FUNCTION_CALL">
+      <value>
+        <option name="FOREGROUND" value="d79969" />
+      </value>
+    </option>
+    <option name="PY.METHOD_CALL">
+      <value>
+        <option name="FOREGROUND" value="d79969" />
+      </value>
+    </option>
+    <option name="PY.FUNC_DEFINITION">
       <value>
         <option name="FOREGROUND" value="d79969" />
       </value>

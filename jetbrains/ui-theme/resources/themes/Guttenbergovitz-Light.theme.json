@@ -3,7 +3,7 @@
   "dark": false,
   "author": "Guttenbergovitz",
   "editorScheme": "/Guttenbergovitz-Light.icls",
-  "parentTheme": "IntelliJ",
+  "parentTheme": "Islands Light",
   "ui": {
     "*": {
       "background": "#f5f3f0",
@@ -32,6 +32,20 @@
       "lightSelectionInactiveForeground": "#5a4a3a"
     },
     
+    "Islands": 1,
+    "Island": {
+      "arc": 20,
+      "arc.compact": 16,
+      "borderWidth": 5,
+      "borderWidth.compact": 4,
+      "borderColor": "#eae8e5",
+      "inactiveAlpha": 0.44
+    },
+
+    "MainWindow": {
+      "background": "#e0dedb"
+    },
+
     "ActionButton": {
       "hoverBackground": "#ffffff",
       "hoverBorderColor": "#e8e6e3",
@@ -233,6 +247,7 @@
     "MainToolbar": {
       "background": "#eae8e5",
       "inactiveBackground": "#eae8e5",
+      "borderColor": "#eae8e500",
       "infoForeground": "#a19f9e",
       "Dropdown": {
         "background": "#eae8e5",
@@ -388,7 +403,7 @@
     "StatusBar": {
       "background": "#eae8e5",
       "foreground": "#5a4a3a",
-      "borderColor": "#e8e6e3",
+      "borderColor": "#eae8e500",
       "hoverBackground": "#ffffff",
       "lightForeground": "#a19f9e"
     },
@@ -492,6 +507,7 @@
     
     "ToolWindow": {
       "background": "#eae8e5",
+      "Stripe.borderColor": "#eae8e500",
       "Header.background": "#eae8e5",
       "Header.inactiveBackground": "#eae8e5",
       "Header.borderColor": "#e8e6e3",
@@ -512,9 +528,9 @@
     "Tree": {
       "background": "#eae8e5",
       "foreground": "#5a4a3a",
-      "selectionBackground": "#e8e6e3",
+      "selectionBackground": "#ddd8d2",
       "selectionForeground": "#5a4a3a",
-      "selectionInactiveBackground": "#ffffff",
+      "selectionInactiveBackground": "#f0eeec",
       "selectionInactiveForeground": "#5a4a3a",
       "modifiedItemForeground": "#b8784c",
       "rowHeight": 24,

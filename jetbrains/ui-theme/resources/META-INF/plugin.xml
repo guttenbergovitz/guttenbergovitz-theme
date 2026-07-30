@@ -5,29 +5,51 @@
   
   <description><![CDATA[
     <h2>Guttenbergovitz UI Theme</h2>
-    <p>A warm, vintage-inspired UI theme for JetBrains IDEs, designed to complement the Guttenbergovitz editor color scheme.</p>
+    <p>A warm, vintage-inspired UI theme for JetBrains IDEs. Like a well-aged whiskey or a Miles Davis solo — complex but not overwhelming. Reduces blue light and visual noise while maintaining depth and character.</p>
     <br/>
     <p><strong>Features:</strong></p>
     <ul>
-      <li>Complete UI theming for all JetBrains IDEs</li>
-      <li>Support for New UI (2023.3+)</li>
-      <li>Warm, low blue-light color palette</li>
-      <li>Consistent with Guttenbergovitz editor scheme</li>
-      <li>Optimized for reduced eye strain</li>
+      <li>🌙 <strong>Dark + Light variants</strong> — two meticulously crafted versions included</li>
+      <li>🏝️ <strong>Full Islands Theme support</strong> — native experience on JetBrains 2025.3+ with floating panels, proper border radius, and transparent sidebar borders</li>
+      <li>✨ <strong>New UI ready</strong> — complete support for the modern JetBrains UI (2023.3+)</li>
+      <li>🎨 <strong>60+ themed components</strong> — tool windows, tabs, menus, dialogs, popups, notifications, welcome screen, search everywhere, and more</li>
+      <li>🔗 <strong>Cross-platform parity</strong> — consistent colors across all ports (VS Code, Neovim, Vim, Zed, Helix, terminals), sourced from a single palette.json</li>
+      <li>👁️ <strong>Reduced eye strain</strong> — warm browns and oranges replace cool blues, less blue light emission</li>
+      <li>🎯 <strong>Intentional ANSI remap</strong> — blue → orange, magenta → warm red, cyan → warm green</li>
     </ul>
     <br/>
     <p><strong>Color Philosophy:</strong></p>
     <ul>
-      <li>Less blue light, more warmth</li>
-      <li>Minimal but meaningful highlighting</li>
-      <li>Focus on readability</li>
-      <li>Inspired by vintage book printing and jazz aesthetics</li>
+      <li>📖 Inspired by vintage book printing and jazz aesthetics</li>
+      <li>🔥 Less blue light, more warmth</li>
+      <li>🎯 Minimal but meaningful highlighting — every color has a purpose</li>
+      <li>📐 Readability first, beauty second (they usually align)</li>
+      <li>🎺 "It's not the notes you play, it's the notes you don't play" — Miles Davis</li>
     </ul>
     <br/>
-    <p>Install the matching <a href="https://github.com/guttenbergovitz/guttenbergovitz-theme">Guttenbergovitz editor color scheme</a> for the complete experience.</p>
+    <p><strong>Designed for all JetBrains IDEs:</strong> IntelliJ IDEA, PyCharm, WebStorm, GoLand, PhpStorm, RubyMine, CLion, Rider, DataGrip, Android Studio.</p>
+    <br/>
+    <p>Install the matching <a href="https://github.com/guttenbergovitz/guttenbergovitz-theme">Guttenbergovitz editor color scheme</a> (available on the <a href="https://plugins.jetbrains.com/plugin/XXXXX-guttenbergovitz-color-scheme">Marketplace</a> or via Settings &rarr; Editor &rarr; Color Scheme) for the complete experience.</p>
+    <br/>
+    <p>📦 <strong>Note:</strong> This plugin themes the entire IDE interface. If you only want editor syntax colors, install the Guttenbergovitz color scheme separately — it's free and simpler to set up.</p>
   ]]></description>
   
   <change-notes><![CDATA[
+    <h3>1.1.1</h3>
+    <ul>
+      <li>Fixed Python function calls showing as blue (added PY.FUNCTION_CALL, PY.METHOD_CALL, PY.FUNC_DEFINITION)</li>
+      <li>Improved Tree selection contrast in light theme</li>
+      <li>Added FILESTATUS colors for git-ignored files (softer appearance)</li>
+      <li>Updated Marketplace description</li>
+    </ul>
+    <br/>
+    <h3>1.1.0</h3>
+    <ul>
+      <li>Added full Islands Theme support (2025.3+)</li>
+      <li>Inherits from Islands Dark / Islands Light parent themes</li>
+      <li>Proper island border radius, spacing, and transparent sidebar borders</li>
+    </ul>
+    <br/>
     <h3>1.0.0</h3>
     <ul>
       <li>Complete UI theme for all JetBrains IDEs</li>
@@ -42,7 +64,7 @@
     </ul>
   ]]></change-notes>
   
-  <version>1.0.0</version>
+  <version>1.1.1</version>
   
   <idea-version since-build="233.0"/>
   
