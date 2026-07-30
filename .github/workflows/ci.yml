@@ -46,10 +46,6 @@ jobs:
           print('TOML OK: helix/guttenbergovitz.toml')
           PY
 
-      - name: Generate iTerm .itermcolors
-        run: |
-          python scripts/gen_itermcolors.py
-
       - name: Package VS Code extension (on tag)
         if: startsWith(github.ref, 'refs/tags/v')
         uses: actions/setup-node@v4
