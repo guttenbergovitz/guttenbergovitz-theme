@@ -35,6 +35,14 @@
   ]]></description>
   
   <change-notes><![CDATA[
+    <h3>1.1.2</h3>
+    <ul>
+      <li>Added 14 GO_* and 10 go.* syntax tokens for GoLand users</li>
+      <li>Fixed Python decorator color inconsistency (Vim)</li>
+      <li>Added Python and Go TreeSitter overrides for Neovim</li>
+      <li>Added Python and Go language-specific TextMate scopes for VS Code</li>
+    </ul>
+    <br/>
     <h3>1.1.1</h3>
     <ul>
       <li>Fixed Python function calls showing as blue (added PY.FUNCTION_CALL, PY.METHOD_CALL, PY.FUNC_DEFINITION)</li>
@@ -64,7 +72,7 @@
     </ul>
   ]]></change-notes>
   
-  <version>1.1.1</version>
+  <version>1.1.2</version>
   
   <idea-version since-build="233.0"/>
   
