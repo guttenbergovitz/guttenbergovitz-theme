@@ -16,6 +16,7 @@
 - [JetBrains](jetbrains/README.md) - A theme for all JetBrains IDEs (IntelliJ, PyCharm, WebStorm, etc.)
 - [Ghostty](ghostty/README.md) - A Ghostty terminal theme
 - [Pi](pi/README.md) - A Pi (LLM TUI) theme
+- [Herdr](herdr/README.md) - A Herdr (agent multiplexer) theme
 
 ## Installation
 

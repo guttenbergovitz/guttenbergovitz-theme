@@ -1,26 +1,129 @@
 themes {
     guttenbergovitz-light {
-        fg "#5a4a3a"
-        bg "#d8d6d3"
-        black "#3a2a1a"
-        red "#8b4c4a"
-        green "#6b8860"
-        yellow "#b8995a"
-        blue "#5e7ea5"
-        magenta "#956d7e"
-        cyan "#6b958f"
-        white "#7a6a5a"
-        orange "#b8784c"
+        text_unselected {
+            base 90 74 58
+            background 245 243 240
+            emphasis_0 184 120 76
+            emphasis_1 94 126 165
+            emphasis_2 107 136 96
+            emphasis_3 149 109 126
+        }
+        text_selected {
+            base 90 74 58
+            background 232 230 227
+            emphasis_0 184 120 76
+            emphasis_1 94 126 165
+            emphasis_2 107 136 96
+            emphasis_3 149 109 126
+        }
+        ribbon_unselected {
+            base 90 74 58
+            background 255 255 255
+            emphasis_0 184 120 76
+            emphasis_1 94 126 165
+            emphasis_2 107 136 96
+            emphasis_3 149 109 126
+        }
+        ribbon_selected {
+            base 234 232 229
+            background 90 74 58
+            emphasis_0 184 120 76
+            emphasis_1 94 126 165
+            emphasis_2 107 136 96
+            emphasis_3 149 109 126
+        }
+        table_title {
+            base 184 153 90
+            background 245 243 240
+            emphasis_0 184 120 76
+            emphasis_1 94 126 165
+            emphasis_2 107 136 96
+            emphasis_3 149 109 126
+        }
+        table_cell_unselected {
+            base 90 74 58
+            background 245 243 240
+            emphasis_0 184 120 76
+            emphasis_1 94 126 165
+            emphasis_2 107 136 96
+            emphasis_3 149 109 126
+        }
+        table_cell_selected {
+            base 90 74 58
+            background 232 230 227
+            emphasis_0 184 120 76
+            emphasis_1 94 126 165
+            emphasis_2 107 136 96
+            emphasis_3 149 109 126
+        }
+        list_unselected {
+            base 90 74 58
+            background 245 243 240
+            emphasis_0 184 120 76
+            emphasis_1 94 126 165
+            emphasis_2 107 136 96
+            emphasis_3 149 109 126
+        }
+        list_selected {
+            base 90 74 58
+            background 232 230 227
+            emphasis_0 184 120 76
+            emphasis_1 94 126 165
+            emphasis_2 107 136 96
+            emphasis_3 149 109 126
+        }
+        frame_unselected {
+            base 216 214 211
+            background 245 243 240
+            emphasis_0 184 120 76
+            emphasis_1 94 126 165
+            emphasis_2 107 136 96
+            emphasis_3 149 109 126
+        }
+        frame_selected {
+            base 184 120 76
+            background 245 243 240
+            emphasis_0 184 120 76
+            emphasis_1 94 126 165
+            emphasis_2 107 136 96
+            emphasis_3 149 109 126
+        }
+        frame_highlight {
+            base 184 153 90
+            background 245 243 240
+            emphasis_0 184 120 76
+            emphasis_1 94 126 165
+            emphasis_2 107 136 96
+            emphasis_3 149 109 126
+        }
+        exit_code_success {
+            base 107 136 96
+            background 245 243 240
+            emphasis_0 184 120 76
+            emphasis_1 94 126 165
+            emphasis_2 107 136 96
+            emphasis_3 149 109 126
+        }
+        exit_code_error {
+            base 139 76 74
+            background 245 243 240
+            emphasis_0 184 120 76
+            emphasis_1 94 126 165
+            emphasis_2 107 136 96
+            emphasis_3 149 109 126
+        }
 
-        // Bright variants
-        black_bright "#5a4a3a"
-        red_bright "#cc6666"
-        green_bright "#8ba168"
-        yellow_bright "#d6b986"
-        blue_bright "#81a2be"
-        magenta_bright "#b294bb"
-        cyan_bright "#8abeb7"
-        white_bright "#f5f3f0"
-        orange_bright "#b8784c"
+        multiplayer_user_colors {
+            player_1 184 120 76
+            player_2 107 149 143
+            player_3 107 136 96
+            player_4 184 153 90
+            player_5 149 109 126
+            player_6 94 126 165
+            player_7 139 76 74
+            player_8 90 74 58
+            player_9 255 255 255
+            player_10 234 232 229
+        }
     }
 }

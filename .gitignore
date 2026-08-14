@@ -44,3 +44,7 @@ jetbrains/ui-theme/*.zip
 .agents/
 AGENTS.md
 CLAUDE.md
+
+# Python
+__pycache__/
+*.py[cod]

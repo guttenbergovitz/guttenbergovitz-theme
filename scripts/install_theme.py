@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 import os
+import re
 import shutil
+import subprocess
 import sys
 from pathlib import Path
 
@@ -151,6 +153,15 @@ PLATFORMS = {
             (ROOT / "pi" / "guttenbergovitz-light.json", "guttenbergovitz-light.json")
         ],
         "instructions": "Open Pi, run `/settings` and select \"guttenbergovitz\" or \"guttenbergovitz-light\""
+    },
+    "15": {
+        "name": "Herdr",
+        "dest_dir": None,
+        "files": [
+            (ROOT / "herdr" / "guttenbergovitz.toml", "guttenbergovitz.toml"),
+            (ROOT / "herdr" / "guttenbergovitz-light.toml", "guttenbergovitz-light.toml")
+        ],
+        "instructions": "Config updated. Run `herdr server reload-config` (or the installer does it automatically). To switch variants: `python3 scripts/install_theme.py herdr dark` or `python3 scripts/install_theme.py herdr light`."
     }
 }
 
@@ -181,7 +192,55 @@ def find_jetbrains_dirs():
             dirs.append(p)
     return dirs
 
-def install_platform(key):
+def merge_herdr_theme(config_path: Path, fragment_path: Path) -> None:
+    """Merge the [theme.custom] block from a Herdr theme fragment into config.toml.
+
+    Replaces an existing [theme.custom] table in place (idempotent) or appends
+    it when missing. The [theme] name is set only if no [theme] table exists.
+    """
+    fragment = fragment_path.read_text()
+
+    # Extract the body right after the [theme.custom] section header
+    m = re.search(r'(?m)^\[theme\.custom\]\s*$', fragment)
+    if not m:
+        raise ValueError(f"No [theme.custom] section in {fragment_path}")
+    custom_body = fragment[m.end():].strip().splitlines()
+    new_block = ["[theme.custom]"] + [line for line in custom_body if line.strip()]
+
+    theme_name = None
+    m = re.search(r'^name\s*=\s*"([^"]+)"', fragment, re.M)
+    if m:
+        theme_name = m.group(1)
+
+    if config_path.exists():
+        lines = config_path.read_text().splitlines()
+    else:
+        lines = []
+
+    custom_start = None
+    custom_end = len(lines)
+    for i, line in enumerate(lines):
+        if re.match(r'^\s*\[theme\.custom\]\s*$', line):
+            custom_start = i
+            continue
+        if custom_start is not None and i > custom_start and re.match(r'^\s*\[', line):
+            custom_end = i
+            break
+
+    if custom_start is not None:
+        lines[custom_start:custom_end] = new_block
+    else:
+        if lines:
+            lines.append("")
+        lines.extend(new_block)
+
+    if theme_name and not any(re.match(r'^\s*\[theme\]\s*$', l) for l in lines):
+        lines.extend(["", "[theme]", f'name = "{theme_name}"'])
+
+    config_path.parent.mkdir(parents=True, exist_ok=True)
+    config_path.write_text("\n".join(lines) + "\n")
+
+def install_platform(key, variant=None):
     platform = PLATFORMS[key]
     name = platform["name"]
     dest_dir = platform["dest_dir"]
@@ -190,6 +249,25 @@ def install_platform(key):
     print(f"\n{BOLD}{CYAN}Installing theme for: {name}...{RESET}")
     
     try:
+        if name == "Herdr":
+            variant = (variant or "dark").lower()
+            if variant not in ("dark", "light"):
+                print_error(f"Unknown Herdr variant: {variant} (expected 'dark' or 'light')")
+                return
+            config_path = Path("~/.config/herdr/config.toml").expanduser()
+            frag_idx = 0 if variant == "dark" else 1
+            merge_herdr_theme(config_path, files[frag_idx][0])
+            print_success(f"{name}: Installed successfully! ({config_path}, {variant})")
+            print(f"{BOLD}Activation:{RESET} {platform['instructions']}")
+            result = subprocess.run(["herdr", "server", "reload-config"],
+                                    capture_output=True, text=True)
+            if result.returncode == 0 and '"status":"applied"' in result.stdout:
+                print_success("Herdr config reloaded, theme is active.")
+            else:
+                print_warning("Could not reload the running Herdr server (is it running?). "
+                              "Reload manually with `herdr server reload-config`.")
+            return
+
         if name == "JetBrains":
             jb_dirs = find_jetbrains_dirs()
             if not jb_dirs:
@@ -237,14 +315,22 @@ def main():
         targets = sys.argv[1:]
         # Map target names to registry keys
         name_to_key = {p["name"].lower(): k for k, p in PLATFORMS.items()}
-        
-        for target in targets:
+
+        i = 0
+        while i < len(targets):
+            target = targets[i]
             key = name_to_key.get(target.lower())
             if key:
-                install_platform(key)
+                variant = None
+                if target.lower() == "herdr" and i + 1 < len(targets) \
+                        and targets[i + 1].lower() in ("dark", "light"):
+                    variant = targets[i + 1]
+                    i += 1
+                install_platform(key, variant)
             else:
                 print_error(f"Unknown platform: {target}")
                 print(f"Available platforms: {', '.join(p['name'] for p in PLATFORMS.values())}")
+            i += 1
         return
 
     # Interactive mode
@@ -271,7 +357,11 @@ def main():
                 print_error("Invalid choice. Please try again.")
                 continue
             for key in valid_keys:
-                install_platform(key)
+                if key == "15":
+                    variant = input("Herdr variant (dark/light, default dark): ").strip().lower() or "dark"
+                    install_platform(key, variant)
+                else:
+                    install_platform(key)
             break
 
 if __name__ == "__main__":

@@ -478,6 +478,9 @@ class ColorValidator:
     def validate_zellij(self) -> bool:
         """Validate both dark and light Zellij themes against the reference palette.
 
+        Zellij themes use the UI-component spec (base/background/emphasis_N
+        attributes with 'r g b' values), so colors are compared as RGB triples.
+
         Returns:
             True if all Zellij themes are consistent, False otherwise.
         """
@@ -504,37 +507,93 @@ class ColorValidator:
             print(f"  🔍 Validating Zellij theme ({variant})...")
             content = zellij_file.read_text()
             palette = self.palette[variant]
+            base = palette['base']
+            ui = palette['ui']
+            accents = palette['accents']
 
-            colors = {}
-            for match in re.finditer(r'(\w+)\s+"(#[0-9a-fA-F]{6})"', content):
-                colors[match.group(1)] = match.group(2)
+            def rgb_to_hex(rgb: str) -> str:
+                parts = rgb.split()
+                if len(parts) != 3:
+                    return ""
+                try:
+                    return "#{:02x}{:02x}{:02x}".format(*[int(p) for p in parts])
+                except ValueError:
+                    return ""
 
-            checks = [
-                ('fg', palette['base']['fg']),
-                ('bg', palette['ui']['border']),
-                ('black', palette['terminal']['ansi']['black']),
-                ('red', palette['terminal']['ansi']['red']),
-                ('green', palette['terminal']['ansi']['green']),
-                ('yellow', palette['terminal']['ansi']['yellow']),
-                ('blue', palette['terminal']['ansi']['blue']),
-                ('magenta', palette['terminal']['ansi']['magenta']),
-                ('cyan', palette['terminal']['ansi']['cyan']),
-                ('white', palette['terminal']['ansi']['white']),
-                ('orange', palette['accents']['orange']),
-                ('black_bright', palette['terminal']['ansi_bright']['black']),
-                ('red_bright', palette['terminal']['ansi_bright']['red']),
-                ('green_bright', palette['terminal']['ansi_bright']['green']),
-                ('yellow_bright', palette['terminal']['ansi_bright']['yellow']),
-                ('blue_bright', palette['terminal']['ansi_bright']['blue']),
-                ('magenta_bright', palette['terminal']['ansi_bright']['magenta']),
-                ('cyan_bright', palette['terminal']['ansi_bright']['cyan']),
-                ('white_bright', palette['terminal']['ansi_bright']['white']),
-                ('orange_bright', palette['accents']['orange']),
-            ]
+            fg = base['fg']
+            bg = base['bg']
+            bg_dark = base['bg_dark']
+            bg_light = base['bg_light']
+            selection = ui['selection']
+            border = ui['border']
+            red = accents['red']
+            green = accents['green']
+            yellow = accents['yellow']
+            orange = accents['orange']
+            blue = accents['blue']
+            purple = accents['purple']
+            cyan = accents['cyan']
+            em0, em1, em2, em3 = orange, blue, green, purple
 
-            for key, expected in checks:
-                actual = colors.get(key, '')
-                if not self.check_color(f'Zellij ({variant})', key, expected, actual):
+            expected = {
+                'text_unselected': {'base': fg, 'background': bg},
+                'text_selected': {'base': fg, 'background': selection},
+                'ribbon_unselected': {'base': fg, 'background': bg_light},
+                'ribbon_selected': {'base': bg_dark, 'background': fg},
+                'table_title': {'base': yellow, 'background': bg},
+                'table_cell_unselected': {'base': fg, 'background': bg},
+                'table_cell_selected': {'base': fg, 'background': selection},
+                'list_unselected': {'base': fg, 'background': bg},
+                'list_selected': {'base': fg, 'background': selection},
+                'frame_unselected': {'base': border, 'background': bg},
+                'frame_selected': {'base': orange, 'background': bg},
+                'frame_highlight': {'base': yellow, 'background': bg},
+                'exit_code_success': {'base': green, 'background': bg},
+                'exit_code_error': {'base': red, 'background': bg},
+            }
+            players = [orange, cyan, green, yellow, purple, blue, red, fg, bg_light, bg_dark]
+
+            # Parse the KDL into {component: {attribute: 'r g b'}}
+            actual = {}
+            current = None
+            for line in content.splitlines():
+                stripped = line.strip()
+                m = re.match(r'(\w+)\s*\{', stripped)
+                if m:
+                    current = m.group(1)
+                    actual.setdefault(current, {})
+                    continue
+                m = re.match(
+                    r'(base|background|emphasis_[0-3]|player_\d+)\s+(\d+)\s+(\d+)\s+(\d+)',
+                    stripped
+                )
+                if m and current:
+                    actual[current][m.group(1)] = f"{m.group(2)} {m.group(3)} {m.group(4)}"
+
+            for comp_name, attrs in expected.items():
+                for attr, hex_color in attrs.items():
+                    actual_rgb = actual.get(comp_name, {}).get(attr, '')
+                    if not self.check_color(
+                        f'Zellij ({variant})', f'{comp_name}.{attr}',
+                        hex_color, rgb_to_hex(actual_rgb)
+                    ):
+                        all_ok = False
+                for attr, hex_color in zip(('emphasis_0', 'emphasis_1', 'emphasis_2', 'emphasis_3'),
+                                           (em0, em1, em2, em3)):
+                    actual_rgb = actual.get(comp_name, {}).get(attr, '')
+                    if not self.check_color(
+                        f'Zellij ({variant})', f'{comp_name}.{attr}',
+                        hex_color, rgb_to_hex(actual_rgb)
+                    ):
+                        all_ok = False
+
+            for i, hex_color in enumerate(players, start=1):
+                attr = f'player_{i}'
+                actual_rgb = actual.get('multiplayer_user_colors', {}).get(attr, '')
+                if not self.check_color(
+                    f'Zellij ({variant})', f'multiplayer_user_colors.{attr}',
+                    hex_color, rgb_to_hex(actual_rgb)
+                ):
                     all_ok = False
 
         if all_ok:
@@ -598,6 +657,74 @@ class ColorValidator:
             print("  ❌ OpenCode theme has inconsistencies")
         return all_ok
 
+    def validate_herdr(self) -> bool:
+        """Validate both dark and light Herdr [theme.custom] fragments against the palette.
+
+        Returns:
+            True if all Herdr themes are consistent, False otherwise.
+        """
+        print("\n🔍 Validating Herdr themes...")
+        all_ok = True
+
+        for variant in ['dark', 'light']:
+            suffix = "-light" if variant == "light" else ""
+            filename = f"guttenbergovitz{suffix}.toml"
+            herdr_file = ROOT / "herdr" / filename
+
+            if not herdr_file.exists():
+                self.issues.append({
+                    'severity': 'error',
+                    'implementation': 'Herdr',
+                    'color_name': f'{variant} theme file',
+                    'expected': 'File exists',
+                    'actual': 'NOT FOUND',
+                    'context': str(herdr_file)
+                })
+                all_ok = False
+                continue
+
+            print(f"  🔍 Validating Herdr theme ({variant})...")
+            content = herdr_file.read_text()
+            palette = self.palette[variant]
+            base = palette['base']
+            accents = palette['accents']
+            ui = palette['ui']
+            status = palette['status']
+
+            mapping = {
+                'accent': accents['orange'],
+                'panel_bg': base['bg'],
+                'surface0': base['bg_light'],
+                'surface1': ui['selection'],
+                'surface_dim': base['bg_dark'],
+                'overlay0': base['fg_dim'],
+                'overlay1': base['fg_dark'],
+                'text': base['fg'],
+                'subtext0': base['fg_dim'],
+                'mauve': accents['purple'],
+                'green': accents['green'],
+                'yellow': accents['yellow'],
+                'red': status['error'],
+                'blue': accents['blue'],
+                'teal': accents['cyan'],
+                'peach': accents['orange'],
+            }
+
+            colors = {}
+            for match in re.finditer(r'(\w+)\s*=\s*"(#[0-9a-fA-F]{6})"', content):
+                colors[match.group(1)] = match.group(2)
+
+            for key, expected in mapping.items():
+                actual = colors.get(key, '')
+                if not self.check_color(f'Herdr ({variant})', key, expected, actual):
+                    all_ok = False
+
+        if all_ok:
+            print("  ✅ Herdr themes are consistent")
+        else:
+            print("  ❌ Herdr themes have inconsistencies")
+        return all_ok
+
     def validate_all(self) -> bool:
         """Run all theme validations.
         
@@ -616,6 +743,7 @@ class ColorValidator:
         results.append(self.validate_zed())
         results.append(self.validate_vim())
         results.append(self.validate_zellij())
+        results.append(self.validate_herdr())
         results.append(self.validate_opencode())
         
         # Print summary

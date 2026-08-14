@@ -1,0 +1,23 @@
+# guttenbergovitz theme for Herdr
+# Herdr has no external theme files - paste this into ~/.config/herdr/config.toml
+# (or install with: make install). Existing [theme.custom] entries are replaced.
+[theme]
+name = "terminal"
+
+[theme.custom]
+accent = "#d79969"
+panel_bg = "#232326"
+surface0 = "#2a2a2d"
+surface1 = "#3a3a3d"
+surface_dim = "#1d1d20"
+overlay0 = "#7c7c7c"
+overlay1 = "#a69a88"
+text = "#d4be98"
+subtext0 = "#7c7c7c"
+mauve = "#b194a3"
+green = "#89a87d"
+yellow = "#d6b986"
+red = "#cc6666"
+blue = "#7a9ec2"
+teal = "#89b4ac"
+peach = "#d79969"

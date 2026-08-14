@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 
-.PHONY: help validate package.vscode zip.jetbrains-ui gen.iterm check.palette clean install install-hook
+.PHONY: help validate package.vscode zip.jetbrains-ui gen.iterm check.palette clean install install.herdr install-hook
 
 help:
 	@echo "Guttenbergovitz Theme - Build, Validation & Install"
@@ -16,6 +16,7 @@ help:
 	@echo ""
 	@echo "Install:"
 	@echo "  install            - Run interactive CLI installer for editors/terminals"
+	@echo "  install.herdr      - Install/switch Herdr theme (dark|light via VARIANT=)"
 	@echo "  install-hook       - Install git pre-commit hook for auto-validation"
 	@echo ""
 	@echo "Maintenance:"
@@ -42,6 +43,9 @@ check.palette:
 
 install:
 	@python3 scripts/install_theme.py
+
+install.herdr:
+	@python3 scripts/install_theme.py herdr $(if $(VARIANT),$(VARIANT),dark)
 
 install-hook:
 	@echo "Installing git pre-commit hook..."

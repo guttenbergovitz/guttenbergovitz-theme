@@ -189,42 +189,123 @@ terminal_colors:
     yellow: "{ansi['yellow']}"
 """
 
+def _rgb(hex_color: str) -> str:
+    """Convert #rrggbb hex color to Zellij's 'r g b' space-separated format."""
+    c = hex_color.lstrip('#')
+    return f"{int(c[0:2], 16)} {int(c[2:4], 16)} {int(c[4:6], 16)}"
+
 def generate_zellij(palette: dict, variant: str) -> str:
-    """Generate KDL configuration content for Zellij multiplexer."""
+    """Generate KDL configuration content for Zellij multiplexer.
+
+    Uses the current Zellij theme spec (UI components with base/background
+    and emphasis_0..3 attributes), not the legacy fg/bg ANSI syntax.
+    """
     base = palette[variant]['base']
-    ansi = palette[variant]['terminal']['ansi']
-    ansi_bright = palette[variant]['terminal']['ansi_bright']
     accents = palette[variant]['accents']
     ui = palette[variant]['ui']
-    
+
     theme_name = "guttenbergovitz-light" if variant == "light" else "guttenbergovitz"
-    
+
+    fg = base['fg']
+    bg = base['bg']
+    bg_dark = base['bg_dark']
+    bg_light = base['bg_light']
+    selection = ui['selection']
+    border = ui['border']
+    red = accents['red']
+    green = accents['green']
+    yellow = accents['yellow']
+    orange = accents['orange']
+    blue = accents['blue']
+    purple = accents['purple']
+    cyan = accents['cyan']
+
+    em0, em1, em2, em3 = orange, blue, green, purple
+
+    def block(name: str, c_base: str, c_bg: str) -> str:
+        return f"""        {name} {{
+            base {_rgb(c_base)}
+            background {_rgb(c_bg)}
+            emphasis_0 {_rgb(em0)}
+            emphasis_1 {_rgb(em1)}
+            emphasis_2 {_rgb(em2)}
+            emphasis_3 {_rgb(em3)}
+        }}
+"""
+
+    components = ""
+    components += block("text_unselected", fg, bg)
+    components += block("text_selected", fg, selection)
+    components += block("ribbon_unselected", fg, bg_light)
+    components += block("ribbon_selected", bg_dark, fg)
+    components += block("table_title", yellow, bg)
+    components += block("table_cell_unselected", fg, bg)
+    components += block("table_cell_selected", fg, selection)
+    components += block("list_unselected", fg, bg)
+    components += block("list_selected", fg, selection)
+    components += block("frame_unselected", border, bg)
+    components += block("frame_selected", orange, bg)
+    components += block("frame_highlight", yellow, bg)
+    components += block("exit_code_success", green, bg)
+    components += block("exit_code_error", red, bg)
+
+    players = [orange, cyan, green, yellow, purple, blue, red, fg, bg_light, bg_dark]
+    player_lines = "\n".join(
+        f"            player_{i} {_rgb(c)}" for i, c in enumerate(players, start=1)
+    )
+
     return f"""themes {{
     {theme_name} {{
-        fg "{base['fg']}"
-        bg "{ui['border']}"
-        black "{ansi['black']}"
-        red "{ansi['red']}"
-        green "{ansi['green']}"
-        yellow "{ansi['yellow']}"
-        blue "{ansi['blue']}"
-        magenta "{ansi['magenta']}"
-        cyan "{ansi['cyan']}"
-        white "{ansi['white']}"
-        orange "{accents['orange']}"
-
-        // Bright variants
-        black_bright "{ansi_bright['black']}"
-        red_bright "{ansi_bright['red']}"
-        green_bright "{ansi_bright['green']}"
-        yellow_bright "{ansi_bright['yellow']}"
-        blue_bright "{ansi_bright['blue']}"
-        magenta_bright "{ansi_bright['magenta']}"
-        cyan_bright "{ansi_bright['cyan']}"
-        white_bright "{ansi_bright['white']}"
-        orange_bright "{accents['orange']}"
+{components}
+        multiplayer_user_colors {{
+{player_lines}
+        }}
     }}
 }}
+"""
+
+def generate_herdr(palette: dict, variant: str) -> str:
+    """Generate TOML fragment for Herdr's [theme.custom] section.
+
+    Herdr has no external theme files; colors are configured inline in
+    ~/.config/herdr/config.toml via [theme.custom].
+    """
+    base = palette[variant]['base']
+    accents = palette[variant]['accents']
+    ui = palette[variant]['ui']
+    status = palette[variant]['status']
+
+    theme_name = "guttenbergovitz-light" if variant == "light" else "guttenbergovitz"
+
+    tokens = {
+        'accent': accents['orange'],
+        'panel_bg': base['bg'],
+        'surface0': base['bg_light'],
+        'surface1': ui['selection'],
+        'surface_dim': base['bg_dark'],
+        'overlay0': base['fg_dim'],
+        'overlay1': base['fg_dark'],
+        'text': base['fg'],
+        'subtext0': base['fg_dim'],
+        'mauve': accents['purple'],
+        'green': accents['green'],
+        'yellow': accents['yellow'],
+        'red': status['error'],
+        'blue': accents['blue'],
+        'teal': accents['cyan'],
+        'peach': accents['orange'],
+    }
+
+    custom_lines = "\n".join(f'{key} = "{color}"' for key, color in tokens.items())
+
+    return f"""# {theme_name} theme for Herdr
+# Herdr has no external theme files - paste this into ~/.config/herdr/config.toml
+# (or install with: make install). Existing [theme.custom] entries are replaced.
+[theme]
+name = "terminal"
+
+[theme.custom]
+{custom_lines}
 """
 
 def generate_iterm(palette: dict, variant: str) -> str:
@@ -400,6 +481,14 @@ def main():
         zellij_path = ROOT / "zellij" / f"guttenbergovitz{zellij_suffix}.kdl"
         zellij_path.write_text(zellij_content)
         print(f"  ✔ Zellij: {zellij_path.name}")
+
+        # Herdr
+        herdr_suffix = "-light" if variant == "light" else ""
+        herdr_content = generate_herdr(palette, variant)
+        herdr_path = ROOT / "herdr" / f"guttenbergovitz{herdr_suffix}.toml"
+        herdr_path.parent.mkdir(exist_ok=True)
+        herdr_path.write_text(herdr_content)
+        print(f"  ✔ Herdr: {herdr_path.name}")
         
         # iTerm
         iterm_name = "Guttenbergovitz-Light" if variant == "light" else "Guttenbergovitz"
