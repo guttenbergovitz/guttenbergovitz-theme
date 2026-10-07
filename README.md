@@ -6,14 +6,14 @@ A warm, low-contrast theme inspired by vintage printing and the aesthetics of we
 
 ## Ports
 
-| Editors | Terminals | Other |
-|---------|-----------|-------|
-| [VS Code](vscode/README.md) | [Kitty](kitty/README.md) | [Zellij](zellij/README.md) |
-| [Neovim](nvim/README.md) | [iTerm](iterm/README.md) | [Pi](pi/README.md) |
-| [Vim](vim/README.md) | [Ghostty](ghostty/README.md) | [Herdr](herdr/README.md) |
-| [Helix](helix/README.md) | [Warp](warp/README.md) | |
-| [Zed](zed/README.md) | | |
-| [JetBrains](jetbrains/README.md) | | |
+| Editors | Terminals | Multiplexers | AI Tools |
+|---------|-----------|--------------|----------|
+| [VS Code](vscode/README.md) | [Kitty](kitty/README.md) | [tmux](tmux/README.md) | [Claude Code](claude-code/README.md) |
+| [Neovim](nvim/README.md) | [iTerm](iterm/README.md) | [Zellij](zellij/README.md) | [Pi](pi/README.md) |
+| [Vim](vim/README.md) | [Ghostty](ghostty/README.md) | | [Herdr](herdr/README.md) |
+| [Helix](helix/README.md) | [Warp](warp/README.md) | | [OpenCode](opencode/README.md) |
+| [Zed](zed/README.md) | | | |
+| [JetBrains](jetbrains/README.md) | | | |
 
 ## Install
 

@@ -1,0 +1,22 @@
+{
+  "name": "Guttenbergovitz Light",
+  "base": "light",
+  "overrides": {
+    "background": "#f5f3f0",
+    "text": "#5a4a3a",
+    "subtle": "#a19f9e",
+    "promptBackground": "#eae8e5",
+    "userMessageBackground": "#ffffff",
+    "assistantMessageBackground": "#f5f3f0",
+    "systemMessageBackground": "#eae8e5",
+    "accentPrimary": "#b8784c",
+    "accentSecondary": "#b8995a",
+    "success": "#6b8860",
+    "error": "#8b4c4a",
+    "warning": "#b8995a",
+    "info": "#6b958f",
+    "border": "#d8d6d3",
+    "selection": "#e8e6e3",
+    "highlight": "#b8784c"
+  }
+}

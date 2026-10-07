@@ -1,0 +1,22 @@
+{
+  "name": "Guttenbergovitz",
+  "base": "dark",
+  "overrides": {
+    "background": "#232326",
+    "text": "#d4be98",
+    "subtle": "#7c7c7c",
+    "promptBackground": "#1d1d20",
+    "userMessageBackground": "#2a2a2d",
+    "assistantMessageBackground": "#232326",
+    "systemMessageBackground": "#1d1d20",
+    "accentPrimary": "#d79969",
+    "accentSecondary": "#d6b986",
+    "success": "#89a87d",
+    "error": "#a96b69",
+    "warning": "#d6b986",
+    "info": "#89b4ac",
+    "border": "#3a3a3d",
+    "selection": "#3a3a3d",
+    "highlight": "#d79969"
+  }
+}

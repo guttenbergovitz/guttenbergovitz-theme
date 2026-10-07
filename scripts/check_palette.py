@@ -38,6 +38,12 @@ FILES = [
     ROOT / "pi/guttenbergovitz.json",
     ROOT / "pi/guttenbergovitz-light.json",
     ROOT / "opencode/guttenbergovitz.json",
+    # AI Tools
+    ROOT / "claude-code/guttenbergovitz.json",
+    ROOT / "claude-code/guttenbergovitz-light.json",
+    # Multiplexers
+    ROOT / "tmux/guttenbergovitz.tmux.conf",
+    ROOT / "tmux/guttenbergovitz-light.tmux.conf",
 ]
 
 HEX_RE = re.compile(r"#[0-9a-fA-F]{6}")
