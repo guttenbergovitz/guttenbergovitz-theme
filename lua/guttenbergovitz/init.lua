@@ -422,6 +422,75 @@ local function get_groups(colors)
     ["@comment.go"] = { fg = colors.comment, italic = use_italics },
     ["@operator.go"] = { fg = colors.fg },
 
+    -- Rust specific highlighting
+    ["@attribute.rust"] = { fg = colors.purple },
+    ["@function.macro.rust"] = { fg = colors.cyan },
+    ["@storageclass.lifetime.rust"] = { fg = colors.purple },
+    ["@type.qualifier.rust"] = { fg = colors.red },
+    ["@punctuation.special.rust"] = { fg = colors.cyan },
+    ["@constant.builtin.rust"] = { fg = colors.purple },
+    ["@variable.builtin.rust"] = { fg = colors.purple },
+
+    -- Ruby specific highlighting
+    ["@symbol.ruby"] = { fg = colors.cyan },
+    ["@variable.member.ruby"] = { fg = colors.cyan },
+    ["@string.special.symbol.ruby"] = { fg = colors.cyan },
+    ["@function.method.ruby"] = { fg = colors.orange },
+    ["@keyword.modifier.ruby"] = { fg = colors.red },
+
+    -- PHP specific highlighting
+    ["@variable.php"] = { fg = colors.fg },
+    ["@type.php"] = { fg = colors.yellow },
+    ["@attribute.php"] = { fg = colors.purple },
+    ["@namespace.php"] = { fg = colors.yellow },
+
+    -- Java specific highlighting
+    ["@attribute.java"] = { fg = colors.purple },
+    ["@keyword.import.java"] = { fg = colors.comment, italic = use_italics },
+    ["@type.java"] = { fg = colors.yellow },
+
+    -- C# specific highlighting
+    ["@attribute.c_sharp"] = { fg = colors.purple },
+    ["@namespace.c_sharp"] = { fg = colors.purple },
+    ["@preproc.c_sharp"] = { fg = colors.comment },
+
+    -- Lua specific highlighting
+    ["@variable.builtin.lua"] = { fg = colors.purple },
+    ["@function.builtin.lua"] = { fg = colors.purple },
+
+    -- Shell/Bash specific highlighting
+    ["@variable.bash"] = { fg = colors.cyan },
+    ["@variable.parameter.bash"] = { fg = colors.cyan },
+    ["@function.builtin.bash"] = { fg = colors.orange },
+    ["@punctuation.special.bash"] = { fg = colors.cyan },
+
+    -- YAML specific highlighting
+    ["@property.yaml"] = { fg = colors.red },
+    ["@string.yaml"] = { fg = colors.green },
+    ["@punctuation.special.yaml"] = { fg = colors.purple },
+
+    -- JSON specific highlighting
+    ["@property.json"] = { fg = colors.red },
+    ["@string.json"] = { fg = colors.green },
+
+    -- TOML specific highlighting
+    ["@property.toml"] = { fg = colors.red },
+    ["@type.toml"] = { fg = colors.red },
+    ["@string.toml"] = { fg = colors.green },
+
+    -- CSS specific highlighting
+    ["@property.css"] = { fg = colors.yellow },
+    ["@string.css"] = { fg = colors.green },
+    ["@type.css"] = { fg = colors.yellow },
+    ["@tag.css"] = { fg = colors.red },
+    ["@constant.css"] = { fg = colors.green },
+    ["@number.css"] = { fg = colors.green },
+
+    -- Regex specific highlighting
+    ["@string.regex"] = { fg = colors.cyan },
+    ["@punctuation.bracket.regex"] = { fg = colors.cyan },
+    ["@operator.regex"] = { fg = colors.cyan },
+
     -- JavaScript/TypeScript comments (language-specific variants)
     ["@comment.javascript"] = { fg = colors.comment, italic = use_italics },
     ["@comment.typescript"] = { fg = colors.comment, italic = use_italics },

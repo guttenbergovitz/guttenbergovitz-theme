@@ -2,124 +2,74 @@
 
 > "It's not the notes you play, it's the notes you don't play." - Miles Davis
 
-## Available for:
+A warm, low-contrast theme inspired by vintage printing and the aesthetics of well-worn books. Dark and light variants. Less blue light, more character.
 
-- [VS Code](vscode/README.md) - A Visual Studio Code theme
-- [Neovim](nvim/README.md) - A Neovim colorscheme
-- [Vim](vim/README.md) - A Vim 8+ colorscheme
-- [Kitty](kitty/README.md) - A Kitty terminal theme
-- [iTerm](iterm/README.md) - An iTerm2 terminal theme
-- [Zellij](zellij/README.md) - A Zellij terminal multiplexer theme
-- [Helix](helix/README.md) - A Helix editor theme
-- [Warp](warp/README.md) - A Warp terminal theme
-- [Zed](zed/README.md) - A Zed editor theme
-- [JetBrains](jetbrains/README.md) - A theme for all JetBrains IDEs (IntelliJ, PyCharm, WebStorm, etc.)
-- [Ghostty](ghostty/README.md) - A Ghostty terminal theme
-- [Pi](pi/README.md) - A Pi (LLM TUI) theme
-- [Herdr](herdr/README.md) - A Herdr (agent multiplexer) theme
+## Ports
 
-## Installation
+| Editors | Terminals | Other |
+|---------|-----------|-------|
+| [VS Code](vscode/README.md) | [Kitty](kitty/README.md) | [Zellij](zellij/README.md) |
+| [Neovim](nvim/README.md) | [iTerm](iterm/README.md) | [Pi](pi/README.md) |
+| [Vim](vim/README.md) | [Ghostty](ghostty/README.md) | [Herdr](herdr/README.md) |
+| [Helix](helix/README.md) | [Warp](warp/README.md) | |
+| [Zed](zed/README.md) | | |
+| [JetBrains](jetbrains/README.md) | | |
 
-You can easily install the theme for your preferred editor or terminal using our interactive CLI installer:
+## Install
 
 ```bash
 make install
 ```
 
-This script automatically creates the correct directory structures and copies the theme files to their local configuration locations (Helix, Zed, Ghostty, Kitty, Zellij, Vim, and Neovim).
+Interactive installer for Helix, Zed, Ghostty, Kitty, Zellij, Vim, and Neovim.
 
-## About
+## Palette
 
-Guttenbergovitz was conceived during a deep dive into jazz history, evolving from a discussion about the parallels between music evolution and code aesthetics. Just as Miles Davis stripped jazz to its essence in "Kind of Blue", this theme aims to reduce visual noise while maintaining depth and character.
+### Dark (default)
 
-## Philosophy
+| Color | Hex | Role |
+|-------|-----|------|
+| ![#232326](https://placehold.co/16x16/232326/232326.png) | `#232326` | Background |
+| ![#d4be98](https://placehold.co/16x16/d4be98/d4be98.png) | `#d4be98` | Foreground |
+| ![#a96b69](https://placehold.co/16x16/a96b69/a96b69.png) | `#a96b69` | Keywords |
+| ![#89a87d](https://placehold.co/16x16/89a87d/89a87d.png) | `#89a87d` | Strings |
+| ![#d6b986](https://placehold.co/16x16/d6b986/d6b986.png) | `#d6b986` | Types, constants |
+| ![#d79969](https://placehold.co/16x16/d79969/d79969.png) | `#d79969` | Functions |
+| ![#b194a3](https://placehold.co/16x16/b194a3/b194a3.png) | `#b194a3` | Attributes, decorators |
+| ![#89b4ac](https://placehold.co/16x16/89b4ac/89b4ac.png) | `#89b4ac` | Macros, regex |
 
-Drawing inspiration from both old European printing traditions and modern color science, Guttenbergovitz combines the warmth of vintage manuscripts with contemporary minimalist design principles. It's like a well-aged whiskey - complex but not overwhelming.
+### Light
 
-## Credits & Inspiration
+| Color | Hex | Role |
+|-------|-----|------|
+| ![#f5f3f0](https://placehold.co/16x16/f5f3f0/f5f3f0.png) | `#f5f3f0` | Background |
+| ![#5a4a3a](https://placehold.co/16x16/5a4a3a/5a4a3a.png) | `#5a4a3a` | Foreground |
+| ![#8b4c4a](https://placehold.co/16x16/8b4c4a/8b4c4a.png) | `#8b4c4a` | Keywords |
+| ![#6b8860](https://placehold.co/16x16/6b8860/6b8860.png) | `#6b8860` | Strings |
+| ![#b8995a](https://placehold.co/16x16/b8995a/b8995a.png) | `#b8995a` | Types, constants |
+| ![#b8784c](https://placehold.co/16x16/b8784c/b8784c.png) | `#b8784c` | Functions |
+| ![#956d7e](https://placehold.co/16x16/956d7e/956d7e.png) | `#956d7e` | Attributes, decorators |
+| ![#6b958f](https://placehold.co/16x16/6b958f/6b958f.png) | `#6b958f` | Macros, regex |
 
-This theme stands on the shoulders of giants:
-- Nord's minimalist philosophy
-- Gruvbox's warm palette foundations
-- Poimandres' approach to syntax highlighting
-- EverForest's natural aesthetics
+## Language Support
 
-Each of these themes contributed to our understanding of what makes a great coding environment, much like how blues laid the foundation for jazz evolution.
-
-## Design Principles
-
-- Less blue light, more warmth
-- Minimal but meaningful syntax highlighting
-- Focus on readability and reduced eye strain
-- Inspired by vintage book printing
-- Professional without being corporate
-- Like Count Basie's orchestra: elegant, precise, and purposeful
-
-## Color Palette
-
-The Guttenbergovitz theme uses a carefully curated color palette that maintains consistency across all platforms. The theme is available in both **dark** and **light** variants:
-
-### Dark Theme (Default)
-
-#### Base Colors
-![#232326](https://placehold.co/20x20/232326/232326.png) **Background**: `#232326` (main editor background)  
-![#1d1d20](https://placehold.co/20x20/1d1d20/1d1d20.png) **Background Dark**: `#1d1d20` (darker UI elements)  
-![#d4be98](https://placehold.co/20x20/d4be98/d4be98.png) **Foreground**: `#d4be98` (main text)  
-![#424249](https://placehold.co/20x20/424249/424249.png) **Foreground Dark**: `#424249` (dimmed text, comments)  
-
-#### Accent Colors
-![#a96b69](https://placehold.co/20x20/a96b69/a96b69.png) **Red**: `#a96b69` (keywords, statements)  
-![#89a87d](https://placehold.co/20x20/89a87d/89a87d.png) **Green**: `#89a87d` (strings, success states)  
-![#d6b986](https://placehold.co/20x20/d6b986/d6b986.png) **Yellow**: `#d6b986` (constants, types)  
-![#7a9ec2](https://placehold.co/20x20/7a9ec2/7a9ec2.png) **Blue**: `#7a9ec2` (directories, links)  
-![#d79969](https://placehold.co/20x20/d79969/d79969.png) **Orange**: `#d79969` (functions, titles)  
-![#b194a3](https://placehold.co/20x20/b194a3/b194a3.png) **Purple**: `#b194a3` (preprocessor, special)  
-![#89b4ac](https://placehold.co/20x20/89b4ac/89b4ac.png) **Cyan**: `#89b4ac` (regex, references)  
-
-### Light Theme
-
-#### Base Colors
-![#f5f3f0](https://placehold.co/20x20/f5f3f0/f5f3f0.png) **Background**: `#f5f3f0` (main editor background)  
-![#eae8e5](https://placehold.co/20x20/eae8e5/eae8e5.png) **Background Dark**: `#eae8e5` (darker UI elements)  
-![#5a4a3a](https://placehold.co/20x20/5a4a3a/5a4a3a.png) **Foreground**: `#5a4a3a` (main text)  
-![#a19f9e](https://placehold.co/20x20/a19f9e/a19f9e.png) **Foreground Dark**: `#a19f9e` (dimmed text, comments)  
-
-#### Accent Colors
-![#8b4c4a](https://placehold.co/20x20/8b4c4a/8b4c4a.png) **Red**: `#8b4c4a` (keywords, statements)  
-![#6b8860](https://placehold.co/20x20/6b8860/6b8860.png) **Green**: `#6b8860` (strings, success states)  
-![#b8995a](https://placehold.co/20x20/b8995a/b8995a.png) **Yellow**: `#b8995a` (constants, types)  
-![#5e7ea5](https://placehold.co/20x20/5e7ea5/5e7ea5.png) **Blue**: `#5e7ea5` (directories, links)  
-![#b8784c](https://placehold.co/20x20/b8784c/b8784c.png) **Orange**: `#b8784c` (functions, titles)  
-![#956d7e](https://placehold.co/20x20/956d7e/956d7e.png) **Purple**: `#956d7e` (preprocessor, special)  
-![#6b958f](https://placehold.co/20x20/6b958f/6b958f.png) **Cyan**: `#6b958f` (regex, references)  
-
-### UI & Status Colors (both themes)
-![#cc6666](https://placehold.co/20x20/cc6666/cc6666.png) **Error**: `#cc6666` (error messages, diagnostics)  
-![#de935f](https://placehold.co/20x20/de935f/de935f.png) **Warning**: `#de935f` (warning messages)  
-![#81a2be](https://placehold.co/20x20/81a2be/81a2be.png) **Info**: `#81a2be` (info messages)  
-![#9cc5c0](https://placehold.co/20x20/9cc5c0/9cc5c0.png) **Hint**: `#9cc5c0` (hint messages)  
-![#b5bd68](https://placehold.co/20x20/b5bd68/b5bd68.png) **Success**: `#b5bd68` (success states)  
-
-The light theme maintains the same warm, vintage aesthetic as the dark theme while providing a comfortable bright environment for daytime coding. Both variants create a comfortable environment that reduces eye strain while maintaining excellent readability.
+Rust, Go, Python, Ruby, PHP, Java, C#, TypeScript, Lua, Shell, YAML, JSON, TOML, CSS, Regex — with language-specific highlighting across all editor ports.
 
 ## Design Notes
 
-- Warm-first philosophy: we lean into warm browns/oranges to reduce blue light while preserving contrast and readability.
-- Intentional remap: in terminals and places expecting ANSI “blue/magenta/cyan”, we map them to warm equivalents (blue→orange `#d79969`, magenta→warm red `#a96b69`, cyan→warm green `#89a87d`) to keep the organic, cohesive look.
-- Comments: italics are generally preferred for hierarchy; Neovim ships italics disabled by default (enable with `vim.g.guttenbergovitz_italics = true`).
-- Cross‑platform parity: when adjusting the palette, synchronize all ports (VS Code, terminals, Helix, Zed, JetBrains) and update their READMEs.
+**Warm ANSI remap** (dark theme only): Traditional blue/magenta/cyan feel cold here. We remap: blue→orange, magenta→red, cyan→green. Light theme keeps standard mappings.
 
-## Status
+**Italics**: Comments use italics. Neovim: `vim.g.guttenbergovitz_italics = true` to enable.
 
-This is a Work in Progress (WIP). Like jazz itself, we believe in constant evolution and improvement.
+**Cross-platform**: All ports stay in sync. Change one, update all.
 
-## The Name
+## Credits
 
-"Guttenbergovitz" merges Gutenberg's printing heritage with Eastern European craftsmanship tradition (-ovitz), reflecting our commitment to both historical respect and modern utility.
+Built on ideas from [Nord](https://www.nordtheme.com/), [Gruvbox](https://github.com/morhetz/gruvbox), [Poimandres](https://github.com/drcmda/poimandres-theme), and [Everforest](https://github.com/sainnhe/everforest).
 
-## Ghostty Terminal Theme
+## About
 
-For detailed instructions on the Ghostty terminal theme, please refer to the [Ghostty README](ghostty/README.md).
+"Guttenbergovitz" — Gutenberg's printing heritage meets Eastern European craft tradition. The theme was born from late-night discussions about code aesthetics, vintage typography, and why most themes have too much blue.
 
 ---
 

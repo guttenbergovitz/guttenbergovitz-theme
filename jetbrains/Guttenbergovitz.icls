@@ -748,5 +748,193 @@
         <option name="FOREGROUND" value="a96b69" />
       </value>
     </option>
+
+    <!-- Rust -->
+    <option name="RUST_ATTRIBUTE">
+      <value>
+        <option name="FOREGROUND" value="b194a3" />
+      </value>
+    </option>
+    <option name="RUST_LIFETIME">
+      <value>
+        <option name="FOREGROUND" value="b194a3" />
+      </value>
+    </option>
+    <option name="RUST_MACRO">
+      <value>
+        <option name="FOREGROUND" value="89b4ac" />
+      </value>
+    </option>
+    <option name="RUST_MACRO_CALL">
+      <value>
+        <option name="FOREGROUND" value="89b4ac" />
+      </value>
+    </option>
+
+    <!-- Ruby -->
+    <option name="RUBY_SYMBOL">
+      <value>
+        <option name="FOREGROUND" value="89b4ac" />
+      </value>
+    </option>
+    <option name="RUBY_INSTANCE_VARIABLE">
+      <value>
+        <option name="FOREGROUND" value="89b4ac" />
+      </value>
+    </option>
+    <option name="RUBY_CLASS_VARIABLE">
+      <value>
+        <option name="FOREGROUND" value="89b4ac" />
+      </value>
+    </option>
+    <option name="RUBY_SPECIFIC_CALL">
+      <value>
+        <option name="FOREGROUND" value="d79969" />
+      </value>
+    </option>
+
+    <!-- PHP -->
+    <option name="PHP_VAR">
+      <value>
+        <option name="FOREGROUND" value="d4be98" />
+      </value>
+    </option>
+    <option name="PHP_NAMESPACE">
+      <value>
+        <option name="FOREGROUND" value="d6b986" />
+      </value>
+    </option>
+    <option name="PHP_ATTRIBUTE">
+      <value>
+        <option name="FOREGROUND" value="b194a3" />
+      </value>
+    </option>
+
+    <!-- Java -->
+    <option name="ANNOTATION_NAME_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="b194a3" />
+      </value>
+    </option>
+    <option name="ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES">
+      <value>
+        <option name="FOREGROUND" value="b194a3" />
+      </value>
+    </option>
+
+    <!-- C# -->
+    <option name="CSHARP_ATTRIBUTE">
+      <value>
+        <option name="FOREGROUND" value="b194a3" />
+      </value>
+    </option>
+    <option name="CSHARP_NAMESPACE">
+      <value>
+        <option name="FOREGROUND" value="b194a3" />
+      </value>
+    </option>
+    <option name="CSHARP_PREPROCESSOR">
+      <value>
+        <option name="FOREGROUND" value="7c7c7c" />
+      </value>
+    </option>
+
+    <!-- Shell/Bash -->
+    <option name="BASH.VAR_USE">
+      <value>
+        <option name="FOREGROUND" value="89b4ac" />
+      </value>
+    </option>
+    <option name="BASH.VAR_DEF">
+      <value>
+        <option name="FOREGROUND" value="89b4ac" />
+      </value>
+    </option>
+    <option name="BASH.SHEBANG">
+      <value>
+        <option name="FOREGROUND" value="7c7c7c" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="BASH.INTERNAL_COMMAND">
+      <value>
+        <option name="FOREGROUND" value="d79969" />
+      </value>
+    </option>
+
+    <!-- YAML -->
+    <option name="YAML_ANCHOR">
+      <value>
+        <option name="FOREGROUND" value="b194a3" />
+      </value>
+    </option>
+    <option name="YAML_SCALAR_KEY">
+      <value>
+        <option name="FOREGROUND" value="a96b69" />
+      </value>
+    </option>
+    <option name="YAML_SCALAR_VALUE">
+      <value>
+        <option name="FOREGROUND" value="89a87d" />
+      </value>
+    </option>
+
+    <!-- JSON -->
+    <option name="JSON.PROPERTY_KEY">
+      <value>
+        <option name="FOREGROUND" value="a96b69" />
+      </value>
+    </option>
+    <option name="JSON.STRING">
+      <value>
+        <option name="FOREGROUND" value="89a87d" />
+      </value>
+    </option>
+
+    <!-- TOML -->
+    <option name="org.toml.KEY">
+      <value>
+        <option name="FOREGROUND" value="a96b69" />
+      </value>
+    </option>
+    <option name="org.toml.TABLE_HEADER">
+      <value>
+        <option name="FOREGROUND" value="a96b69" />
+      </value>
+    </option>
+
+    <!-- CSS -->
+    <option name="CSS.PROPERTY_NAME">
+      <value>
+        <option name="FOREGROUND" value="d6b986" />
+      </value>
+    </option>
+    <option name="CSS.PROPERTY_VALUE">
+      <value>
+        <option name="FOREGROUND" value="89a87d" />
+      </value>
+    </option>
+    <option name="CSS.CLASS_NAME">
+      <value>
+        <option name="FOREGROUND" value="d6b986" />
+      </value>
+    </option>
+    <option name="CSS.ID_SELECTOR">
+      <value>
+        <option name="FOREGROUND" value="d6b986" />
+      </value>
+    </option>
+
+    <!-- Regex -->
+    <option name="REGEXP.BRACES">
+      <value>
+        <option name="FOREGROUND" value="89b4ac" />
+      </value>
+    </option>
+    <option name="REGEXP.META">
+      <value>
+        <option name="FOREGROUND" value="89b4ac" />
+      </value>
+    </option>
   </attributes>
 </scheme> 

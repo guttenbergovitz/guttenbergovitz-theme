@@ -62,6 +62,52 @@
         "panelTitle.activeForeground": "#5a4a3a",
         "panelTitle.inactiveForeground": "#a19f9e"
     },
+    "semanticHighlighting": true,
+    "semanticTokenColors": {
+        "namespace": "#b8995a",
+        "type": "#b8995a",
+        "type.defaultLibrary": "#b8995a",
+        "class": "#b8995a",
+        "class.defaultLibrary": "#b8995a",
+        "interface": "#b8995a",
+        "enum": "#b8995a",
+        "enumMember": "#b8995a",
+        "struct": "#b8995a",
+        "typeParameter": "#b8995a",
+        "function": "#b8784c",
+        "function.defaultLibrary": "#b8784c",
+        "method": "#b8784c",
+        "method.defaultLibrary": "#b8784c",
+        "macro": "#6b958f",
+        "variable": "#5a4a3a",
+        "variable.readonly": "#b8995a",
+        "variable.defaultLibrary": "#956d7e",
+        "parameter": "#5a4a3a",
+        "property": "#5a4a3a",
+        "property.readonly": "#b8995a",
+        "keyword": "#8b4c4a",
+        "modifier": "#8b4c4a",
+        "comment": { "foreground": "#a19f9e", "fontStyle": "italic" },
+        "string": "#6b8860",
+        "number": "#b8995a",
+        "regexp": "#6b958f",
+        "operator": "#8b4c4a",
+        "decorator": "#956d7e",
+        "attribute": "#956d7e",
+        "lifetime": "#956d7e",
+        "label": "#b8995a",
+        "selfKeyword": "#8b4c4a",
+        "selfTypeKeyword": "#b8995a",
+        "builtinType": "#b8995a",
+        "formatSpecifier": "#6b958f",
+        "escapeSequence": "#b8784c",
+        "boolean": "#b8995a",
+        "*.mutable": { "fontStyle": "underline" },
+        "*.static": { "fontStyle": "bold" },
+        "*.async": { "fontStyle": "italic" },
+        "tomlArrayKey": "#8b4c4a",
+        "tomlTableKey": "#8b4c4a"
+    },
     "tokenColors": [
         {
             "name": "Keywords and Storage",
@@ -262,6 +308,230 @@
             "scope": [
                 "markup.underline.link",
                 "string.other.link"
+            ],
+            "settings": {
+                "foreground": "#6b8860"
+            }
+        },
+        {
+            "name": "Rust lifetimes and attributes",
+            "scope": [
+                "storage.modifier.lifetime.rust",
+                "entity.name.lifetime.rust",
+                "meta.attribute.rust",
+                "punctuation.definition.attribute.rust"
+            ],
+            "settings": {
+                "foreground": "#956d7e"
+            }
+        },
+        {
+            "name": "Rust macros",
+            "scope": [
+                "entity.name.function.macro.rust",
+                "support.macro.rust",
+                "meta.macro.rust"
+            ],
+            "settings": {
+                "foreground": "#6b958f"
+            }
+        },
+        {
+            "name": "Ruby symbols and instance variables",
+            "scope": [
+                "constant.other.symbol.ruby",
+                "variable.other.readwrite.instance.ruby",
+                "variable.other.readwrite.class.ruby"
+            ],
+            "settings": {
+                "foreground": "#6b958f"
+            }
+        },
+        {
+            "name": "Ruby special methods",
+            "scope": [
+                "keyword.control.pseudo-method.ruby",
+                "keyword.other.special-method.ruby"
+            ],
+            "settings": {
+                "foreground": "#b8784c"
+            }
+        },
+        {
+            "name": "PHP variables",
+            "scope": [
+                "variable.other.php",
+                "punctuation.definition.variable.php"
+            ],
+            "settings": {
+                "foreground": "#5a4a3a"
+            }
+        },
+        {
+            "name": "PHP namespaces and use",
+            "scope": [
+                "support.other.namespace.php",
+                "entity.name.type.namespace.php",
+                "support.other.namespace.use.php"
+            ],
+            "settings": {
+                "foreground": "#b8995a"
+            }
+        },
+        {
+            "name": "Java annotations",
+            "scope": [
+                "storage.type.annotation.java",
+                "punctuation.definition.annotation.java",
+                "meta.declaration.annotation.java"
+            ],
+            "settings": {
+                "foreground": "#956d7e"
+            }
+        },
+        {
+            "name": "Java packages",
+            "scope": [
+                "storage.modifier.package.java",
+                "storage.modifier.import.java"
+            ],
+            "settings": {
+                "foreground": "#a19f9e",
+                "fontStyle": "italic"
+            }
+        },
+        {
+            "name": "C# attributes and namespaces",
+            "scope": [
+                "entity.name.type.attribute.cs",
+                "entity.name.type.namespace.cs"
+            ],
+            "settings": {
+                "foreground": "#956d7e"
+            }
+        },
+        {
+            "name": "C# preprocessor",
+            "scope": [
+                "meta.preprocessor.cs",
+                "punctuation.separator.hash.cs"
+            ],
+            "settings": {
+                "foreground": "#a19f9e"
+            }
+        },
+        {
+            "name": "TypeScript decorators",
+            "scope": [
+                "meta.decorator.ts",
+                "punctuation.decorator.ts",
+                "meta.decorator.tsx"
+            ],
+            "settings": {
+                "foreground": "#956d7e"
+            }
+        },
+        {
+            "name": "TypeScript type assertions",
+            "scope": [
+                "meta.type.cast.expr.ts",
+                "meta.type.annotation.ts",
+                "entity.name.type.ts",
+                "entity.name.type.tsx"
+            ],
+            "settings": {
+                "foreground": "#b8995a"
+            }
+        },
+        {
+            "name": "Lua tables and metatables",
+            "scope": [
+                "constant.language.lua",
+                "support.function.lua"
+            ],
+            "settings": {
+                "foreground": "#956d7e"
+            }
+        },
+        {
+            "name": "Shell variables and expansions",
+            "scope": [
+                "variable.other.normal.shell",
+                "variable.other.positional.shell",
+                "variable.other.special.shell",
+                "punctuation.definition.variable.shell"
+            ],
+            "settings": {
+                "foreground": "#6b958f"
+            }
+        },
+        {
+            "name": "Shell builtins",
+            "scope": [
+                "support.function.builtin.shell"
+            ],
+            "settings": {
+                "foreground": "#b8784c"
+            }
+        },
+        {
+            "name": "YAML keys",
+            "scope": [
+                "entity.name.tag.yaml",
+                "punctuation.definition.block.sequence.item.yaml"
+            ],
+            "settings": {
+                "foreground": "#8b4c4a"
+            }
+        },
+        {
+            "name": "JSON keys",
+            "scope": [
+                "support.type.property-name.json"
+            ],
+            "settings": {
+                "foreground": "#8b4c4a"
+            }
+        },
+        {
+            "name": "TOML keys and tables",
+            "scope": [
+                "entity.name.tag.toml",
+                "entity.name.section.toml",
+                "support.type.property-name.toml"
+            ],
+            "settings": {
+                "foreground": "#8b4c4a"
+            }
+        },
+        {
+            "name": "Regex patterns",
+            "scope": [
+                "string.regexp",
+                "constant.other.character-class.regexp",
+                "keyword.operator.quantifier.regexp"
+            ],
+            "settings": {
+                "foreground": "#6b958f"
+            }
+        },
+        {
+            "name": "CSS selectors and properties",
+            "scope": [
+                "entity.other.attribute-name.class.css",
+                "entity.other.attribute-name.id.css",
+                "support.type.property-name.css"
+            ],
+            "settings": {
+                "foreground": "#b8995a"
+            }
+        },
+        {
+            "name": "CSS values",
+            "scope": [
+                "support.constant.property-value.css",
+                "constant.numeric.css",
+                "keyword.other.unit.css"
             ],
             "settings": {
                 "foreground": "#6b8860"

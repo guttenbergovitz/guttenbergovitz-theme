@@ -63,7 +63,7 @@
     "toolDiffRemoved": "red",
     "toolDiffContext": "fgDim",
 
-    "syntaxComment": "#008000",
+    "syntaxComment": "fgDim",
     "syntaxKeyword": "red",
     "syntaxFunction": "orange",
     "syntaxVariable": "fg",
@@ -74,12 +74,12 @@
     "syntaxPunctuation": "fg",
 
     "thinkingOff": "fgDim",
-    "thinkingMinimal": "#767676",
+    "thinkingMinimal": "fgDim",
     "thinkingLow": "blue",
     "thinkingMedium": "info",
     "thinkingHigh": "purple",
-    "thinkingXhigh": "#a06da0",
-    "thinkingMax": "#c05fc0",
+    "thinkingXhigh": "hint",
+    "thinkingMax": "cyan",
 
     "bashMode": "green"
   },

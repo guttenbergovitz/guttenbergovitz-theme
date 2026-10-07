@@ -19,28 +19,69 @@
 "ui.menu.selected" = { bg = "bg3", fg = "fg0" }
 "ui.virtual.ruler" = { bg = "bg2" }
 
-# Syntax highlighting
+# Syntax highlighting - Core
 "comment" = { fg = "gray", modifiers = ["italic"] }
 "constant" = "yellow"
 "constant.numeric" = "yellow"
 "constant.character.escape" = "orange"
 "string" = "green"
-"string.regexp" = "blue"
-"string.special" = "blue"
+"string.regexp" = "cyan"
+"string.special" = "cyan"
 "keyword" = "red"
+"keyword.control" = "red"
+"keyword.function" = "red"
+"keyword.storage" = "red"
+"keyword.operator" = "red"
 "operator" = "red"
 "function" = "orange"
 "function.builtin" = "orange"
 "function.method" = "orange"
+"function.macro" = "cyan"
 "variable" = "fg0"
 "variable.builtin" = "red"
 "variable.parameter" = "fg0"
 "variable.other.member" = "fg0"
 "type" = "yellow"
 "type.builtin" = "yellow"
+"type.parameter" = "yellow"
 "constructor" = "yellow"
 "special" = "orange"
 "label" = "red"
+"namespace" = "yellow"
+"module" = "yellow"
+"attribute" = "purple"
+"punctuation" = "fg0"
+"punctuation.bracket" = "fg0"
+"punctuation.delimiter" = "fg0"
+"punctuation.special" = "fg0"
+"tag" = "red"
+
+# Rust specific
+"attribute.rust" = "purple"
+"function.macro.rust" = "cyan"
+"label.rust" = "purple"
+
+# Python specific
+"variable.builtin.python" = "red"
+"constant.builtin.python" = "purple"
+
+# Go specific
+"constant.builtin.go" = "purple"
+"type.builtin.go" = "yellow"
+
+# Shell/Bash specific
+"variable.other.bash" = "cyan"
+
+# Data formats (YAML, JSON, TOML)
+"property" = "red"
+"property.yaml" = "red"
+"property.json" = "red"
+"property.toml" = "red"
+
+# Diff
+"diff.plus" = "green"
+"diff.minus" = "red"
+"diff.delta" = "yellow"
 
 # Markup
 "markup.heading" = "orange"
@@ -71,7 +112,8 @@ gray = "#7c7c7c"
 red = "#a96b69"
 green = "#89a87d"
 yellow = "#d6b986"
-blue = "#d79969"
+blue = "#7a9ec2"
 orange = "#d79969"
-magenta = "#a96b69"
-cyan = "#89a87d" 
+purple = "#b194a3"
+magenta = "#b194a3"
+cyan = "#89b4ac" 

@@ -475,6 +475,116 @@ call s:hi('vimSetSep', s:colors.fg_dark, '', '', '')
 call s:hi('vimSep', s:colors.fg_dark, '', '', '')
 call s:hi('vimContinue', s:colors.fg_dark, '', '', '')
 
+" Rust
+call s:hi('rustAttribute', s:colors.purple, '', '', '')
+call s:hi('rustDerive', s:colors.purple, '', '', '')
+call s:hi('rustDeriveTrait', s:colors.purple, '', '', '')
+call s:hi('rustMacro', s:colors.cyan, '', '', '')
+call s:hi('rustSigil', s:colors.red, '', '', '')
+call s:hi('rustLifetime', s:colors.purple, '', '', '')
+call s:hi('rustModPath', s:colors.yellow, '', '', '')
+call s:hi('rustModPathSep', s:colors.fg_dark, '', '', '')
+call s:hi('rustSelf', s:colors.red, '', '', '')
+call s:hi('rustSuper', s:colors.red, '', '', '')
+call s:hi('rustAssert', s:colors.cyan, '', '', '')
+call s:hi('rustPanic', s:colors.cyan, '', '', '')
+
+" Go
+call s:hi('goPackage', s:colors.red, '', '', '')
+call s:hi('goImport', s:colors.red, '', '', '')
+call s:hi('goType', s:colors.yellow, '', '', '')
+call s:hi('goBuiltins', s:colors.orange, '', '', '')
+call s:hi('goConst', s:colors.yellow, '', '', '')
+call s:hi('goVar', s:colors.red, '', '', '')
+call s:hi('goDeclaration', s:colors.red, '', '', '')
+call s:hi('goDeclType', s:colors.yellow, '', '', '')
+call s:hi('goReceiver', s:colors.fg, '', '', '')
+call s:hi('goReceiverType', s:colors.yellow, '', '', '')
+call s:hi('goNil', s:colors.purple, '', '', '')
+call s:hi('goIota', s:colors.purple, '', '', '')
+
+" Java
+call s:hi('javaAnnotation', s:colors.purple, '', '', '')
+call s:hi('javaCommentTitle', s:colors.comment, '', 'bold,italic', '')
+call s:hi('javaDocComment', s:colors.comment, '', 'italic', '')
+call s:hi('javaDocParam', s:colors.fg, '', '', '')
+call s:hi('javaDocTags', s:colors.fg_dark, '', '', '')
+call s:hi('javaExternal', s:colors.red, '', '', '')
+call s:hi('javaScopeDecl', s:colors.red, '', '', '')
+call s:hi('javaClassDecl', s:colors.red, '', '', '')
+call s:hi('javaTypeDef', s:colors.yellow, '', '', '')
+
+" C#
+call s:hi('csAttribute', s:colors.purple, '', '', '')
+call s:hi('csClass', s:colors.yellow, '', '', '')
+call s:hi('csModifier', s:colors.red, '', '', '')
+call s:hi('csNew', s:colors.red, '', '', '')
+call s:hi('csPreCondit', s:colors.purple, '', '', '')
+call s:hi('csType', s:colors.yellow, '', '', '')
+call s:hi('csXmlTag', s:colors.comment, '', '', '')
+
+" TypeScript
+call s:hi('typescriptDecorator', s:colors.purple, '', '', '')
+call s:hi('typescriptMember', s:colors.fg, '', '', '')
+call s:hi('typescriptTypeReference', s:colors.yellow, '', '', '')
+call s:hi('typescriptCall', s:colors.fg, '', '', '')
+call s:hi('typescriptBraces', s:colors.fg, '', '', '')
+call s:hi('typescriptParens', s:colors.fg, '', '', '')
+call s:hi('typescriptVariable', s:colors.red, '', '', '')
+call s:hi('typescriptImport', s:colors.red, '', '', '')
+call s:hi('typescriptExport', s:colors.red, '', '', '')
+
+" Lua
+call s:hi('luaFunc', s:colors.orange, '', '', '')
+call s:hi('luaFunction', s:colors.red, '', '', '')
+call s:hi('luaTable', s:colors.fg, '', '', '')
+call s:hi('luaIn', s:colors.red, '', '', '')
+call s:hi('luaLocal', s:colors.red, '', '', '')
+call s:hi('luaSpecialValue', s:colors.purple, '', '', '')
+call s:hi('luaStatement', s:colors.red, '', '', '')
+
+" Shell/Bash
+call s:hi('shDeref', s:colors.cyan, '', '', '')
+call s:hi('shDerefSimple', s:colors.cyan, '', '', '')
+call s:hi('shDerefVar', s:colors.cyan, '', '', '')
+call s:hi('shFunction', s:colors.orange, '', '', '')
+call s:hi('shFunctionKey', s:colors.red, '', '', '')
+call s:hi('shLoop', s:colors.red, '', '', '')
+call s:hi('shStatement', s:colors.red, '', '', '')
+call s:hi('shSet', s:colors.orange, '', '', '')
+call s:hi('shSetList', s:colors.fg, '', '', '')
+call s:hi('shVariable', s:colors.cyan, '', '', '')
+
+" YAML
+call s:hi('yamlKey', s:colors.red, '', '', '')
+call s:hi('yamlKeyValueDelimiter', s:colors.fg, '', '', '')
+call s:hi('yamlBlockMappingKey', s:colors.red, '', '', '')
+call s:hi('yamlFlowMappingKey', s:colors.red, '', '', '')
+call s:hi('yamlAnchor', s:colors.purple, '', '', '')
+call s:hi('yamlAlias', s:colors.purple, '', '', '')
+call s:hi('yamlDocumentStart', s:colors.fg_dark, '', '', '')
+call s:hi('yamlDocumentEnd', s:colors.fg_dark, '', '', '')
+
+" JSON
+call s:hi('jsonKeyword', s:colors.red, '', '', '')
+call s:hi('jsonKeywordMatch', s:colors.fg, '', '', '')
+call s:hi('jsonString', s:colors.green, '', '', '')
+call s:hi('jsonBoolean', s:colors.purple, '', '', '')
+call s:hi('jsonNull', s:colors.purple, '', '', '')
+call s:hi('jsonNumber', s:colors.yellow, '', '', '')
+call s:hi('jsonBraces', s:colors.fg, '', '', '')
+
+" TOML
+call s:hi('tomlKey', s:colors.red, '', '', '')
+call s:hi('tomlTable', s:colors.red, '', '', '')
+call s:hi('tomlTableArray', s:colors.red, '', '', '')
+call s:hi('tomlBoolean', s:colors.purple, '', '', '')
+call s:hi('tomlDate', s:colors.cyan, '', '', '')
+
+" Dockerfile
+call s:hi('dockerfileKeyword', s:colors.red, '', '', '')
+call s:hi('dockerfileFrom', s:colors.red, '', '', '')
+
 " Terminal colors (if supported)
 if exists('*term_setansicolors')
     let g:terminal_ansi_colors = [
