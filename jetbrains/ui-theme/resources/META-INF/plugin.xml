@@ -35,6 +35,14 @@
   ]]></description>
   
   <change-notes><![CDATA[
+    <h3>1.2.0</h3>
+    <ul>
+      <li>Added semantic token support for LSP-based highlighting</li>
+      <li>Extended language support: Rust, Ruby, PHP, Java, C#, TypeScript, Lua, Shell, YAML, JSON, TOML, CSS, Regex</li>
+      <li>Added 20 language-specific attributes per variant</li>
+      <li>New ports: tmux, Claude Code</li>
+    </ul>
+    <br/>
     <h3>1.1.2</h3>
     <ul>
       <li>Added 14 GO_* and 10 go.* syntax tokens for GoLand users</li>
@@ -72,7 +80,7 @@
     </ul>
   ]]></change-notes>
   
-  <version>1.1.2</version>
+  <version>1.2.0</version>
   
   <idea-version since-build="233.0"/>
   

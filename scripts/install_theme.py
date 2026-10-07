@@ -162,6 +162,33 @@ PLATFORMS = {
             (ROOT / "herdr" / "guttenbergovitz-light.toml", "guttenbergovitz-light.toml")
         ],
         "instructions": "Config updated. Run `herdr server reload-config` (or the installer does it automatically). To switch variants: `python3 scripts/install_theme.py herdr dark` or `python3 scripts/install_theme.py herdr light`."
+    },
+    "16": {
+        "name": "tmux",
+        "dest_dir": Path("~/.tmux/themes").expanduser(),
+        "files": [
+            (ROOT / "tmux" / "guttenbergovitz.tmux.conf", "guttenbergovitz.tmux.conf"),
+            (ROOT / "tmux" / "guttenbergovitz-light.tmux.conf", "guttenbergovitz-light.tmux.conf")
+        ],
+        "instructions": "Add `source-file ~/.tmux/themes/guttenbergovitz.tmux.conf` to your ~/.tmux.conf, then `tmux source-file ~/.tmux.conf`"
+    },
+    "17": {
+        "name": "Claude Code",
+        "dest_dir": Path("~/.claude/themes").expanduser(),
+        "files": [
+            (ROOT / "claude-code" / "guttenbergovitz.json", "guttenbergovitz.json"),
+            (ROOT / "claude-code" / "guttenbergovitz-light.json", "guttenbergovitz-light.json")
+        ],
+        "instructions": "Run `/theme` in Claude Code and select \"Guttenbergovitz\" or \"Guttenbergovitz Light\""
+    },
+    "18": {
+        "name": "iTerm",
+        "dest_dir": None,
+        "files": [
+            (ROOT / "iterm" / "Guttenbergovitz.itermcolors", "Guttenbergovitz.itermcolors"),
+            (ROOT / "iterm" / "Guttenbergovitz-Light.itermcolors", "Guttenbergovitz-Light.itermcolors")
+        ],
+        "instructions": "Open iTerm2 → Preferences → Profiles → Colors → Color Presets → Import, then select the .itermcolors file"
     }
 }
 

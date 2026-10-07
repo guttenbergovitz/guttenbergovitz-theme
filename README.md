@@ -4,6 +4,16 @@
 
 A warm, low-contrast theme inspired by vintage printing and the aesthetics of well-worn books. Dark and light variants. Less blue light, more character.
 
+## Contents
+
+- [Ports](#ports)
+- [Install](#install)
+- [Palette](#palette)
+- [Language Support](#language-support)
+- [Design Notes](#design-notes)
+- [Credits](#credits)
+- [About](#about)
+
 ## Ports
 
 | Editors | Terminals | Multiplexers | AI Tools |
