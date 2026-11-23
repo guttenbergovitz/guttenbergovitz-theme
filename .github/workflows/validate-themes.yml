@@ -14,7 +14,14 @@ on:
       - 'ghostty/**'
       - 'zed/**'
       - 'jetbrains/**'
+      - 'zellij/**'
+      - 'herdr/**'
+      - 'opencode/**'
+      - 'pi/**'
+      - 'tmux/**'
+      - 'claude-code/**'
       - 'scripts/validate_consistency.py'
+      - 'scripts/check_palette.py'
       - '.github/workflows/validate-themes.yml'
   pull_request:
     branches: [ main, master, develop ]
@@ -29,7 +36,14 @@ on:
       - 'ghostty/**'
       - 'zed/**'
       - 'jetbrains/**'
+      - 'zellij/**'
+      - 'herdr/**'
+      - 'opencode/**'
+      - 'pi/**'
+      - 'tmux/**'
+      - 'claude-code/**'
       - 'scripts/validate_consistency.py'
+      - 'scripts/check_palette.py'
   workflow_dispatch:
 
 jobs:
@@ -55,7 +69,6 @@ jobs:
         run: |
           echo "🎨 Checking palette usage..."
           make check.palette
-        continue-on-error: true
         
       - name: Success
         if: success()

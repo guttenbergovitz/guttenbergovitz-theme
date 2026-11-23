@@ -33,7 +33,7 @@ themes {
             emphasis_3 149 109 126
         }
         table_title {
-            base 184 153 90
+            base 156 125 62
             background 245 243 240
             emphasis_0 184 120 76
             emphasis_1 94 126 165
@@ -89,7 +89,7 @@ themes {
             emphasis_3 149 109 126
         }
         frame_highlight {
-            base 184 153 90
+            base 156 125 62
             background 245 243 240
             emphasis_0 184 120 76
             emphasis_1 94 126 165
@@ -117,7 +117,7 @@ themes {
             player_1 184 120 76
             player_2 107 149 143
             player_3 107 136 96
-            player_4 184 153 90
+            player_4 156 125 62
             player_5 149 109 126
             player_6 94 126 165
             player_7 139 76 74

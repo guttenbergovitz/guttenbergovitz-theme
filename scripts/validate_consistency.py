@@ -234,7 +234,7 @@ class ColorValidator:
             ('bg1', palette['base']['bg_dark']),
             ('bg2', palette['base']['bg_light']),
             ('fg0', palette['base']['fg']),
-            ('gray', palette['semantic']['comment']),
+            ('comment', palette['semantic']['comment']),
             ('red', palette['accents']['red']),
             ('green', palette['accents']['green']),
             ('yellow', palette['accents']['yellow']),
@@ -267,38 +267,33 @@ class ColorValidator:
             print("  ❌ Helix themes have inconsistencies")
         return all_ok
 
-    def validate_kitty(self) -> bool:
-        """Validate Kitty theme against the dark reference palette.
-        
-        Returns:
-            True if the Kitty theme matches reference values, False otherwise.
-        """
-        print("\n🔍 Validating Kitty theme...")
-        kitty_file = ROOT / "kitty" / "guttenbergovitz.conf"
-        
+    def validate_kitty_variant(self, variant: str) -> bool:
+        """Validate a single Kitty theme variant against the reference palette."""
+        suffix = "-light" if variant == "light" else ""
+        kitty_file = ROOT / "kitty" / f"guttenbergovitz{suffix}.conf"
+        print(f"  🔍 Validating Kitty theme ({variant})...")
+
         if not kitty_file.exists():
             self.issues.append({
                 'severity': 'error',
-                'implementation': 'Kitty',
+                'implementation': f'Kitty ({variant})',
                 'color_name': 'theme file',
                 'expected': 'File exists',
                 'actual': 'NOT FOUND',
                 'context': str(kitty_file)
             })
             return False
-            
-        with open(kitty_file) as f:
-            content = f.read()
-        
-        palette = self.palette['dark']
-        
+
+        content = kitty_file.read_text()
+        palette = self.palette[variant]
+
         colors = {}
         for match in re.finditer(r'(\w+)\s+(#[0-9a-fA-F]{6})', content):
             colors[match.group(1)] = match.group(2)
-        
+
         for match in re.finditer(r'color(\d+)\s+(#[0-9a-fA-F]{6})', content):
             colors[f'color{match.group(1)}'] = match.group(2)
-        
+
         checks = [
             ('background', palette['base']['bg']),
             ('foreground', palette['base']['fg']),
@@ -309,18 +304,24 @@ class ColorValidator:
             ('color3', palette['terminal']['ansi']['yellow']),
             ('color8', palette['terminal']['ansi_bright']['black']),
         ]
-        
+
         all_ok = True
         for key, expected in checks:
             actual = colors.get(key, '')
-            if not self.check_color('Kitty', key, expected, actual):
+            if not self.check_color(f'Kitty ({variant})', key, expected, actual):
                 all_ok = False
-        
+        return all_ok
+
+    def validate_kitty(self) -> bool:
+        """Validate both dark and light Kitty themes against the reference palette."""
+        print("\n🔍 Validating Kitty themes...")
+        dark_ok = self.validate_kitty_variant('dark')
+        light_ok = self.validate_kitty_variant('light')
+        all_ok = dark_ok and light_ok
         if all_ok:
-            print("  ✅ Kitty theme is consistent")
+            print("  ✅ Kitty themes are consistent")
         else:
-            print("  ❌ Kitty theme has inconsistencies")
-        
+            print("  ❌ Kitty themes have inconsistencies")
         return all_ok
 
     def validate_zed(self) -> bool:
@@ -725,6 +726,265 @@ class ColorValidator:
             print("  ❌ Herdr themes have inconsistencies")
         return all_ok
 
+    def validate_ghostty(self) -> bool:
+        """Validate both dark and light Ghostty themes against the palette."""
+        print("\n🔍 Validating Ghostty themes...")
+        all_ok = True
+        for variant in ['dark', 'light']:
+            suffix = "-light" if variant == "light" else ""
+            ghostty_file = ROOT / "ghostty" / f"guttenbergovitz{suffix}"
+            if not ghostty_file.exists():
+                self.issues.append({
+                    'severity': 'error',
+                    'implementation': f'Ghostty ({variant})',
+                    'color_name': 'theme file',
+                    'expected': 'File exists',
+                    'actual': 'NOT FOUND',
+                    'context': str(ghostty_file)
+                })
+                all_ok = False
+                continue
+
+            print(f"  🔍 Validating Ghostty theme ({variant})...")
+            content = ghostty_file.read_text()
+            palette = self.palette[variant]
+            colors = {}
+            for m in re.finditer(r'^([\w-]+)\s*=\s*(#[0-9a-fA-F]{6})', content, re.M):
+                colors[m.group(1)] = m.group(2)
+            for m in re.finditer(r'^palette\s*=\s*(\d+)=(#[0-9a-fA-F]{6})', content, re.M):
+                colors[f'palette_{m.group(1)}'] = m.group(2)
+
+            checks = [
+                ('background', palette['base']['bg']),
+                ('foreground', palette['base']['fg']),
+                ('cursor-color', palette['ui']['cursor']),
+                ('selection-background', palette['ui']['selection']),
+                ('palette_0', palette['terminal']['ansi']['black']),
+                ('palette_1', palette['terminal']['ansi']['red']),
+                ('palette_2', palette['terminal']['ansi']['green']),
+                ('palette_3', palette['terminal']['ansi']['yellow']),
+                ('palette_8', palette['terminal']['ansi_bright']['black']),
+            ]
+            for key, expected in checks:
+                if not self.check_color(f'Ghostty ({variant})', key, expected, colors.get(key, '')):
+                    all_ok = False
+
+        print("  ✅ Ghostty themes are consistent" if all_ok else "  ❌ Ghostty themes have inconsistencies")
+        return all_ok
+
+    def validate_warp(self) -> bool:
+        """Validate both dark and light Warp themes against the palette."""
+        print("\n🔍 Validating Warp themes...")
+        all_ok = True
+        for variant in ['dark', 'light']:
+            suffix = "-light" if variant == "light" else ""
+            warp_file = ROOT / "warp" / f"guttenbergovitz{suffix}.yaml"
+            if not warp_file.exists():
+                self.issues.append({
+                    'severity': 'error',
+                    'implementation': f'Warp ({variant})',
+                    'color_name': 'theme file',
+                    'expected': 'File exists',
+                    'actual': 'NOT FOUND',
+                    'context': str(warp_file)
+                })
+                all_ok = False
+                continue
+
+            print(f"  🔍 Validating Warp theme ({variant})...")
+            content = warp_file.read_text()
+            palette = self.palette[variant]
+            top_colors = {}
+            for m in re.finditer(r'^(accent|background|cursor|foreground):\s*"?(#[0-9a-fA-F]{6})"?', content, re.M):
+                top_colors[m.group(1)] = m.group(2)
+
+            checks = [
+                ('accent', palette['accents']['orange']),
+                ('background', palette['base']['bg']),
+                ('cursor', palette['base']['fg']),
+                ('foreground', palette['base']['fg']),
+            ]
+            for key, expected in checks:
+                if not self.check_color(f'Warp ({variant})', key, expected, top_colors.get(key, '')):
+                    all_ok = False
+
+        print("  ✅ Warp themes are consistent" if all_ok else "  ❌ Warp themes have inconsistencies")
+        return all_ok
+
+    def validate_tmux(self) -> bool:
+        """Validate both dark and light tmux themes against the palette."""
+        print("\n🔍 Validating tmux themes...")
+        all_ok = True
+        for variant in ['dark', 'light']:
+            suffix = "-light" if variant == "light" else ""
+            tmux_file = ROOT / "tmux" / f"guttenbergovitz{suffix}.tmux.conf"
+            if not tmux_file.exists():
+                self.issues.append({
+                    'severity': 'error',
+                    'implementation': f'tmux ({variant})',
+                    'color_name': 'theme file',
+                    'expected': 'File exists',
+                    'actual': 'NOT FOUND',
+                    'context': str(tmux_file)
+                })
+                all_ok = False
+                continue
+
+            print(f"  🔍 Validating tmux theme ({variant})...")
+            content = tmux_file.read_text()
+            palette = self.palette[variant]
+            colors = dict(re.findall(r'^(thm_\w+)="(#[0-9a-fA-F]{6})"', content, re.M))
+
+            checks = [
+                ('thm_bg', palette['base']['bg']),
+                ('thm_bg_dark', palette['base']['bg_dark']),
+                ('thm_bg_light', palette['base']['bg_light']),
+                ('thm_fg', palette['base']['fg']),
+                ('thm_fg_dim', palette['base']['fg_dim']),
+                ('thm_red', palette['accents']['red']),
+                ('thm_green', palette['accents']['green']),
+                ('thm_yellow', palette['accents']['yellow']),
+                ('thm_orange', palette['accents']['orange']),
+                ('thm_purple', palette['accents']['purple']),
+                ('thm_cyan', palette['accents']['cyan']),
+                ('thm_selection', palette['ui']['selection']),
+            ]
+            for key, expected in checks:
+                if not self.check_color(f'tmux ({variant})', key, expected, colors.get(key, '')):
+                    all_ok = False
+
+        print("  ✅ tmux themes are consistent" if all_ok else "  ❌ tmux themes have inconsistencies")
+        return all_ok
+
+    def validate_claude_code(self) -> bool:
+        """Validate both dark and light Claude Code themes against the palette."""
+        print("\n🔍 Validating Claude Code themes...")
+        all_ok = True
+        for variant in ['dark', 'light']:
+            suffix = "-light" if variant == "light" else ""
+            cc_file = ROOT / "claude-code" / f"guttenbergovitz{suffix}.json"
+            if not cc_file.exists():
+                self.issues.append({
+                    'severity': 'error',
+                    'implementation': f'Claude Code ({variant})',
+                    'color_name': 'theme file',
+                    'expected': 'File exists',
+                    'actual': 'NOT FOUND',
+                    'context': str(cc_file)
+                })
+                all_ok = False
+                continue
+
+            print(f"  🔍 Validating Claude Code theme ({variant})...")
+            data = json.loads(cc_file.read_text())
+            ov = data.get('overrides', {})
+            palette = self.palette[variant]
+            checks = [
+                ('background', palette['base']['bg']),
+                ('text', palette['base']['fg']),
+                ('subtle', palette['base']['fg_dim']),
+                ('promptBackground', palette['base']['bg_dark']),
+                ('userMessageBackground', palette['base']['bg_light']),
+                ('accentPrimary', palette['accents']['orange']),
+                ('accentSecondary', palette['accents']['yellow']),
+                ('success', palette['accents']['green']),
+                ('error', palette['accents']['red']),
+                ('info', palette['accents']['cyan']),
+                ('border', palette['ui']['border']),
+                ('selection', palette['ui']['selection']),
+            ]
+            for key, expected in checks:
+                if not self.check_color(f'Claude Code ({variant})', key, expected, ov.get(key, '')):
+                    all_ok = False
+
+        print("  ✅ Claude Code themes are consistent" if all_ok else "  ❌ Claude Code themes have inconsistencies")
+        return all_ok
+
+    def validate_pi(self) -> bool:
+        """Validate both dark and light Pi themes against the palette."""
+        print("\n🔍 Validating Pi themes...")
+        all_ok = True
+        for variant in ['dark', 'light']:
+            suffix = "-light" if variant == "light" else ""
+            pi_file = ROOT / "pi" / f"guttenbergovitz{suffix}.json"
+            if not pi_file.exists():
+                self.issues.append({
+                    'severity': 'error',
+                    'implementation': f'Pi ({variant})',
+                    'color_name': 'theme file',
+                    'expected': 'File exists',
+                    'actual': 'NOT FOUND',
+                    'context': str(pi_file)
+                })
+                all_ok = False
+                continue
+
+            print(f"  🔍 Validating Pi theme ({variant})...")
+            data = json.loads(pi_file.read_text())
+            v = data.get('vars', {})
+            palette = self.palette[variant]
+            checks = [
+                ('bg', palette['base']['bg']),
+                ('bgDark', palette['base']['bg_dark']),
+                ('bgLight', palette['base']['bg_light']),
+                ('fg', palette['base']['fg']),
+                ('fgDim', palette['base']['fg_dim']),
+                ('red', palette['accents']['red']),
+                ('green', palette['accents']['green']),
+                ('yellow', palette['accents']['yellow']),
+                ('orange', palette['accents']['orange']),
+                ('purple', palette['accents']['purple']),
+                ('cyan', palette['accents']['cyan']),
+                ('blue', palette['accents']['blue']),
+                ('border', palette['ui']['border']),
+            ]
+            for key, expected in checks:
+                if not self.check_color(f'Pi ({variant})', key, expected, v.get(key, '')):
+                    all_ok = False
+
+        print("  ✅ Pi themes are consistent" if all_ok else "  ❌ Pi themes have inconsistencies")
+        return all_ok
+
+    def validate_jetbrains(self) -> bool:
+        """Validate both dark and light JetBrains .icls schemes against the palette."""
+        print("\n🔍 Validating JetBrains themes...")
+        all_ok = True
+        for variant in ['dark', 'light']:
+            filename = "Guttenbergovitz-Light.icls" if variant == "light" else "Guttenbergovitz.icls"
+            jb_file = ROOT / "jetbrains" / filename
+            if not jb_file.exists():
+                self.issues.append({
+                    'severity': 'error',
+                    'implementation': f'JetBrains ({variant})',
+                    'color_name': 'theme file',
+                    'expected': 'File exists',
+                    'actual': 'NOT FOUND',
+                    'context': str(jb_file)
+                })
+                all_ok = False
+                continue
+
+            print(f"  🔍 Validating JetBrains theme ({variant})...")
+            content = jb_file.read_text()
+            palette = self.palette[variant]
+            colors = dict(re.findall(r'<option name="([^"]+)" value="([0-9a-fA-F]{6})" />', content))
+            checks = [
+                ('CONSOLE_BACKGROUND_KEY', palette['base']['bg']),
+                ('TOOL_WINDOW_BACKGROUND', palette['base']['bg_dark']),
+                ('CARET_COLOR', palette['ui']['cursor']),
+                ('LINE_NUMBERS_COLOR', palette['ui']['line_number']),
+                ('SELECTION_BACKGROUND', palette['ui']['selection']),
+                ('ADDED_LINES_COLOR', palette['git']['added']),
+                ('DELETED_LINES_COLOR', palette['git']['deleted']),
+                ('FILESTATUS_IDEA_FILESTATUS_IGNORED', palette['git']['ignored']),
+            ]
+            for key, expected in checks:
+                if not self.check_color(f'JetBrains ({variant})', key, expected, colors.get(key, '')):
+                    all_ok = False
+
+        print("  ✅ JetBrains themes are consistent" if all_ok else "  ❌ JetBrains themes have inconsistencies")
+        return all_ok
+
     def validate_all(self) -> bool:
         """Run all theme validations.
         
@@ -740,11 +1000,17 @@ class ColorValidator:
         results.append(self.validate_neovim())
         results.append(self.validate_helix())
         results.append(self.validate_kitty())
+        results.append(self.validate_ghostty())
+        results.append(self.validate_warp())
         results.append(self.validate_zed())
         results.append(self.validate_vim())
+        results.append(self.validate_jetbrains())
         results.append(self.validate_zellij())
+        results.append(self.validate_tmux())
         results.append(self.validate_herdr())
         results.append(self.validate_opencode())
+        results.append(self.validate_claude_code())
+        results.append(self.validate_pi())
         
         # Print summary
         print("\n" + "=" * 80)

@@ -20,8 +20,10 @@
 "ui.virtual.ruler" = { bg = "bg2" }
 
 # Syntax highlighting - Core
-"comment" = { fg = "gray", modifiers = ["italic"] }
+"comment" = { fg = "comment", modifiers = ["italic"] }
 "constant" = "yellow"
+"constant.builtin" = "purple"
+"constant.builtin.boolean" = "purple"
 "constant.numeric" = "yellow"
 "constant.character.escape" = "orange"
 "string" = "green"
@@ -109,6 +111,7 @@ fg0 = "#d4be98"
 fg4 = "#7c7c7c"
 
 gray = "#7c7c7c"
+comment = "#5e5e62"
 red = "#a96b69"
 green = "#89a87d"
 yellow = "#d6b986"

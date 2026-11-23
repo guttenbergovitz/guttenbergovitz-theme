@@ -87,7 +87,10 @@
         "property.readonly": "#d6b986",
         "keyword": "#a96b69",
         "modifier": "#a96b69",
-        "comment": { "foreground": "#7c7c7c", "fontStyle": "italic" },
+        "comment": {
+            "foreground": "#5e5e62",
+            "fontStyle": "italic"
+        },
         "string": "#89a87d",
         "number": "#d6b986",
         "regexp": "#89b4ac",
@@ -101,10 +104,16 @@
         "builtinType": "#d6b986",
         "formatSpecifier": "#89b4ac",
         "escapeSequence": "#d79969",
-        "boolean": "#d6b986",
-        "*.mutable": { "fontStyle": "underline" },
-        "*.static": { "fontStyle": "bold" },
-        "*.async": { "fontStyle": "italic" },
+        "boolean": "#b194a3",
+        "*.mutable": {
+            "fontStyle": "underline"
+        },
+        "*.static": {
+            "fontStyle": "bold"
+        },
+        "*.async": {
+            "fontStyle": "italic"
+        },
         "tomlArrayKey": "#a96b69",
         "tomlTableKey": "#a96b69"
     },
@@ -266,10 +275,12 @@
                 "comment",
                 "comment.line",
                 "comment.block",
-                "punctuation.definition.comment"
+                "punctuation.definition.comment",
+                "string.quoted.docstring",
+                "string.quoted.docstring.multi"
             ],
             "settings": {
-                "foreground": "#7c7c7c",
+                "foreground": "#5e5e62",
                 "fontStyle": "italic"
             }
         },

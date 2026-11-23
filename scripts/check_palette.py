@@ -47,6 +47,7 @@ FILES = [
 ]
 
 HEX_RE = re.compile(r"#[0-9a-fA-F]{6}")
+ICLS_HEX_RE = re.compile(r'value="([0-9a-fA-F]{6})"')
 
 def load_palette():
     text = (ROOT / "palette.json").read_text()
@@ -58,8 +59,10 @@ def load_palette():
 def scan_file(path: Path, allowed: set[str]):
     text = path.read_text(errors="ignore")
     bad = []
-    for m in HEX_RE.finditer(text):
-        color = m.group(0).lower()
+    regex = ICLS_HEX_RE if path.suffix == ".icls" else HEX_RE
+    for m in regex.finditer(text):
+        raw = m.group(1) if path.suffix == ".icls" else m.group(0)
+        color = raw.lower() if raw.startswith("#") else f"#{raw.lower()}"
         if color not in allowed:
             bad.append(color)
     return sorted(set(bad))

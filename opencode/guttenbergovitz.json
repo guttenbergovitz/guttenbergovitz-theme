@@ -116,7 +116,7 @@
         },
         "markdownHeading": {
             "dark": "#d6b986",
-            "light": "#b8995a"
+            "light": "#9c7d3e"
         },
         "markdownLink": {
             "dark": "#7a9ec2",
@@ -140,7 +140,7 @@
         },
         "markdownStrong": {
             "dark": "#d6b986",
-            "light": "#b8995a"
+            "light": "#9c7d3e"
         },
         "markdownHorizontalRule": {
             "dark": "#3a3a3d",
@@ -148,7 +148,7 @@
         },
         "markdownListItem": {
             "dark": "#d6b986",
-            "light": "#b8995a"
+            "light": "#9c7d3e"
         },
         "markdownListEnumeration": {
             "dark": "#d79969",
@@ -167,7 +167,7 @@
             "light": "#5a4a3a"
         },
         "syntaxComment": {
-            "dark": "#7c7c7c",
+            "dark": "#5e5e62",
             "light": "#a19f9e"
         },
         "syntaxKeyword": {
@@ -188,11 +188,11 @@
         },
         "syntaxNumber": {
             "dark": "#d6b986",
-            "light": "#b8995a"
+            "light": "#9c7d3e"
         },
         "syntaxType": {
             "dark": "#d6b986",
-            "light": "#b8995a"
+            "light": "#9c7d3e"
         },
         "syntaxOperator": {
             "dark": "#a96b69",

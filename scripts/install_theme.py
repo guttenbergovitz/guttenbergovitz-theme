@@ -295,6 +295,14 @@ def install_platform(key, variant=None):
                               "Reload manually with `herdr server reload-config`.")
             return
 
+        if name == "iTerm":
+            print_info("iTerm2 themes must be imported manually via Color Presets.")
+            print(f"{BOLD}Files:{RESET}")
+            for src, _ in files:
+                print(f"  {src}")
+            print(f"{BOLD}Activation:{RESET} {platform['instructions']}")
+            return
+
         if name == "JetBrains":
             jb_dirs = find_jetbrains_dirs()
             if not jb_dirs:
@@ -364,7 +372,8 @@ def main():
     while True:
         print(f"\nSelect editors/terminals to install the theme for:")
         for key, p in PLATFORMS.items():
-            print(f"  {BOLD}{key}{RESET}. {p['name']} ({p['dest_dir']})")
+            dest_label = p['dest_dir'] if p['dest_dir'] is not None else "manual / config merge"
+            print(f"  {BOLD}{key}{RESET}. {p['name']} ({dest_label})")
         print(f"  {BOLD}A{RESET}. Install for all")
         print(f"  {BOLD}Q{RESET}. Quit")
         
@@ -374,7 +383,7 @@ def main():
             print("Installation aborted.")
             break
         elif choice == 'A':
-            for key in sorted(PLATFORMS.keys()):
+            for key in sorted(PLATFORMS.keys(), key=int):
                 install_platform(key)
             break
         elif choice:

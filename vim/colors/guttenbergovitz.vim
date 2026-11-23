@@ -48,7 +48,7 @@ if &background ==# 'light'
         \ 'fg_light': '#3a2a1a',
         \ 'red': '#8b4c4a',
         \ 'green': '#6b8860',
-        \ 'yellow': '#b8995a',
+        \ 'yellow': '#9c7d3e',
         \ 'blue': '#5e7ea5',
         \ 'orange': '#b8784c',
         \ 'purple': '#956d7e',
@@ -67,12 +67,12 @@ if &background ==# 'light'
         \ 'diff_change': '#f0f0e8',
         \ 'diff_text': '#e8e8d8',
         \ 'git_add': '#6b8860',
-        \ 'git_change': '#b8995a',
+        \ 'git_change': '#9c7d3e',
         \ 'git_delete': '#8b4c4a',
         \ 't_black': '#3a2a1a',
         \ 't_red': '#8b4c4a',
         \ 't_green': '#6b8860',
-        \ 't_yellow': '#b8995a',
+        \ 't_yellow': '#9c7d3e',
         \ 't_blue': '#5e7ea5',
         \ 't_magenta': '#956d7e',
         \ 't_cyan': '#6b958f',
@@ -103,7 +103,7 @@ else
         \ 'purple': '#b194a3',
         \ 'cyan': '#89b4ac',
         \ 'selection': '#3a3a3d',
-        \ 'comment': '#7c7c7c',
+        \ 'comment': '#5e5e62',
         \ 'cursor': '#d4be98',
         \ 'border': '#3a3a3d',
         \ 'error': '#cc6666',
@@ -180,13 +180,13 @@ call s:hi('Statement', s:colors.red, '', '', '')
 call s:hi('Conditional', s:colors.red, '', '', '')
 call s:hi('Repeat', s:colors.red, '', '', '')
 call s:hi('Label', s:colors.red, '', '', '')
-call s:hi('Operator', s:colors.fg, '', '', '')
+call s:hi('Operator', s:colors.red, '', '', '')
 call s:hi('Keyword', s:colors.red, '', '', '')
 call s:hi('Exception', s:colors.red, '', '', '')
 call s:hi('PreProc', s:colors.purple, '', '', '')
 call s:hi('Include', s:colors.red, '', '', '')
 call s:hi('Define', s:colors.purple, '', '', '')
-call s:hi('Macro', s:colors.purple, '', '', '')
+call s:hi('Macro', s:colors.cyan, '', '', '')
 call s:hi('PreCondit', s:colors.purple, '', '', '')
 call s:hi('Type', s:colors.yellow, '', '', '')
 call s:hi('StorageClass', s:colors.red, '', '', '')

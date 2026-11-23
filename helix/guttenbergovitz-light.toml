@@ -22,6 +22,8 @@
 # Syntax highlighting - Core
 "comment" = { fg = "gray", modifiers = ["italic"] }
 "constant" = "yellow"
+"constant.builtin" = "purple"
+"constant.builtin.boolean" = "purple"
 "constant.numeric" = "yellow"
 "constant.character.escape" = "orange"
 "string" = "green"
@@ -109,9 +111,10 @@ fg0 = "#5a4a3a"
 fg4 = "#a19f9e"
 
 gray = "#a19f9e"
+comment = "#a19f9e"
 red = "#8b4c4a"
 green = "#6b8860"
-yellow = "#b8995a"
+yellow = "#9c7d3e"
 blue = "#5e7ea5"
 orange = "#b8784c"
 purple = "#956d7e"

@@ -163,11 +163,11 @@
     
     "FileColor": {
       "Blue": "#eae8e5",
-      "Green": "#2d3c2d",
-      "Orange": "#3c3c2d",
-      "Rose": "#3c2d2d",
-      "Violet": "#2d2d3c",
-      "Yellow": "#3c3c2d"
+      "Green": "#e8f0e8",
+      "Orange": "#f0ece0",
+      "Rose": "#f0e8e8",
+      "Violet": "#ece8f0",
+      "Yellow": "#f0f0e8"
     },
     
     "Group": {

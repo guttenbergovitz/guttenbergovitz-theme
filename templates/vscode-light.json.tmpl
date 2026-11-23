@@ -62,6 +62,61 @@
         "panelTitle.activeForeground": "{{semantic.punctuation}}",
         "panelTitle.inactiveForeground": "{{git.untracked}}"
     },
+    "semanticHighlighting": true,
+    "semanticTokenColors": {
+        "namespace": "{{semantic.type}}",
+        "type": "{{semantic.type}}",
+        "type.defaultLibrary": "{{semantic.type}}",
+        "class": "{{semantic.type}}",
+        "class.defaultLibrary": "{{semantic.type}}",
+        "interface": "{{semantic.type}}",
+        "enum": "{{semantic.type}}",
+        "enumMember": "{{semantic.type}}",
+        "struct": "{{semantic.type}}",
+        "typeParameter": "{{semantic.type}}",
+        "function": "{{semantic.function}}",
+        "function.defaultLibrary": "{{semantic.function}}",
+        "method": "{{semantic.function}}",
+        "method.defaultLibrary": "{{semantic.function}}",
+        "macro": "{{accents.cyan}}",
+        "variable": "{{base.fg}}",
+        "variable.readonly": "{{semantic.type}}",
+        "variable.defaultLibrary": "{{accents.purple}}",
+        "parameter": "{{base.fg}}",
+        "property": "{{base.fg}}",
+        "property.readonly": "{{semantic.type}}",
+        "keyword": "{{semantic.keyword}}",
+        "modifier": "{{semantic.keyword}}",
+        "comment": {
+            "foreground": "{{semantic.comment}}",
+            "fontStyle": "italic"
+        },
+        "string": "{{semantic.string}}",
+        "number": "{{semantic.type}}",
+        "regexp": "{{accents.cyan}}",
+        "operator": "{{semantic.keyword}}",
+        "decorator": "{{accents.purple}}",
+        "attribute": "{{accents.purple}}",
+        "lifetime": "{{accents.purple}}",
+        "label": "{{semantic.type}}",
+        "selfKeyword": "{{semantic.keyword}}",
+        "selfTypeKeyword": "{{semantic.type}}",
+        "builtinType": "{{semantic.type}}",
+        "formatSpecifier": "{{accents.cyan}}",
+        "escapeSequence": "{{semantic.function}}",
+        "boolean": "{{semantic.boolean}}",
+        "*.mutable": {
+            "fontStyle": "underline"
+        },
+        "*.static": {
+            "fontStyle": "bold"
+        },
+        "*.async": {
+            "fontStyle": "italic"
+        },
+        "tomlArrayKey": "{{semantic.keyword}}",
+        "tomlTableKey": "{{semantic.keyword}}"
+    },
     "tokenColors": [
         {
             "name": "Keywords and Storage",
@@ -135,10 +190,12 @@
                 "entity.other.inherited-class",
                 "support.class",
                 "storage.type.built-in",
-                "storage.type.primitive"
+                "storage.type.primitive",
+                "entity.name.type.go",
+                "storage.type.go"
             ],
             "settings": {
-                "foreground": "{{git.modified}}"
+                "foreground": "{{semantic.type}}"
             }
         },
         {
@@ -155,6 +212,15 @@
             }
         },
         {
+            "name": "Python language variables",
+            "scope": [
+                "variable.language.python"
+            ],
+            "settings": {
+                "foreground": "{{semantic.keyword}}"
+            }
+        },
+        {
             "name": "Constants and Numerics",
             "scope": [
                 "constant",
@@ -165,6 +231,16 @@
             ],
             "settings": {
                 "foreground": "{{git.modified}}"
+            }
+        },
+        {
+            "name": "Language-specific constants",
+            "scope": [
+                "constant.language.python",
+                "constant.language.go"
+            ],
+            "settings": {
+                "foreground": "{{accents.purple}}"
             }
         },
         {
@@ -199,10 +275,12 @@
                 "comment",
                 "comment.line",
                 "comment.block",
-                "punctuation.definition.comment"
+                "punctuation.definition.comment",
+                "string.quoted.docstring",
+                "string.quoted.docstring.multi"
             ],
             "settings": {
-                "foreground": "{{git.untracked}}",
+                "foreground": "{{semantic.comment}}",
                 "fontStyle": "italic"
             }
         },
@@ -244,6 +322,230 @@
             ],
             "settings": {
                 "foreground": "{{git.added}}"
+            }
+        },
+        {
+            "name": "Rust lifetimes and attributes",
+            "scope": [
+                "storage.modifier.lifetime.rust",
+                "entity.name.lifetime.rust",
+                "meta.attribute.rust",
+                "punctuation.definition.attribute.rust"
+            ],
+            "settings": {
+                "foreground": "{{accents.purple}}"
+            }
+        },
+        {
+            "name": "Rust macros",
+            "scope": [
+                "entity.name.function.macro.rust",
+                "support.macro.rust",
+                "meta.macro.rust"
+            ],
+            "settings": {
+                "foreground": "{{accents.cyan}}"
+            }
+        },
+        {
+            "name": "Ruby symbols and instance variables",
+            "scope": [
+                "constant.other.symbol.ruby",
+                "variable.other.readwrite.instance.ruby",
+                "variable.other.readwrite.class.ruby"
+            ],
+            "settings": {
+                "foreground": "{{accents.cyan}}"
+            }
+        },
+        {
+            "name": "Ruby special methods",
+            "scope": [
+                "keyword.control.pseudo-method.ruby",
+                "keyword.other.special-method.ruby"
+            ],
+            "settings": {
+                "foreground": "{{semantic.function}}"
+            }
+        },
+        {
+            "name": "PHP variables",
+            "scope": [
+                "variable.other.php",
+                "punctuation.definition.variable.php"
+            ],
+            "settings": {
+                "foreground": "{{base.fg}}"
+            }
+        },
+        {
+            "name": "PHP namespaces and use",
+            "scope": [
+                "support.other.namespace.php",
+                "entity.name.type.namespace.php",
+                "support.other.namespace.use.php"
+            ],
+            "settings": {
+                "foreground": "{{semantic.type}}"
+            }
+        },
+        {
+            "name": "Java annotations",
+            "scope": [
+                "storage.type.annotation.java",
+                "punctuation.definition.annotation.java",
+                "meta.declaration.annotation.java"
+            ],
+            "settings": {
+                "foreground": "{{accents.purple}}"
+            }
+        },
+        {
+            "name": "Java packages",
+            "scope": [
+                "storage.modifier.package.java",
+                "storage.modifier.import.java"
+            ],
+            "settings": {
+                "foreground": "{{base.fg_dim}}",
+                "fontStyle": "italic"
+            }
+        },
+        {
+            "name": "C# attributes and namespaces",
+            "scope": [
+                "entity.name.type.attribute.cs",
+                "entity.name.type.namespace.cs"
+            ],
+            "settings": {
+                "foreground": "{{accents.purple}}"
+            }
+        },
+        {
+            "name": "C# preprocessor",
+            "scope": [
+                "meta.preprocessor.cs",
+                "punctuation.separator.hash.cs"
+            ],
+            "settings": {
+                "foreground": "{{base.fg_dim}}"
+            }
+        },
+        {
+            "name": "TypeScript decorators",
+            "scope": [
+                "meta.decorator.ts",
+                "punctuation.decorator.ts",
+                "meta.decorator.tsx"
+            ],
+            "settings": {
+                "foreground": "{{accents.purple}}"
+            }
+        },
+        {
+            "name": "TypeScript type assertions",
+            "scope": [
+                "meta.type.cast.expr.ts",
+                "meta.type.annotation.ts",
+                "entity.name.type.ts",
+                "entity.name.type.tsx"
+            ],
+            "settings": {
+                "foreground": "{{semantic.type}}"
+            }
+        },
+        {
+            "name": "Lua tables and metatables",
+            "scope": [
+                "constant.language.lua",
+                "support.function.lua"
+            ],
+            "settings": {
+                "foreground": "{{accents.purple}}"
+            }
+        },
+        {
+            "name": "Shell variables and expansions",
+            "scope": [
+                "variable.other.normal.shell",
+                "variable.other.positional.shell",
+                "variable.other.special.shell",
+                "punctuation.definition.variable.shell"
+            ],
+            "settings": {
+                "foreground": "{{accents.cyan}}"
+            }
+        },
+        {
+            "name": "Shell builtins",
+            "scope": [
+                "support.function.builtin.shell"
+            ],
+            "settings": {
+                "foreground": "{{semantic.function}}"
+            }
+        },
+        {
+            "name": "YAML keys",
+            "scope": [
+                "entity.name.tag.yaml",
+                "punctuation.definition.block.sequence.item.yaml"
+            ],
+            "settings": {
+                "foreground": "{{semantic.keyword}}"
+            }
+        },
+        {
+            "name": "JSON keys",
+            "scope": [
+                "support.type.property-name.json"
+            ],
+            "settings": {
+                "foreground": "{{semantic.keyword}}"
+            }
+        },
+        {
+            "name": "TOML keys and tables",
+            "scope": [
+                "entity.name.tag.toml",
+                "entity.name.section.toml",
+                "support.type.property-name.toml"
+            ],
+            "settings": {
+                "foreground": "{{semantic.keyword}}"
+            }
+        },
+        {
+            "name": "Regex patterns",
+            "scope": [
+                "string.regexp",
+                "constant.other.character-class.regexp",
+                "keyword.operator.quantifier.regexp"
+            ],
+            "settings": {
+                "foreground": "{{accents.cyan}}"
+            }
+        },
+        {
+            "name": "CSS selectors and properties",
+            "scope": [
+                "entity.other.attribute-name.class.css",
+                "entity.other.attribute-name.id.css",
+                "support.type.property-name.css"
+            ],
+            "settings": {
+                "foreground": "{{semantic.type}}"
+            }
+        },
+        {
+            "name": "CSS values",
+            "scope": [
+                "support.constant.property-value.css",
+                "constant.numeric.css",
+                "keyword.other.unit.css"
+            ],
+            "settings": {
+                "foreground": "{{semantic.string}}"
             }
         }
     ]

@@ -16,7 +16,7 @@ local function get_colors(variant)
     -- Core colors (adjusted for light theme)
     red = "#8b4c4a",
     green = "#6b8860",
-    yellow = "#b8995a",
+    yellow = "#9c7d3e",
     blue = "#5e7ea5",
     orange = "#b8784c",
     purple = "#956d7e",
@@ -44,7 +44,7 @@ local function get_colors(variant)
     
     -- Git colors
     git_add = "#6b8860",
-    git_change = "#b8995a",
+    git_change = "#9c7d3e",
     git_delete = "#8b4c4a",
     
     -- Terminal colors (16 ANSI colors)
@@ -52,7 +52,7 @@ local function get_colors(variant)
         black = "#3a2a1a",
         red = "#8b4c4a",
         green = "#6b8860",
-        yellow = "#b8995a",
+        yellow = "#9c7d3e",
         blue = "#5e7ea5",
         magenta = "#956d7e",
         cyan = "#6b958f",
@@ -86,7 +86,7 @@ local function get_colors(variant)
     
     -- UI colors
     selection = "#3a3a3d",
-    comment = "#7c7c7c",
+    comment = "#5e5e62",
     cursor = "#d4be98",
     border = "#3a3a3d",
     type_hint = "#44444b",
@@ -229,11 +229,11 @@ local function get_groups(colors)
     ["@none"] = { fg = colors.fg },
     ["@preproc"] = { fg = colors.purple },
     ["@define"] = { fg = colors.purple },
-    ["@operator"] = { fg = colors.fg },
+    ["@operator"] = { fg = colors.red },
 
     -- Literals
     ["@string"] = { fg = colors.green },
-    ["@string.documentation"] = { fg = colors.green },
+    ["@string.documentation"] = { fg = colors.comment, italic = use_italics },
     ["@string.regex"] = { fg = colors.cyan },
     ["@string.escape"] = { fg = colors.orange },
     ["@string.special"] = { fg = colors.orange },
@@ -247,7 +247,7 @@ local function get_groups(colors)
     ["@function"] = { fg = colors.orange },
     ["@function.call"] = { fg = colors.orange },
     ["@function.builtin"] = { fg = colors.orange },
-    ["@function.macro"] = { fg = colors.purple },
+    ["@function.macro"] = { fg = colors.cyan },
     ["@method"] = { fg = colors.orange },
     ["@method.call"] = { fg = colors.orange },
     ["@constructor"] = { fg = colors.yellow },
@@ -279,10 +279,10 @@ local function get_groups(colors)
 
     -- Identifiers
     ["@variable"] = { fg = colors.fg },
-    ["@variable.builtin"] = { fg = colors.purple },
+    ["@variable.builtin"] = { fg = colors.red },
     ["@constant"] = { fg = colors.yellow },
     ["@constant.builtin"] = { fg = colors.purple },
-    ["@constant.macro"] = { fg = colors.purple },
+    ["@constant.macro"] = { fg = colors.cyan },
     ["@namespace"] = { fg = colors.fg },
     ["@symbol"] = { fg = colors.fg },
 

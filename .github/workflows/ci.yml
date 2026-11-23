@@ -30,7 +30,13 @@ jobs:
           import json
           for f in [
             'vscode/themes/guttenbergovitz-color-theme.json',
+            'vscode/themes/guttenbergovitz-light-color-theme.json',
             'zed/guttenbergovitz.json',
+            'opencode/guttenbergovitz.json',
+            'pi/guttenbergovitz.json',
+            'pi/guttenbergovitz-light.json',
+            'claude-code/guttenbergovitz.json',
+            'claude-code/guttenbergovitz-light.json',
             'palette.json',
           ]:
               with open(f) as fh:
@@ -38,12 +44,18 @@ jobs:
               print('JSON OK:', f)
           PY
 
-      - name: Validate TOML (helix)
+      - name: Validate TOML (Helix & Herdr)
         run: |
           python - <<'PY'
           import tomllib
-          tomllib.loads(open('helix/guttenbergovitz.toml','r').read())
-          print('TOML OK: helix/guttenbergovitz.toml')
+          for f in [
+            'helix/guttenbergovitz.toml',
+            'helix/guttenbergovitz-light.toml',
+            'herdr/guttenbergovitz.toml',
+            'herdr/guttenbergovitz-light.toml',
+          ]:
+              tomllib.loads(open(f, 'r').read())
+              print('TOML OK:', f)
           PY
 
       - name: Package VS Code extension (on tag)
