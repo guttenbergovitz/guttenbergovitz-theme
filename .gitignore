@@ -39,6 +39,10 @@ Thumbs.db
 jetbrains/ui-theme/*.jar
 jetbrains/ui-theme/*.zip
 
+# Firefox theme build artifacts
+firefox/*.xpi
+firefox/*.zip
+
 # AI / Agent files
 .junie/
 .agents/

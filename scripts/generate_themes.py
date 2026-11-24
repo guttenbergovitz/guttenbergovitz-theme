@@ -348,6 +348,81 @@ def generate_iterm(palette: dict, variant: str) -> str:
     out.append(ITERM_FOOTER)
     return ''.join(out)
 
+def generate_firefox(palette: dict, variant: str) -> str:
+    """Generate Firefox static WebExtension theme manifest.json."""
+    base = palette[variant]['base']
+    accents = palette[variant]['accents']
+    ui = palette[variant]['ui']
+    meta = palette['meta']
+
+    is_light = variant == 'light'
+    name = "Guttenbergovitz Light" if is_light else "Guttenbergovitz"
+    gecko_id = (
+        "guttenbergovitz-light@guttenbergovitz.dev"
+        if is_light
+        else "guttenbergovitz-dark@guttenbergovitz.dev"
+    )
+    toolbar_field_bg = base['bg_light'] if is_light else base['bg_dark']
+
+    manifest = {
+        "manifest_version": 2,
+        "name": name,
+        "version": meta["version"],
+        "description": meta["description"],
+        "author": meta["author"],
+        "browser_specific_settings": {
+            "gecko": {
+                "id": gecko_id,
+            }
+        },
+        "theme": {
+            "properties": {
+                "color_scheme": "light" if is_light else "dark",
+            },
+            "colors": {
+                "frame": base["bg_dark"],
+                "frame_inactive": base["bg_dark"],
+                "tab_background_text": base["fg_dark"],
+                "tab_text": base["fg_light"],
+                "tab_selected": base["bg"],
+                "tab_line": accents["orange"],
+                "tab_loading": accents["orange"],
+                "toolbar": base["bg"],
+                "toolbar_text": base["fg"],
+                "toolbar_field": toolbar_field_bg,
+                "toolbar_field_text": base["fg"],
+                "toolbar_field_border": ui["border"],
+                "toolbar_field_focus": base["bg_light"],
+                "toolbar_field_text_focus": base["fg_light"],
+                "toolbar_field_border_focus": accents["orange"],
+                "toolbar_field_highlight": ui["selection"],
+                "toolbar_field_highlight_text": base["fg_light"],
+                "toolbar_top_separator": ui["border"],
+                "toolbar_bottom_separator": ui["border"],
+                "toolbar_vertical_separator": ui["border"],
+                "bookmark_text": base["fg"],
+                "icons": base["fg_dark"],
+                "icons_attention": accents["orange"],
+                "button_background_hover": ui["selection"],
+                "button_background_active": ui["border"],
+                "popup": base["bg_light"],
+                "popup_text": base["fg"],
+                "popup_border": ui["border"],
+                "popup_highlight": ui["selection"],
+                "popup_highlight_text": base["fg_light"],
+                "sidebar": base["bg_dark"],
+                "sidebar_text": base["fg"],
+                "sidebar_border": ui["border"],
+                "sidebar_highlight": ui["selection"],
+                "sidebar_highlight_text": base["fg_light"],
+                "ntp_background": base["bg"],
+                "ntp_text": base["fg"],
+                "ntp_card_background": base["bg_light"],
+            },
+        },
+    }
+    return json.dumps(manifest, indent=2) + "\n"
+
 def generate_opencode(palette: dict) -> str:
     """Generate OpenCode theme JSON with both dark and light variants."""
 
@@ -519,6 +594,15 @@ def main():
     opencode_path = opencode_dir / "guttenbergovitz.json"
     opencode_path.write_text(opencode_content)
     print(f"  ✔ OpenCode: {opencode_path.name}")
+
+    # 4. Generate Firefox Themes
+    print("\nGenerating Firefox themes...")
+    for variant in ['dark', 'light']:
+        firefox_dir = ROOT / "firefox" / variant
+        firefox_dir.mkdir(parents=True, exist_ok=True)
+        firefox_path = firefox_dir / "manifest.json"
+        firefox_path.write_text(generate_firefox(palette, variant))
+        print(f"  ✔ Firefox ({variant}): {firefox_path.relative_to(ROOT)}")
 
     # Zed
     zed_tmpl_file = TEMPLATES_DIR / "zed.json.tmpl"

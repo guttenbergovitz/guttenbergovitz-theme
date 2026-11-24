@@ -985,6 +985,47 @@ class ColorValidator:
         print("  ✅ JetBrains themes are consistent" if all_ok else "  ❌ JetBrains themes have inconsistencies")
         return all_ok
 
+    def validate_firefox(self) -> bool:
+        """Validate both dark and light Firefox theme manifests against the palette."""
+        print("\n🔍 Validating Firefox themes...")
+        all_ok = True
+        for variant in ['dark', 'light']:
+            manifest_file = ROOT / "firefox" / variant / "manifest.json"
+            if not manifest_file.exists():
+                self.issues.append({
+                    'severity': 'error',
+                    'implementation': f'Firefox ({variant})',
+                    'color_name': 'manifest.json',
+                    'expected': 'File exists',
+                    'actual': 'NOT FOUND',
+                    'context': str(manifest_file)
+                })
+                all_ok = False
+                continue
+
+            print(f"  🔍 Validating Firefox theme ({variant})...")
+            data = json.loads(manifest_file.read_text())
+            colors = data.get('theme', {}).get('colors', {})
+            palette = self.palette[variant]
+            checks = [
+                ('frame', palette['base']['bg_dark']),
+                ('toolbar', palette['base']['bg']),
+                ('toolbar_text', palette['base']['fg']),
+                ('tab_selected', palette['base']['bg']),
+                ('tab_text', palette['base']['fg_light']),
+                ('tab_line', palette['accents']['orange']),
+                ('popup', palette['base']['bg_light']),
+                ('popup_border', palette['ui']['border']),
+                ('ntp_background', palette['base']['bg']),
+                ('ntp_text', palette['base']['fg']),
+            ]
+            for key, expected in checks:
+                if not self.check_color(f'Firefox ({variant})', key, expected, colors.get(key, '')):
+                    all_ok = False
+
+        print("  ✅ Firefox themes are consistent" if all_ok else "  ❌ Firefox themes have inconsistencies")
+        return all_ok
+
     def validate_all(self) -> bool:
         """Run all theme validations.
         
@@ -1011,6 +1052,7 @@ class ColorValidator:
         results.append(self.validate_opencode())
         results.append(self.validate_claude_code())
         results.append(self.validate_pi())
+        results.append(self.validate_firefox())
         
         # Print summary
         print("\n" + "=" * 80)

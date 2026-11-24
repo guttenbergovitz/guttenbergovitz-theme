@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 
-.PHONY: help validate package.vscode zip.jetbrains-ui gen.iterm check.palette clean install install.herdr install-hook
+.PHONY: help validate package.vscode package.firefox zip.jetbrains-ui gen.iterm check.palette clean install install.herdr install-hook
 
 help:
 	@echo "Guttenbergovitz Theme - Build, Validation & Install"
@@ -11,6 +11,7 @@ help:
 	@echo ""
 	@echo "Build:"
 	@echo "  package.vscode     - Package VS Code theme (.vsix)"
+	@echo "  package.firefox    - Package Firefox themes (.xpi)"
 	@echo "  zip.jetbrains-ui   - Zip JetBrains UI theme plugin"
 	@echo "  gen.iterm          - Generate iTerm .itermcolors from palette"
 	@echo ""
@@ -28,6 +29,11 @@ validate:
 
 package.vscode:
 	cd vscode && npm install && npm run package
+
+package.firefox:
+	cd firefox/dark && zip -r ../guttenbergovitz-dark.xpi manifest.json
+	cd firefox/light && zip -r ../guttenbergovitz-light.xpi manifest.json
+	@echo "Created: firefox/guttenbergovitz-dark.xpi and firefox/guttenbergovitz-light.xpi"
 
 zip.jetbrains-ui:
 	cp jetbrains/*.icls jetbrains/ui-theme/resources/

@@ -44,6 +44,9 @@ FILES = [
     # Multiplexers
     ROOT / "tmux/guttenbergovitz.tmux.conf",
     ROOT / "tmux/guttenbergovitz-light.tmux.conf",
+    # Browsers
+    ROOT / "firefox/dark/manifest.json",
+    ROOT / "firefox/light/manifest.json",
 ]
 
 HEX_RE = re.compile(r"#[0-9a-fA-F]{6}")

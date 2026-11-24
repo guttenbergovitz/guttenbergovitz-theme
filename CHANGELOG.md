@@ -3,6 +3,12 @@
 All notable changes to **Guttenbergovitz Theme** are documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Added
+- **Firefox theme**: Added static WebExtension themes (`firefox/dark/manifest.json` and `firefox/light/manifest.json`) generated from `palette.json` via `scripts/generate_themes.py`.
+- **Firefox packaging & validation**: Added `make package.firefox` to build `.xpi` archives, `validate_firefox()` in `scripts/validate_consistency.py`, palette checks in `scripts/check_palette.py`, and documentation in `firefox/README.md` and `README.md`.
+
 ## [1.3.0] - 2026-11-23
 
 ### Changed

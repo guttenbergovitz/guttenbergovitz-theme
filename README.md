@@ -2,7 +2,7 @@
 
 > *"It's not the notes you play, it's the notes you don't play."* — Miles Davis
 
-A warm, low-contrast color theme inspired by vintage book printing, aged paper, and late-night jazz aesthetics. Designed to cut harsh blue light and visual noise without sacrificing clarity — available in **Dark** and **Light** variants across 18 editors, terminals, multiplexers, and AI coding tools.
+A warm, low-contrast color theme inspired by vintage book printing, aged paper, and late-night jazz aesthetics. Designed to cut harsh blue light and visual noise without sacrificing clarity — available in **Dark** and **Light** variants across 19 editors, terminals, multiplexers, browsers, and AI coding tools.
 
 ---
 
@@ -14,14 +14,14 @@ A warm, low-contrast color theme inspired by vintage book printing, aged paper, 
 
 ## Ports
 
-| Editors | Terminals | Multiplexers | AI Tools |
-|---------|-----------|--------------|----------|
-| [VS Code](vscode/README.md) *(+ Cursor, Kiro)* | [Kitty](kitty/README.md) | [tmux](tmux/README.md) | [Claude Code](claude-code/README.md) |
-| [Neovim](nvim/README.md) | [iTerm2](iterm/README.md) | [Zellij](zellij/README.md) | [Pi](pi/README.md) |
-| [Vim](vim/README.md) | [Ghostty](ghostty/README.md) | | [Herdr](herdr/README.md) |
-| [Helix](helix/README.md) | [Warp](warp/README.md) | | [OpenCode](opencode/README.md) |
-| [Zed](zed/README.md) | | | |
-| [JetBrains](jetbrains/README.md) | | | |
+| Editors | Terminals | Multiplexers | AI Tools | Browsers |
+|---------|-----------|--------------|----------|----------|
+| [VS Code](vscode/README.md) *(+ Cursor, Kiro)* | [Kitty](kitty/README.md) | [tmux](tmux/README.md) | [Claude Code](claude-code/README.md) | [Firefox](firefox/README.md) |
+| [Neovim](nvim/README.md) | [iTerm2](iterm/README.md) | [Zellij](zellij/README.md) | [Pi](pi/README.md) | |
+| [Vim](vim/README.md) | [Ghostty](ghostty/README.md) | | [Herdr](herdr/README.md) | |
+| [Helix](helix/README.md) | [Warp](warp/README.md) | | [OpenCode](opencode/README.md) | |
+| [Zed](zed/README.md) | | | | |
+| [JetBrains](jetbrains/README.md) | | | | |
 
 ## Quick Install
 
@@ -78,9 +78,10 @@ First-class TextMate, Tree-sitter, and LSP semantic token rules for **Rust, Go, 
 ## Development & Validation
 
 ```bash
-make validate        # Verify color consistency across all 15 theme families
+make validate        # Verify color consistency across all 16 theme families
 make check.palette   # Ensure all theme files only use palette.json colors
-make gen.iterm       # Regenerate terminal, Zed, and VS Code themes from palette.json
+make gen.iterm       # Regenerate terminal, Zed, VS Code, and Firefox themes from palette.json
+make package.firefox # Build Firefox .xpi packages (dark & light)
 ```
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on adding ports or modifying colors.

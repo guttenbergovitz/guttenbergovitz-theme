@@ -1,0 +1,57 @@
+{
+  "manifest_version": 2,
+  "name": "Guttenbergovitz Light",
+  "version": "2.0.0",
+  "description": "A minimalist, ergonomic theme inspired by vintage printing and jazz aesthetics",
+  "author": "Guttenbergovitz",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "guttenbergovitz-light@guttenbergovitz.dev"
+    }
+  },
+  "theme": {
+    "properties": {
+      "color_scheme": "light"
+    },
+    "colors": {
+      "frame": "#eae8e5",
+      "frame_inactive": "#eae8e5",
+      "tab_background_text": "#7a6a5a",
+      "tab_text": "#3a2a1a",
+      "tab_selected": "#f5f3f0",
+      "tab_line": "#b8784c",
+      "tab_loading": "#b8784c",
+      "toolbar": "#f5f3f0",
+      "toolbar_text": "#5a4a3a",
+      "toolbar_field": "#ffffff",
+      "toolbar_field_text": "#5a4a3a",
+      "toolbar_field_border": "#d8d6d3",
+      "toolbar_field_focus": "#ffffff",
+      "toolbar_field_text_focus": "#3a2a1a",
+      "toolbar_field_border_focus": "#b8784c",
+      "toolbar_field_highlight": "#e8e6e3",
+      "toolbar_field_highlight_text": "#3a2a1a",
+      "toolbar_top_separator": "#d8d6d3",
+      "toolbar_bottom_separator": "#d8d6d3",
+      "toolbar_vertical_separator": "#d8d6d3",
+      "bookmark_text": "#5a4a3a",
+      "icons": "#7a6a5a",
+      "icons_attention": "#b8784c",
+      "button_background_hover": "#e8e6e3",
+      "button_background_active": "#d8d6d3",
+      "popup": "#ffffff",
+      "popup_text": "#5a4a3a",
+      "popup_border": "#d8d6d3",
+      "popup_highlight": "#e8e6e3",
+      "popup_highlight_text": "#3a2a1a",
+      "sidebar": "#eae8e5",
+      "sidebar_text": "#5a4a3a",
+      "sidebar_border": "#d8d6d3",
+      "sidebar_highlight": "#e8e6e3",
+      "sidebar_highlight_text": "#3a2a1a",
+      "ntp_background": "#f5f3f0",
+      "ntp_text": "#5a4a3a",
+      "ntp_card_background": "#ffffff"
+    }
+  }
+}
