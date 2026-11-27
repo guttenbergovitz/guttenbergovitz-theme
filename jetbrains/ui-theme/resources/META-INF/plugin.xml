@@ -35,6 +35,13 @@
   ]]></description>
   
   <change-notes><![CDATA[
+    <h3>1.4.0</h3>
+    <ul>
+      <li>Added full RustRover (org.rust.*) and GoLand (GO_*) syntax highlighting in Dark and Light .icls schemes</li>
+      <li>Fixed Go comment/operator colors, JS.REGEXP (cyan), and PY.DECORATOR (purple) consistency</li>
+      <li>Aligned Neovim, Zed, and Helix Rust/Go syntax tokens with palette.json</li>
+    </ul>
+    <br/>
     <h3>1.3.0</h3>
     <ul>
       <li>Tuned Dark mode comment contrast (#5e5e62) to match Nord-style muted legibility</li>
@@ -88,7 +95,7 @@
     </ul>
   ]]></change-notes>
   
-  <version>1.3.0</version>
+  <version>1.4.0</version>
   
   <idea-version since-build="233.0"/>
   

@@ -5,9 +5,18 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-11-27
+
 ### Added
 - **Firefox theme**: Added static WebExtension themes (`firefox/dark/manifest.json` and `firefox/light/manifest.json`) generated from `palette.json` via `scripts/generate_themes.py`.
 - **Firefox packaging & validation**: Added `make package.firefox` to build `.xpi` archives, `validate_firefox()` in `scripts/validate_consistency.py`, palette checks in `scripts/check_palette.py`, and documentation in `firefox/README.md` and `README.md`.
+- **JetBrains RustRover (`org.rust.*`) & GoLand (`GO_*`)**: Added comprehensive `org.rust.*` and `GO_*` syntax highlighting attributes across both `Guttenbergovitz.icls` and `Guttenbergovitz-Light.icls`, plus `DEFAULT_CLASS_REFERENCE`, `DEFAULT_INSTANCE_FIELD`, `DEFAULT_GLOBAL_VARIABLE`, `DEFAULT_LABEL`, `DEFAULT_PREDEFINED_SYMBOL`, and `DEFAULT_INVALID_STRING_ESCAPE`.
+- **Neovim & Zed Rust/Go coverage**: Added modern Tree-sitter captures (`@variable.member`, `@variable.parameter`, `@function.method`, `@function.method.call`, `@module`, `@string.regexp`, `@number.float`, `@keyword.*`) and LSP semantic tokens (`@lsp.type.lifetime`, `@lsp.type.formatSpecifier`, `@lsp.type.escapeSequence`, `@lsp.type.selfKeyword`, `@lsp.type.selfTypeKeyword`, `@lsp.type.builtinType`, `@lsp.mod.mutable/static/async`) in `lua/guttenbergovitz/init.lua`, plus `lifetime`, `function.macro`, `preproc`, `type.builtin`, `enum`, `variant`, `namespace`, and `punctuation.*` in `templates/zed.json.tmpl` / `zed/guttenbergovitz.json` and `type.enum.variant` in Helix.
+
+### Fixed
+- **JetBrains consistency**: Fixed Go comment colors (`go.line.comment`, `go.block.comment` from `#7c7c7c` to `#5e5e62`) and `go.operators` (`red`), aligned `JS.REGEXP` to `cyan`, aligned `PY.DECORATOR` and `DEFAULT_METADATA` to `purple`, and added `EFFECT_COLOR` to `DEFAULT_REASSIGNED_*`.
+- **Neovim cross-IDE parity**: Fixed `@operator.go` (`red`), `@lsp.type.macro` (`cyan`), `@variable.builtin.rust` (`red`), `@lsp.type.enumMember` (`yellow`), `@decorator.python` (`purple`), `@label` (`yellow`), and `@namespace` (`yellow`).
+- **Validation**: Extended `validate_jetbrains()` in `scripts/validate_consistency.py` to validate `DEFAULT_*`, `org.rust.*`, `GO_*`, `JS.REGEXP`, and `PY.DECORATOR` syntax attributes.
 
 ## [1.3.0] - 2026-11-23
 

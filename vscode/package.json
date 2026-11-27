@@ -2,7 +2,7 @@
     "name": "guttenbergovitz",
     "displayName": "Guttenbergovitz",
     "description": "A minimal, ergonomic theme inspired by vintage printing and jazz aesthetics",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "publisher": "guttenbergovitz",
     "engines": {
         "vscode": "^1.60.0",

@@ -982,6 +982,58 @@ class ColorValidator:
                 if not self.check_color(f'JetBrains ({variant})', key, expected, colors.get(key, '')):
                     all_ok = False
 
+            # Validate key syntax attributes (including RustRover org.rust.* and GoLand GO_*)
+            attr_fg = {}
+            for m in re.finditer(
+                r'<option name="([^"]+)">\s*<value>(.*?)</value>\s*</option>',
+                content,
+                re.DOTALL,
+            ):
+                fg_match = re.search(r'<option name="FOREGROUND" value="([0-9a-fA-F]{6})" />', m.group(2))
+                if fg_match:
+                    attr_fg[m.group(1)] = fg_match.group(1)
+
+            sem = palette['semantic']
+            acc = palette['accents']
+            attr_checks = [
+                ('DEFAULT_LINE_COMMENT', sem['comment']),
+                ('DEFAULT_KEYWORD', sem['keyword']),
+                ('DEFAULT_OPERATION_SIGN', sem['operator']),
+                ('DEFAULT_FUNCTION_CALL', sem['function']),
+                ('DEFAULT_STRING', sem['string']),
+                ('DEFAULT_CLASS_NAME', sem['type']),
+                ('JS.REGEXP', acc['cyan']),
+                ('PY.DECORATOR', acc['purple']),
+                ('org.rust.LINE_COMMENT', sem['comment']),
+                ('org.rust.KEYWORD', sem['keyword']),
+                ('org.rust.SELF_PARAMETER', sem['keyword']),
+                ('org.rust.OPERATORS', sem['operator']),
+                ('org.rust.Q_OPERATOR', sem['operator']),
+                ('org.rust.FUNCTION_CALL', sem['function']),
+                ('org.rust.METHOD_CALL', sem['function']),
+                ('org.rust.MACRO', acc['cyan']),
+                ('org.rust.FORMAT_SPECIFIER', acc['cyan']),
+                ('org.rust.STRUCT', sem['type']),
+                ('org.rust.ENUM', sem['type']),
+                ('org.rust.TRAIT', sem['type']),
+                ('org.rust.TYPE_PARAMETER', sem['type']),
+                ('org.rust.ATTRIBUTE', acc['purple']),
+                ('org.rust.LIFETIME', acc['purple']),
+                ('GO_LINE_COMMENT', sem['comment']),
+                ('GO_KEYWORD', sem['keyword']),
+                ('GO_OPERATOR', sem['operator']),
+                ('GO_STRING', sem['string']),
+                ('GO_FORMAT_SPECIFIER', acc['cyan']),
+                ('GO_EXPORTED_FUNCTION_CALL', sem['function']),
+                ('GO_EXPORTED_METHOD_CALL', sem['function']),
+                ('GO_TYPE_REFERENCE', sem['type']),
+                ('GO_EXPORTED_STRUCT_REFERENCE', sem['type']),
+                ('GO_BUILTIN_CONSTANT', acc['purple']),
+            ]
+            for key, expected in attr_checks:
+                if not self.check_color(f'JetBrains ({variant}) attr', key, expected, attr_fg.get(key, '')):
+                    all_ok = False
+
         print("  ✅ JetBrains themes are consistent" if all_ok else "  ❌ JetBrains themes have inconsistencies")
         return all_ok
 

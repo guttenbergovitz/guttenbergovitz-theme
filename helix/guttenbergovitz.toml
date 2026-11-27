@@ -46,6 +46,7 @@
 "type" = "yellow"
 "type.builtin" = "yellow"
 "type.parameter" = "yellow"
+"type.enum.variant" = "yellow"
 "constructor" = "yellow"
 "special" = "orange"
 "label" = "red"
