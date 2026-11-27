@@ -472,6 +472,22 @@ local function get_groups(colors)
     ["@keyword.import.java"] = { fg = colors.comment },
     ["@type.java"] = { fg = colors.yellow },
 
+    -- Kotlin specific highlighting
+    ["@attribute.kotlin"] = { fg = colors.purple },
+    ["@label.kotlin"] = { fg = colors.yellow },
+
+    -- C / C++ specific highlighting
+    ["@keyword.directive.c"] = { fg = colors.purple },
+    ["@keyword.directive.cpp"] = { fg = colors.purple },
+    ["@keyword.import.c"] = { fg = colors.purple },
+    ["@keyword.import.cpp"] = { fg = colors.purple },
+    ["@constant.macro.c"] = { fg = colors.cyan },
+    ["@constant.macro.cpp"] = { fg = colors.cyan },
+    ["@function.macro.c"] = { fg = colors.cyan },
+    ["@function.macro.cpp"] = { fg = colors.cyan },
+    ["@type.builtin.c"] = { fg = colors.yellow },
+    ["@type.builtin.cpp"] = { fg = colors.yellow },
+
     -- C# specific highlighting
     ["@attribute.c_sharp"] = { fg = colors.purple },
     ["@namespace.c_sharp"] = { fg = colors.purple },

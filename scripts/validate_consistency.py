@@ -1035,6 +1035,20 @@ class ColorValidator:
                 ('GO_TYPE_REFERENCE', sem['type']),
                 ('GO_EXPORTED_STRUCT_REFERENCE', sem['type']),
                 ('GO_BUILTIN_CONSTANT', acc['purple']),
+                ('JAVA_KEYWORD', sem['keyword']),
+                ('CLASS_NAME_ATTRIBUTES', sem['type']),
+                ('METHOD_CALL_ATTRIBUTES', sem['function']),
+                ('ANNOTATION_NAME_ATTRIBUTES', acc['purple']),
+                ('KOTLIN_KEYWORD', sem['keyword']),
+                ('KOTLIN_CLASS', sem['type']),
+                ('KOTLIN_FUNCTION_CALL', sem['function']),
+                ('KOTLIN_ANNOTATION', acc['purple']),
+                ('OC.KEYWORD', sem['keyword']),
+                ('OC.STRUCT_LIKE', sem['type']),
+                ('OC.FUNCTION', sem['function']),
+                ('OC.DIRECTIVE', acc['purple']),
+                ('OC.MACRONAME', acc['cyan']),
+                ('OC.FORMAT_SPECIFIER', acc['cyan']),
             ]
             for key, expected in attr_checks:
                 if not self.check_color(f'JetBrains ({variant}) attr', key, expected, attr_fg.get(key, '')):
