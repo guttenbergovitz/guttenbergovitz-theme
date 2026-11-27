@@ -111,9 +111,6 @@
         "*.static": {
             "fontStyle": "bold"
         },
-        "*.async": {
-            "fontStyle": "italic"
-        },
         "tomlArrayKey": "#a96b69",
         "tomlTableKey": "#a96b69"
     },
@@ -407,8 +404,7 @@
                 "storage.modifier.import.java"
             ],
             "settings": {
-                "foreground": "#7c7c7c",
-                "fontStyle": "italic"
+                "foreground": "#7c7c7c"
             }
         },
         {

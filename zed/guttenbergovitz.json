@@ -200,7 +200,7 @@
                     },
                     "link_uri": {
                         "color": "#89a87d",
-                        "font_style": "italic",
+                        "font_style": null,
                         "font_weight": null
                     },
                     "emphasis": {
@@ -439,7 +439,7 @@
                     },
                     "link_uri": {
                         "color": "#6b8860",
-                        "font_style": "italic",
+                        "font_style": null,
                         "font_weight": null
                     },
                     "emphasis": {

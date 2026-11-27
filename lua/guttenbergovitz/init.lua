@@ -396,7 +396,6 @@ local function get_groups(colors)
     ["@lsp.type.boolean"] = { fg = colors.purple },
     ["@lsp.mod.mutable"] = { underline = true },
     ["@lsp.mod.static"] = { bold = true },
-    ["@lsp.mod.async"] = { italic = use_italics },
 
     -- TypeScript specific highlighting
     ["@type.typescript"] = { fg = colors.yellow },
@@ -470,7 +469,7 @@ local function get_groups(colors)
 
     -- Java specific highlighting
     ["@attribute.java"] = { fg = colors.purple },
-    ["@keyword.import.java"] = { fg = colors.comment, italic = use_italics },
+    ["@keyword.import.java"] = { fg = colors.comment },
     ["@type.java"] = { fg = colors.yellow },
 
     -- C# specific highlighting
