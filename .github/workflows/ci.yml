@@ -37,6 +37,8 @@ jobs:
             'pi/guttenbergovitz-light.json',
             'claude-code/guttenbergovitz.json',
             'claude-code/guttenbergovitz-light.json',
+            'kimi/guttenbergovitz.json',
+            'kimi/guttenbergovitz-light.json',
             'palette.json',
           ]:
               with open(f) as fh:

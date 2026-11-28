@@ -182,6 +182,15 @@ PLATFORMS = {
         "instructions": "Run `/theme` in Claude Code and select \"Guttenbergovitz\" or \"Guttenbergovitz Light\""
     },
     "18": {
+        "name": "Kimi Code",
+        "dest_dir": Path("~/.kimi-code/themes").expanduser(),
+        "files": [
+            (ROOT / "kimi" / "guttenbergovitz.json", "guttenbergovitz.json"),
+            (ROOT / "kimi" / "guttenbergovitz-light.json", "guttenbergovitz-light.json")
+        ],
+        "instructions": "Run `/theme` in Kimi Code and select \"Custom: guttenbergovitz\" or \"Custom: guttenbergovitz-light\"\nAlternatively, set `theme = \"guttenbergovitz\"` in ~/.kimi-code/tui.toml"
+    },
+    "19": {
         "name": "iTerm",
         "dest_dir": None,
         "files": [

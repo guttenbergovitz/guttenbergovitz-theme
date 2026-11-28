@@ -1,0 +1,26 @@
+{
+  "name": "guttenbergovitz",
+  "displayName": "Guttenbergovitz",
+  "base": "dark",
+  "colors": {
+    "primary": "#d79969",
+    "accent": "#89b4ac",
+    "text": "#d4be98",
+    "textStrong": "#e0d2a6",
+    "textDim": "#7c7c7c",
+    "textMuted": "#5e5e62",
+    "border": "#3a3a3d",
+    "borderFocus": "#d79969",
+    "success": "#b5bd68",
+    "warning": "#de935f",
+    "error": "#cc6666",
+    "diffAdded": "#89a87d",
+    "diffRemoved": "#a96b69",
+    "diffAddedStrong": "#b5bd68",
+    "diffRemovedStrong": "#cc6666",
+    "diffGutter": "#7c7c7c",
+    "diffMeta": "#a69a88",
+    "roleUser": "#d6b986",
+    "shellMode": "#b194a3"
+  }
+}

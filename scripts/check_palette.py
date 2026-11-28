@@ -41,6 +41,8 @@ FILES = [
     # AI Tools
     ROOT / "claude-code/guttenbergovitz.json",
     ROOT / "claude-code/guttenbergovitz-light.json",
+    ROOT / "kimi/guttenbergovitz.json",
+    ROOT / "kimi/guttenbergovitz-light.json",
     # Multiplexers
     ROOT / "tmux/guttenbergovitz.tmux.conf",
     ROOT / "tmux/guttenbergovitz-light.tmux.conf",

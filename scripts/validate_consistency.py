@@ -945,6 +945,74 @@ class ColorValidator:
         print("  ✅ Pi themes are consistent" if all_ok else "  ❌ Pi themes have inconsistencies")
         return all_ok
 
+    def validate_kimi(self) -> bool:
+        """Validate both dark and light Kimi Code themes against the palette."""
+        print("\n🔍 Validating Kimi Code themes...")
+        all_ok = True
+        for variant in ['dark', 'light']:
+            suffix = "-light" if variant == "light" else ""
+            kimi_file = ROOT / "kimi" / f"guttenbergovitz{suffix}.json"
+            if not kimi_file.exists():
+                self.issues.append({
+                    'severity': 'error',
+                    'implementation': f'Kimi Code ({variant})',
+                    'color_name': 'theme file',
+                    'expected': 'File exists',
+                    'actual': 'NOT FOUND',
+                    'context': str(kimi_file)
+                })
+                all_ok = False
+                continue
+
+            print(f"  🔍 Validating Kimi Code theme ({variant})...")
+            data = json.loads(kimi_file.read_text())
+            colors = data.get('colors', {})
+            palette = self.palette[variant]
+            base = palette['base']
+            accents = palette['accents']
+            ui = palette['ui']
+            status = palette['status']
+            git = palette['git']
+            checks = [
+                ('primary', accents['orange']),
+                ('accent', accents['cyan']),
+                ('text', base['fg']),
+                ('textStrong', base['fg_light']),
+                ('textDim', base['fg_dim'] if variant == 'dark' else base['fg_dark']),
+                ('textMuted', palette['semantic']['comment']),
+                ('border', ui['border']),
+                ('borderFocus', accents['orange']),
+                ('success', status['success']),
+                ('warning', status['warning']),
+                ('error', status['error']),
+                ('diffAdded', git['added']),
+                ('diffRemoved', git['deleted']),
+                ('diffAddedStrong', status['success']),
+                ('diffRemovedStrong', status['error'] if variant == 'dark' else accents['red']),
+                ('diffGutter', base['fg_dim']),
+                ('diffMeta', base['fg_dark']),
+                ('roleUser', accents['yellow']),
+                ('shellMode', accents['purple']),
+            ]
+            for key, expected in checks:
+                if not self.check_color(f'Kimi Code ({variant})', key, expected, colors.get(key, '')):
+                    all_ok = False
+
+            expected_base = 'light' if variant == 'light' else 'dark'
+            if data.get('base') != expected_base:
+                self.issues.append({
+                    'severity': 'error',
+                    'implementation': f'Kimi Code ({variant})',
+                    'color_name': 'base',
+                    'expected': expected_base,
+                    'actual': data.get('base', 'MISSING'),
+                    'context': str(kimi_file)
+                })
+                all_ok = False
+
+        print("  ✅ Kimi Code themes are consistent" if all_ok else "  ❌ Kimi Code themes have inconsistencies")
+        return all_ok
+
     def validate_jetbrains(self) -> bool:
         """Validate both dark and light JetBrains .icls schemes against the palette."""
         print("\n🔍 Validating JetBrains themes...")
@@ -1124,6 +1192,7 @@ class ColorValidator:
         results.append(self.validate_opencode())
         results.append(self.validate_claude_code())
         results.append(self.validate_pi())
+        results.append(self.validate_kimi())
         results.append(self.validate_firefox())
         
         # Print summary

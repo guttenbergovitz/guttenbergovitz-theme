@@ -2,7 +2,7 @@
 
 > *"It's not the notes you play, it's the notes you don't play."* — Miles Davis
 
-A warm, low-contrast color theme inspired by vintage book printing, aged paper, and late-night jazz aesthetics. Designed to cut harsh blue light and visual noise without sacrificing clarity — available in **Dark** and **Light** variants across 19 editors, terminals, multiplexers, browsers, and AI coding tools.
+A warm, low-contrast color theme inspired by vintage book printing, aged paper, and late-night jazz aesthetics. Designed to cut harsh blue light and visual noise without sacrificing clarity — available in **Dark** and **Light** variants across 20 editors, terminals, multiplexers, browsers, and AI coding tools.
 
 ---
 
@@ -20,7 +20,7 @@ A warm, low-contrast color theme inspired by vintage book printing, aged paper, 
 | [Neovim](nvim/README.md) | [iTerm2](iterm/README.md) | [Zellij](zellij/README.md) | [Pi](pi/README.md) | |
 | [Vim](vim/README.md) | [Ghostty](ghostty/README.md) | | [Herdr](herdr/README.md) | |
 | [Helix](helix/README.md) | [Warp](warp/README.md) | | [OpenCode](opencode/README.md) | |
-| [Zed](zed/README.md) | | | | |
+| [Zed](zed/README.md) | | | [Kimi Code](kimi/README.md) | |
 | [JetBrains](jetbrains/README.md) | | | | |
 
 ## Quick Install
@@ -31,7 +31,7 @@ cd guttenbergovitz-theme
 make install
 ```
 
-Interactive CLI installer supporting all 18 platforms. You can also target a single platform directly:
+Interactive CLI installer supporting all 19 platforms. You can also target a single platform directly:
 
 ```bash
 python3 scripts/install_theme.py neovim
@@ -78,7 +78,7 @@ First-class TextMate, Tree-sitter, and LSP semantic token rules for **Rust, Go, 
 ## Development & Validation
 
 ```bash
-make validate        # Verify color consistency across all 16 theme families
+make validate        # Verify color consistency across all 17 theme families
 make check.palette   # Ensure all theme files only use palette.json colors
 make gen.iterm       # Regenerate terminal, Zed, VS Code, and Firefox themes from palette.json
 make package.firefox # Build Firefox .xpi packages (dark & light)

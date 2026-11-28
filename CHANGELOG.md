@@ -5,6 +5,9 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+- **Kimi Code theme**: Added custom themes (`kimi/guttenbergovitz.json` and `kimi/guttenbergovitz-light.json`) covering all built-in color tokens, derived from `palette.json`, with install support in `scripts/install_theme.py`, `validate_kimi()` in `scripts/validate_consistency.py`, palette checks in `scripts/check_palette.py`, CI coverage, and documentation in `kimi/README.md` and `README.md`.
+
 ## [1.4.0] - 2026-11-27
 
 ### Added

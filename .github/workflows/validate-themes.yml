@@ -20,6 +20,7 @@ on:
       - 'pi/**'
       - 'tmux/**'
       - 'claude-code/**'
+      - 'kimi/**'
       - 'scripts/validate_consistency.py'
       - 'scripts/check_palette.py'
       - '.github/workflows/validate-themes.yml'
@@ -42,6 +43,7 @@ on:
       - 'pi/**'
       - 'tmux/**'
       - 'claude-code/**'
+      - 'kimi/**'
       - 'scripts/validate_consistency.py'
       - 'scripts/check_palette.py'
   workflow_dispatch:
